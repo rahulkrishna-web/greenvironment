@@ -17,22 +17,17 @@ export const NavMenu = (props: NavigationMenuProps) => (
       </NavigationMenuItem>
       <NavigationMenuItem>
         <NavigationMenuLink asChild>
-          <Link href="#features">ABOUT US</Link>
+          <Link href="/about">ABOUT US</Link>
         </NavigationMenuLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
         <NavigationMenuLink asChild>
-          <Link href="#faq">SERVICES</Link>
+          <Link href="/services">SERVICES</Link>
         </NavigationMenuLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
         <NavigationMenuLink asChild>
-          <Link href="#testimonials">BLOGS</Link>
-        </NavigationMenuLink>
-      </NavigationMenuItem>
-      <NavigationMenuItem>
-        <NavigationMenuLink asChild>
-          <Link href="#pricing">NEWSLETTER</Link>
+          <Link href="/blog">BLOGS</Link>
         </NavigationMenuLink>
       </NavigationMenuItem>
     </NavigationMenuList>

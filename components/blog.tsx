@@ -5,7 +5,7 @@ const Blog = () => {
   return (
     <div className="max-w-(--breakpoint-xl) mx-auto py-16 px-6 xl:px-0">
       <h2 className="mb-8 xs:mb-14 text-4xl md:text-5xl font-bold text-center tracking-tight">
-        Blogs
+        Latest Blogs
       </h2>
 
       <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
