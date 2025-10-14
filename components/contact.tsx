@@ -8,7 +8,7 @@ import { MailIcon, MapPinIcon, MessageCircle, PhoneIcon } from "lucide-react";
 import Link from "next/link";
 
 const Contact = () => (
-  <div className="min-h-screen flex items-center justify-center py-16">
+  <div className="min-h-screen flex items-center justify-center py-16 pt-36">
     <div className="w-full max-w-(--breakpoint-xl) mx-auto px-6 xl:px-0">
       <b className="text-muted-foreground uppercase font-semibold text-sm">
         Contact Us

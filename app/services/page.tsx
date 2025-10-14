@@ -14,7 +14,6 @@ import Testimonial from "@/components/testimonial";
 export default function ServicesPage() {
   return (
     <>
-      <Navbar />
       <ServicesHero />
       <Features />
       <Footer />

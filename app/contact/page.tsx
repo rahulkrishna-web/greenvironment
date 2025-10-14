@@ -16,7 +16,6 @@ import Testimonial from "@/components/testimonial";
 export default function ContactPage() {
   return (
     <>
-      <Navbar />
       <Contact />
       <Footer />
     </>

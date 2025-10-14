@@ -13,7 +13,6 @@ import Testimonial from "@/components/testimonial";
 export default function AboutPage() {
   return (
     <>
-      <Navbar />
       <AboutUsHero />
       <About />
       <Footer />
