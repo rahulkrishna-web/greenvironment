@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -11,8 +14,11 @@ import { Logo } from "./logo";
 import { NavMenu } from "./nav-menu";
 
 export const NavigationSheet = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => setOpen(false);
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <VisuallyHiddenPrimitive.Root>
         <SheetTitle>Navigation Drawer</SheetTitle>
       </VisuallyHiddenPrimitive.Root>
@@ -23,7 +29,7 @@ export const NavigationSheet = () => {
       </SheetTrigger>
       <SheetContent>
         <Logo />
-        <NavMenu orientation="vertical" className="mt-12" />
+        <NavMenu orientation="vertical" className="mt-12" onLinkClick={handleClose} />
 
         <div className="mt-8 space-y-4">
           <Button variant="outline" className="w-full sm:hidden">
