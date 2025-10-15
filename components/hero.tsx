@@ -26,7 +26,7 @@ real-time monitoring solutions for water & energy management across buildings & 
         </div>
         <div className="relative lg:max-w-lg xl:max-w-xl w-full bg-accent rounded-xl aspect-square">
           <Image
-            src="/placeholder.svg"
+            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09"
             fill
             alt=""
             className="object-cover rounded-xl"
