@@ -12,8 +12,14 @@ import { VisuallyHidden as VisuallyHiddenPrimitive } from "radix-ui";
 import { Menu } from "lucide-react";
 import { Logo } from "./logo";
 import { NavMenu } from "./nav-menu";
+import Link from "next/link";
+import { NavigationMenuProps } from "@radix-ui/react-navigation-menu";
 
-export const NavigationSheet = () => {
+interface NavMenuProps extends NavigationMenuProps {
+  onLinkClick?: () => void; // optional callback for closing sheet
+}
+
+export const NavigationSheet = ({ onLinkClick, ...props }: NavMenuProps) => {
   const [open, setOpen] = useState(false);
 
   const handleClose = () => setOpen(false);
@@ -32,10 +38,11 @@ export const NavigationSheet = () => {
         <NavMenu orientation="vertical" className="mt-12" onLinkClick={handleClose} />
 
         <div className="mt-8 space-y-4">
-          <Button variant="outline" className="w-full sm:hidden">
-            Sign In
+          <Link href="/contact" onClick={onLinkClick}>
+          <Button variant="default" className="w-full sm:hidden">
+            CONTACT
           </Button>
-          <Button className="w-full xs:hidden">Get Started</Button>
+          </Link>
         </div>
       </SheetContent>
     </Sheet>
