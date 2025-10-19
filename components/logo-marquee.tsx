@@ -7,16 +7,7 @@ import {
 } from '@/components/ui/shadcn-io/marquee';
 import { Logo01, Logo02, Logo03, Logo04, Logo05, Logo06, Logo07, Logo08 } from './logos';
 
-const logos = [
-  <Logo01 />,
-  <Logo02 />,
-  <Logo03 />,
-  <Logo04 />,
-  <Logo05 />,
-  <Logo06 />,
-  <Logo07 />,
-  <Logo08 />,
-];
+const logos = [Logo01, Logo02, Logo03, Logo04, Logo05, Logo06, Logo07, Logo08];
 
 const LogoMarquee = () => (
   <div className="flex w-full py-8 items-center justify-center bg-background">
@@ -24,9 +15,9 @@ const LogoMarquee = () => (
       <MarqueeFade side="left" />
       <MarqueeFade side="right" />
       <MarqueeContent>
-        {logos.map((logo, index) => (
+        {logos.map((LogoComponent, index) => (
           <MarqueeItem key={index} className="h-auto w-auto">
-            {logo}
+            <LogoComponent />
           </MarqueeItem>
         ))}
       </MarqueeContent>
