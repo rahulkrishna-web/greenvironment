@@ -59,7 +59,7 @@ const Features = () => {
       </h2>
       <div className="mt-8 xs:mt-14 w-full mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
         {features.map((feature) => (
-          <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(192, 236, 238, 0.9)" key={feature.title}>
+          <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(33, 189, 218, 0.9)" key={feature.title}>
  <feature.icon color="#fff"/>
               <h4 className="mt-3! text-xl text-white font-bold tracking-tight">
                 {feature.title}

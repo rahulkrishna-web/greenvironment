@@ -49,7 +49,7 @@ function Word({
   const end = (index + 1) / total;
 
   const opacity = useTransform(scrollYProgress, [start, end], [0.6, 1]);
-  const color = useTransform(scrollYProgress, [start, end], ["#999", "#01686d"]);
+  const color = useTransform(scrollYProgress, [start, end], ["#999", "#f7901e"]);
 
   return (
     <motion.span
