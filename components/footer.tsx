@@ -5,6 +5,7 @@ import {
   TwitchIcon,
   TwitterIcon,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const footerSections = [
@@ -92,7 +93,9 @@ const footerSections = [
 
 const Footer = () => {
   return (
-    <footer className="mt-12 xs:mt-20 dark bg-background border-t">
+    <footer className="relative mt-0 xs:mt-0 ">
+      <Image src="/footer-bg.png" alt="Footer Background" width={1366} height={200} style={{objectFit: "contain", border: 'none'}}/>
+      <div className="bg-[#71a43d] text-white">
       <div className="max-w-(--breakpoint-xl) mx-auto py-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-x-8 gap-y-10 px-6">
         <div className="col-span-full xl:col-span-2">
           {/* Logo */}
@@ -114,20 +117,19 @@ const Footer = () => {
             />
           </svg>
 
-          <p className="mt-4 text-muted-foreground">
+          <p className="mt-4 ">
             Greenvironment is a global water & environmental sustainability company
           </p>
         </div>
 
         {footerSections.map(({ title, links }) => (
           <div key={title} className="xl:justify-self-end">
-            <h6 className="font-semibold text-foreground">{title}</h6>
+            <h6 className="font-semibold">{title}</h6>
             <ul className="mt-6 space-y-4">
               {links.map(({ title, href }) => (
                 <li key={title}>
                   <Link
                     href={href}
-                    className="text-muted-foreground hover:text-foreground"
                   >
                     {title}
                   </Link>
@@ -140,7 +142,7 @@ const Footer = () => {
       <Separator />
       <div className="max-w-(--breakpoint-xl) mx-auto py-8 flex flex-col-reverse sm:flex-row items-center justify-between gap-x-2 gap-y-5 px-6">
         {/* Copyright */}
-        <span className="text-muted-foreground text-center xs:text-start">
+        <span className="text-center xs:text-start">
           &copy; {new Date().getFullYear()}{" "}
           <Link href="#" target="_blank">
             Greenvironment
@@ -148,7 +150,7 @@ const Footer = () => {
           . All rights reserved.
         </span>
 
-        <div className="flex items-center gap-5 text-muted-foreground">
+        <div className="flex items-center gap-5">
           <Link href="#" target="_blank">
             <TwitterIcon className="h-5 w-5" />
           </Link>
@@ -161,6 +163,7 @@ const Footer = () => {
           <Link href="#" target="_blank">
             <GithubIcon className="h-5 w-5" />
           </Link>
+        </div>
         </div>
       </div>
     </footer>

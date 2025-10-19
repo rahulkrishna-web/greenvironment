@@ -7,6 +7,7 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+import SpotlightCard from "./SpotlightCard";
 
 const features = [
   {
@@ -58,23 +59,16 @@ const Features = () => {
       </h2>
       <div className="mt-8 xs:mt-14 w-full mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
         {features.map((feature) => (
-          <Card
-            key={feature.title}
-            className="flex flex-col border rounded-xl overflow-hidden shadow-none"
-          >
-            <CardHeader>
-              <feature.icon />
-              <h4 className="mt-3! text-xl font-bold tracking-tight">
+          <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(192, 236, 238, 0.9)" key={feature.title}>
+ <feature.icon color="#fff"/>
+              <h4 className="mt-3! text-xl text-white font-bold tracking-tight">
                 {feature.title}
               </h4>
-              <p className="mt-1 text-muted-foreground text-sm xs:text-[17px]">
+              <p className="mt-1 text-white text-sm xs:text-[17px]">
                 {feature.description}
               </p>
-            </CardHeader>
-            <CardContent className="mt-auto px-0 pb-0">
-              <div className="bg-muted h-52 ml-6 rounded-tl-xl" />
-            </CardContent>
-          </Card>
+</SpotlightCard>
+          
         ))}
       </div>
     </div>

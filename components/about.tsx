@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { DribbbleIcon, TwitchIcon, TwitterIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import ScrollFocusTextSection from "./text-effects";
+import WhatWeDo from "./what-we-do";
 
 const teamMembers = [
   {
@@ -37,6 +39,8 @@ const teamMembers = [
 const About = () => {
   return (
     <div className="flex flex-col justify-center py-8 sm:py-12 px-6 lg:px-8 max-w-(--breakpoint-xl) mx-auto gap-16">
+      <ScrollFocusTextSection />
+      <WhatWeDo />
       <div className="text-center max-w-2xl mx-auto">
         <b className="text-center text-muted-foreground text-sm font-semibold uppercase">
           ABOUT THE COMPANY
