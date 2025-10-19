@@ -24,9 +24,11 @@ const LogoMarquee = () => (
       <MarqueeFade side="right" />
       <MarqueeContent>
         {logos.map((logo, index) => (
-          <MarqueeItem className="h-auto w-auto" key={index}>
+            <div key={index}>
+          <MarqueeItem className="h-auto w-auto">
             {logo}
           </MarqueeItem>
+          </div>
         ))}
       </MarqueeContent>
     </Marquee>

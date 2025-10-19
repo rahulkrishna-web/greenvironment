@@ -31,7 +31,7 @@ export default function AchievementsSection({
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl font-semibold">Our achievements</h2>
-          <p className="mt-2">A quick look at what we've done.</p>
+          <p className="mt-2">A quick look at what we&apos;ve done.</p>
         </div>
 
         <div className="grid grid-cols-3 sm:grid-cols-3 gap-3 sm:gap-3">

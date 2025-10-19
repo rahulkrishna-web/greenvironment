@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 
 export default function ScrollFocusTextSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -42,7 +42,7 @@ function Word({
   children: string;
   index: number;
   total: number;
-  scrollYProgress: any;
+  scrollYProgress: MotionValue<number>; // <-- proper type
 }) {
   // Each word activates progressively as we scroll
   const start = index / total;
