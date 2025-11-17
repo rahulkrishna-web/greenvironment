@@ -30,7 +30,7 @@ export default function AchievementsSection({
     <section className={`bg-(--primary) text-white py-12 sm:py-16 ${className}`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl font-semibold">Our achievements</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold">Our achievements</h2>
           <p className="mt-2">A quick look at what we&apos;ve done.</p>
         </div>
 

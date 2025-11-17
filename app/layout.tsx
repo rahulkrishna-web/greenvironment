@@ -12,15 +12,15 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Beautiful Shadcn UI Landing Page",
+  title: "Greenvironment | Sustainable Innovation Studio",
   description:
-    "A beautiful landing page built with Shadcn UI, Next.js 15, Tailwind CSS, and Shadcn UI Blocks.",
+    "Greenvironment partners with purpose-driven brands to design climate-positive experiences, products, and campaigns backed by science.",
   openGraph: {
     type: "website",
-    title: "Shadcn Landing Page",
-    url: "https://shadcn-landing-page.vercel.app",
+    title: "Greenvironment | Sustainable Innovation Studio",
+    url: "https://greenvironment.com",
     description:
-      "A beautiful landing page built with Shadcn UI, Next.js 15, Tailwind CSS, and Shadcn UI Blocks.",
+      "Discover how Greenvironment blends strategy, design, and technology to accelerate environmental impact.",
     images: ["/og-image.jpg"],
   },
 };

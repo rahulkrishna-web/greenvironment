@@ -1,16 +1,23 @@
 import { Button } from "@/components/ui/button";
-import { Logo } from "./logo";
 import { NavMenu } from "./nav-menu";
 import { NavigationSheet } from "./navigation-sheet";
 import ThemeToggle from "../theme-toggle";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 left-0 w-full h-16 bg-background/90 backdrop-blur-md border-b border-accent z-50">
+    <nav className="fixed top-0 left-0 w-full h-20 bg-background/90 backdrop-blur-md border-b border-accent z-50">
       <div className="h-full flex items-center justify-between max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6">
         <Link href="/">
-        <Logo />
+          <Image
+            src="/greenvironment-logo.png"
+            alt="Greenvironment logo"
+            width={240}
+            height={70}
+            className="h-12 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Menu */}
