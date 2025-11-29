@@ -35,7 +35,7 @@ export const NavigationSheet = ({ onLinkClick, ...props }: NavMenuProps) => {
       </SheetTrigger>
       <SheetContent>
         <Logo />
-        <NavMenu orientation="vertical" className="mt-12" onLinkClick={handleClose} />
+        <NavMenu orientation="vertical" className="mt-12" onLinkClick={handleClose} isScrolled />
 
         <div className="mt-8 space-y-4">
           <Link href="/contact" onClick={onLinkClick}>

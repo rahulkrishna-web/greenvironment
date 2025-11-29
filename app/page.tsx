@@ -6,17 +6,19 @@ import FAQ from "@/components/faq";
 import Features from "@/components/features";
 import Footer from "@/components/footer";
 import Hero from "@/components/hero";
+import LeadSection from "@/components/lead-section";
 import LogoMarquee from "@/components/logo-marquee";
 import { Navbar } from "@/components/navbar";
 import Pricing from "@/components/pricing";
 import Testimonial from "@/components/testimonial";
+import WhatWeDoImmersive from "@/components/what-we-do-immersive";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <LeadSection />
       <LogoMarquee />
-      <About />
+      <WhatWeDoImmersive />
       <AchievementsSection />
       <Features />
       <Testimonial />
