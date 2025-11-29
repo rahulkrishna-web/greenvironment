@@ -161,10 +161,10 @@ type AuroraProps = {
 };
 
 const AnimatedTexture = ({ mouseX, mouseY }: AuroraProps) => {
-  const driftX = useTransform(mouseX, (v) => v * 80);
-  const driftY = useTransform(mouseY, (v) => v * 60);
-  const driftX2 = useTransform(mouseX, (v) => v * 50);
-  const driftY2 = useTransform(mouseY, (v) => v * 40);
+  const driftX = useTransform(mouseX, (v: number) => v * 80);
+  const driftY = useTransform(mouseY, (v: number) => v * 60);
+  const driftX2 = useTransform(mouseX, (v: number) => v * 50);
+  const driftY2 = useTransform(mouseY, (v: number) => v * 40);
 
   return (
     <div
