@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion, useMotionValue, useTransform, type MotionValue } from "framer-motion";
 import { Sparkles, Waves, ShieldCheck, Gauge, Workflow } from "lucide-react";
 import { useMemo } from "react";
 
@@ -156,8 +156,8 @@ const MovingBeams = () => (
 );
 
 type AuroraProps = {
-  mouseX: ReturnType<typeof useMotionValue>;
-  mouseY: ReturnType<typeof useMotionValue>;
+  mouseX: MotionValue<number>;
+  mouseY: MotionValue<number>;
 };
 
 const AnimatedTexture = ({ mouseX, mouseY }: AuroraProps) => {
