@@ -12,6 +12,7 @@ import { Navbar } from "@/components/navbar";
 import Pricing from "@/components/pricing";
 import Testimonial from "@/components/testimonial";
 import WhatWeDoImmersive from "@/components/what-we-do-immersive";
+import WhatWeDoOptions from "@/components/what-we-do-options";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <LeadSection />
       <LogoMarquee />
       <WhatWeDoImmersive />
+      <WhatWeDoOptions />
       <AchievementsSection />
       <Features />
       <Testimonial />

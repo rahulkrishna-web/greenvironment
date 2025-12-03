@@ -4,14 +4,14 @@ import { motion, useMotionValue, useTransform, type MotionValue } from "framer-m
 import { Sparkles, Waves, ShieldCheck, Gauge, Workflow } from "lucide-react";
 import { useMemo } from "react";
 
-type Pillar = {
+export type Pillar = {
   title: string;
   description: string;
   icon: React.ReactNode;
   accent: string;
 };
 
-const pillars: Pillar[] = [
+export const whatWeDoPillars: Pillar[] = [
   {
     title: "Predictive water intelligence",
     description:
@@ -279,7 +279,7 @@ const WhatWeDoImmersive = () => {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {pillars.map((pillar, idx) => (
+          {whatWeDoPillars.map((pillar, idx) => (
             <AnimatedCard key={pillar.title} {...pillar} index={idx} />
           ))}
         </div>
