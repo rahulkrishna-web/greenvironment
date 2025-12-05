@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion, useMotionValue, useTransform, useScroll, useSpring } from "framer-motion";
+import { useRef } from "react";
 import { whatWeDoPillars, type Pillar } from "./what-we-do-immersive";
 
 const SectionLabel = ({ label }: { label: string }) => (
@@ -13,16 +14,12 @@ export const WhatWeDoGradientRail = () => (
   <section className="relative isolate overflow-hidden bg-slate-950 py-20 text-white">
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(14,165,233,0.25),transparent_40%),radial-gradient(circle_at_80%_10%,rgba(16,185,129,0.2),transparent_35%),radial-gradient(circle_at_60%_75%,rgba(59,130,246,0.25),transparent_40%)]" />
     <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-white/5" />
-    <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-6">
-      <div className="flex flex-col gap-3 text-center">
-        <SectionLabel label="What we do — option ii" />
-        <h2 className="text-3xl font-semibold sm:text-4xl">
-          Cinematic rail of the same five moves.
-        </h2>
-        <p className="text-base text-white/70">
-          Slide through the identical pillars with a neon rail and kinetic micro-accents.
-        </p>
-      </div>
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-6">
+        <div className="flex flex-col gap-3 text-center">
+          <SectionLabel label="What we do option two" />
+          <h2 className="text-3xl font-semibold sm:text-4xl">Lorem ipsum dolor sit amet.</h2>
+          <p className="text-base text-white/70">Consectetur adipiscing elit sed do eiusmod tempor incididunt ut.</p>
+        </div>
 
       <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.8)]">
         <div className="absolute left-6 right-6 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-white/60 to-transparent" />
@@ -65,17 +62,12 @@ export const WhatWeDoGradientRail = () => (
 export const WhatWeDoEditorialBlocks = () => (
   <section className="relative isolate overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-black py-24 text-white">
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_30%,rgba(16,185,129,0.2),transparent_30%),radial-gradient(circle_at_85%_60%,rgba(14,165,233,0.2),transparent_28%)]" />
-    <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-6">
-      <div className="flex flex-col gap-3 text-left">
-        <SectionLabel label="What we do — option iii" />
-        <h2 className="text-3xl font-semibold sm:text-4xl">
-          Editorial stack with luxe gradients.
-        </h2>
-        <p className="max-w-3xl text-lg text-white/70">
-          Same pillars, re-imagined as bold feature slates with offset cards, luxe gradients, and
-          floating dividers.
-        </p>
-      </div>
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-6">
+        <div className="flex flex-col gap-3 text-left">
+          <SectionLabel label="What we do option three" />
+          <h2 className="text-3xl font-semibold sm:text-4xl">Lorem ipsum dolor sit amet consectetur.</h2>
+          <p className="max-w-3xl text-lg text-white/70">Amet minim mollit non deserunt ullamco est sit aliqua dolor.</p>
+        </div>
 
       <div className="grid gap-6 md:grid-cols-2">
         {whatWeDoPillars.map((pillar, idx) => (
@@ -113,18 +105,14 @@ export const WhatWeDoEditorialBlocks = () => (
 export const WhatWeDoMonoTimeline = () => (
   <section className="relative isolate overflow-hidden bg-white py-24 text-slate-900">
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(2,132,199,0.1),transparent_35%),radial-gradient(circle_at_85%_20%,rgba(16,185,129,0.08),transparent_35%)]" />
-    <div className="relative mx-auto flex max-w-5xl flex-col gap-10 px-6">
-      <div className="flex flex-col gap-3 text-center">
-        <div className="inline-flex items-center justify-center gap-2 self-center rounded-full border border-slate-200 bg-slate-100 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-600">
-          What we do — option iv
+      <div className="relative mx-auto flex max-w-5xl flex-col gap-10 px-6">
+        <div className="flex flex-col gap-3 text-center">
+          <div className="inline-flex items-center justify-center gap-2 self-center rounded-full border border-slate-200 bg-slate-100 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-600">
+            What we do option four
+          </div>
+          <h2 className="text-3xl font-semibold sm:text-4xl">Lorem ipsum dolor sit amet.</h2>
+          <p className="max-w-3xl text-base text-slate-700 md:self-center">Nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
         </div>
-        <h2 className="text-3xl font-semibold sm:text-4xl">
-          Monochrome timeline with crisp dividers.
-        </h2>
-        <p className="max-w-3xl text-base text-slate-700 md:self-center">
-          The exact same story told as a vertical flow with micro-interactions and clean accent bars.
-        </p>
-      </div>
 
       <div className="relative border-l border-slate-200/80 pl-8">
         <div className="absolute left-[-1px] top-0 h-full w-[3px] bg-gradient-to-b from-cyan-400 via-emerald-400 to-transparent" />
@@ -180,13 +168,9 @@ export const WhatWeDoHoloCarousel = () => {
       />
       <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-6">
         <div className="flex flex-col gap-3 text-center">
-          <SectionLabel label="What we do — option v" />
-          <h2 className="text-3xl font-semibold sm:text-4xl">
-            Holographic carousel with depth tilts.
-          </h2>
-          <p className="text-base text-white/70">
-            Same pillars arranged in a kinetic belt with layered parallax and soft refractions.
-          </p>
+          <SectionLabel label="What we do option five" />
+          <h2 className="text-3xl font-semibold sm:text-4xl">Lorem ipsum dolor sit amet consectetur.</h2>
+          <p className="text-base text-white/70">Elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
 
         <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/5 px-4 py-6 backdrop-blur">
@@ -252,14 +236,9 @@ export const WhatWeDoAuroraCascade = () => (
     />
     <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-6">
       <div className="flex flex-col gap-3 text-left">
-        <SectionLabel label="What we do — option vi" />
-        <h2 className="text-3xl font-semibold sm:text-4xl">
-          Aurora cascade with staggered beams.
-        </h2>
-        <p className="max-w-3xl text-lg text-white/70">
-          High-motion layout where cards lift on hover, beams sweep across, and the same five pillars
-          pulse in rhythm.
-        </p>
+        <SectionLabel label="What we do option six" />
+        <h2 className="text-3xl font-semibold sm:text-4xl">Lorem ipsum dolor sit amet.</h2>
+        <p className="max-w-3xl text-lg text-white/70">Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi.</p>
       </div>
 
       <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_30px_120px_-60px_rgba(0,0,0,0.8)]">
@@ -314,6 +293,133 @@ export const WhatWeDoAuroraCascade = () => (
   </section>
 );
 
+export const WhatWeDoScrollRail = () => {
+  const railRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({ target: railRef, offset: ["start end", "end start"] });
+  const x = useTransform(scrollYProgress, [0, 1], ["-20%", "10%"]);
+  const xSecondary = useTransform(scrollYProgress, [0, 1], ["10%", "-15%"]);
+  const smoothX = useSpring(x, { stiffness: 120, damping: 30, mass: 0.4 });
+  const smoothX2 = useSpring(xSecondary, { stiffness: 120, damping: 30, mass: 0.4 });
+
+  return (
+    <section ref={railRef} className="relative isolate overflow-hidden bg-white py-24 text-slate-900">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(14,165,233,0.08),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(16,185,129,0.08),transparent_38%)]" />
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-6">
+        <div className="flex flex-col gap-3 text-left">
+          <SectionLabel label="What we do option seven" />
+          <h2 className="text-3xl font-semibold sm:text-4xl">Lorem ipsum dolor sit amet.</h2>
+          <p className="max-w-3xl text-lg text-slate-700">Excepteur sint occaecat cupidatat non proident sunt in culpa qui.</p>
+        </div>
+
+        <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-[0_30px_120px_-70px_rgba(15,23,42,0.6)]">
+          <motion.div
+            aria-hidden
+            className="absolute left-[-10%] top-8 h-32 w-[140%] bg-gradient-to-r from-cyan-100 via-white to-emerald-100 blur-3xl"
+            style={{ x: smoothX2 }}
+          />
+          <motion.div
+            aria-hidden
+            className="absolute bottom-4 left-[-15%] h-24 w-[160%] bg-gradient-to-r from-slate-200 via-white to-slate-100 blur-2xl"
+            style={{ x: smoothX }}
+          />
+          <div className="relative flex flex-col gap-6">
+            <motion.div className="flex gap-4" style={{ x: smoothX }}>
+              {whatWeDoPillars.map((pillar) => (
+                <div
+                  key={pillar.title}
+                  className="min-w-[260px] flex-1 rounded-2xl border border-slate-200 bg-white/80 p-5 shadow-[0_15px_50px_-30px_rgba(15,23,42,0.5)]"
+                >
+                  <div className="mb-3 grid h-10 w-10 place-items-center rounded-full bg-slate-100 text-slate-800">
+                    {pillar.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-slate-900">{pillar.title}</h3>
+                  <p className="mt-2 text-sm text-slate-700">{pillar.description}</p>
+                </div>
+              ))}
+            </motion.div>
+            <motion.div className="flex gap-4" style={{ x: smoothX2 }}>
+              {whatWeDoPillars.map((pillar) => (
+                <div
+                  key={`${pillar.title}-shadow`}
+                  className="min-w-[220px] flex-1 rounded-2xl border border-slate-200/70 bg-white/70 p-4 text-sm text-slate-700 shadow-[0_10px_40px_-32px_rgba(15,23,42,0.4)]"
+                >
+                  {pillar.description}
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export const WhatWeDoScrollStacks = () => {
+  const stackRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({ target: stackRef, offset: ["start end", "end start"] });
+  const rotate = useTransform(scrollYProgress, [0, 1], [-6, 6]);
+  const translate = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  const translateUp = useTransform(scrollYProgress, [0, 1], ["6%", "-6%"]);
+  const smoothRotate = useSpring(rotate, { stiffness: 100, damping: 26, mass: 0.4 });
+  const smoothTranslate = useSpring(translate, { stiffness: 100, damping: 26, mass: 0.4 });
+  const smoothTranslateUp = useSpring(translateUp, { stiffness: 100, damping: 26, mass: 0.4 });
+  const rotateValue = useTransform(smoothRotate, (v) => `${v}deg`);
+  const rotateValueInverse = useTransform(smoothRotate, (v) => `${-v}deg`);
+
+  return (
+    <section ref={stackRef} className="relative isolate overflow-hidden bg-slate-950 py-24 text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.18),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(16,185,129,0.16),transparent_35%)]" />
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-6">
+        <div className="flex flex-col gap-3 text-left">
+          <SectionLabel label="What we do option eight" />
+          <h2 className="text-3xl font-semibold sm:text-4xl">Lorem ipsum dolor sit amet.</h2>
+          <p className="max-w-3xl text-lg text-white/70">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
+        </div>
+
+        <div className="relative grid gap-6 md:grid-cols-2">
+          {whatWeDoPillars.map((pillar, idx) => (
+            <motion.div
+              key={pillar.title}
+              style={{
+                rotate: idx % 2 === 0 ? rotateValue : rotateValueInverse,
+                x: idx % 2 === 0 ? smoothTranslate : smoothTranslateUp,
+              }}
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-white/0 p-6 shadow-[0_40px_120px_-60px_rgba(0,0,0,0.8)]"
+            >
+              <motion.div
+                aria-hidden
+                className="absolute inset-0"
+                animate={{ opacity: [0.35, 0.55, 0.35], scale: [1, 1.02, 1] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: idx * 0.1 }}
+                style={{
+                  backgroundImage:
+                    "linear-gradient(135deg, rgba(34,211,238,0.14), rgba(16,185,129,0.14), rgba(59,130,246,0.14))",
+                }}
+              />
+              <div className="relative flex items-start gap-4">
+                <div className="grid h-12 w-12 place-items-center rounded-xl bg-white/10 text-white shadow-inner shadow-white/10">
+                  {pillar.icon}
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold leading-tight">{pillar.title}</h3>
+                  <p className="text-sm text-white/70">{pillar.description}</p>
+                </div>
+              </div>
+              <motion.div
+                aria-hidden
+                className="mt-5 h-[2px] w-full bg-gradient-to-r from-transparent via-white/60 to-transparent"
+                animate={{ scaleX: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <div className="absolute inset-px rounded-3xl border border-white/10 opacity-0 transition duration-300 group-hover:opacity-100" />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default function WhatWeDoOptions() {
   return (
     <>
@@ -322,6 +428,8 @@ export default function WhatWeDoOptions() {
       <WhatWeDoMonoTimeline />
       <WhatWeDoHoloCarousel />
       <WhatWeDoAuroraCascade />
+      <WhatWeDoScrollRail />
+      <WhatWeDoScrollStacks />
     </>
   );
 }

@@ -6,10 +6,19 @@ import { NavigationSheet } from "./navigation-sheet";
 import Link from "next/link";
 import Image from "next/image";
 
-const Navbar = () => {
+type NavbarMode = "fixed" | "dynamic";
+
+interface NavbarProps {
+  mode?: NavbarMode;
+}
+
+const Navbar = ({ mode = "fixed" }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const enableScrollEffect = mode === "dynamic";
 
   useEffect(() => {
+    if (!enableScrollEffect) return;
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 8);
     };
@@ -17,9 +26,11 @@ const Navbar = () => {
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [enableScrollEffect]);
 
-  const navStateClasses = isScrolled
+  const isActiveScrolled = mode === "fixed" ? true : isScrolled;
+
+  const navStateClasses = isActiveScrolled
     ? "fixed bg-background/90 backdrop-blur-md border-b border-accent shadow-sm"
     : "absolute bg-transparent";
 
@@ -30,7 +41,7 @@ const Navbar = () => {
       <div className="h-full flex items-center gap-6 max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6">
         <Link href="/">
           <Image
-            src="/greenvironment-logo.png"
+            src="/gv-logo.png"
             alt="Greenvironment logo"
             width={240}
             height={70}
@@ -40,7 +51,10 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu aligned right */}
-        <NavMenu className="hidden md:ml-auto md:block" isScrolled={isScrolled} />
+        <NavMenu
+          className="hidden md:ml-auto md:block"
+          isScrolled={isActiveScrolled}
+        />
 
         {/* Mobile Menu */}
         <div className="ml-auto md:hidden">
