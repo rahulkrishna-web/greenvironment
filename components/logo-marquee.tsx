@@ -2,7 +2,6 @@
 import {
   Marquee,
   MarqueeContent,
-  MarqueeFade,
   MarqueeItem,
 } from "@/components/ui/shadcn-io/marquee";
 import Image from "next/image";
@@ -43,26 +42,35 @@ const clientLogos = [
   { src: "/clients/trident logo.png", alt: "Trident" },
 ];
 
-const LogoMarquee = () => (
-  <div className="flex w-full py-8 items-center justify-center bg-background">
-    <Marquee>
-      <MarqueeFade side="left" />
-      <MarqueeFade side="right" />
-      <MarqueeContent>
-        {clientLogos.map((logo) => (
-          <MarqueeItem key={logo.src} className="h-auto w-auto px-10">
-            <Image
-              src={logo.src}
-              alt={`${logo.alt} logo`}
-              width={720}
-              height={320}
-              className="h-32 w-auto object-contain"
-            />
-          </MarqueeItem>
-        ))}
-      </MarqueeContent>
-    </Marquee>
-  </div>
+interface LogoMarqueeProps {
+  className?: string;
+}
+
+const LogoMarquee = ({ className }: LogoMarqueeProps) => (
+  <section className={`relative isolate flex w-full flex-col items-center justify-center py-10 ${className ?? ""}`}>
+    <div className="relative w-full max-w-6xl px-6">
+      <div className="flex flex-col items-center gap-6 rounded-3xl border border-[#02696b]/10 bg-white/80 px-6 py-8 shadow-[0_20px_80px_-60px_rgba(0,0,0,0.35)] backdrop-blur-sm">
+        <h3 className="text-xl font-semibold text-[#02696b]">Trusted by</h3>
+        <div className="w-full">
+          <Marquee>
+            <MarqueeContent>
+              {clientLogos.map((logo) => (
+                <MarqueeItem key={logo.src} className="h-auto w-auto px-10">
+                  <Image
+                    src={logo.src}
+                    alt={`${logo.alt} logo`}
+                    width={720}
+                    height={320}
+                    className="h-24 w-auto object-contain"
+                  />
+                </MarqueeItem>
+              ))}
+            </MarqueeContent>
+          </Marquee>
+        </div>
+      </div>
+    </div>
+  </section>
 );
 
 export default LogoMarquee;

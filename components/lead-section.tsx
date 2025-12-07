@@ -1,5 +1,6 @@
 "use client";
 
+import LogoMarquee from "@/components/logo-marquee";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -13,13 +14,9 @@ const LeadSection = () => {
         loop
         muted
         playsInline
-        poster="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1600&q=80"
-      >
-        <source
-          src="https://cdn.coverr.co/videos/coverr-aerial-view-of-water-and-grasslands-7788/1080p.mp4"
-          type="video/mp4"
-        />
-      </video>
+        poster="/og-image.jpg"
+        src="https://res.cloudinary.com/rahulkrishna/video/upload/v1765106802/ge/Flow.mp4"
+      />
       <div className="absolute inset-0 bg-black/55" />
 
       <div className="relative z-10 mx-auto flex max-w-(--breakpoint-xl) flex-col items-center gap-8 px-6 py-32 lg:py-40 text-center">
@@ -72,6 +69,10 @@ const LeadSection = () => {
             See how it works
           </Button>
         </motion.div>
+
+        <div className="w-full max-w-5xl">
+          <LogoMarquee />
+        </div>
       </div>
 
       <div className="absolute inset-x-0 bottom-[-1px] text-background">
