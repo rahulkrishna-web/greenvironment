@@ -5,6 +5,7 @@ export type CaseStudy = {
   industry: string;
   location: string;
   duration: string;
+  image?: string;
   metrics: { label: string; value: string }[];
   challenges: string[];
   solutions: string[];
@@ -22,6 +23,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "Commercial real estate",
     location: "Chennai, India",
     duration: "24 weeks",
+    image: "",
     metrics: [
       { label: "Freshwater reduction", value: "22%" },
       { label: "Demand met by recycled water", value: "40%" },
