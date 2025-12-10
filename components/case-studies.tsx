@@ -202,14 +202,15 @@ const CaseStudies = () => {
 
 const CaseImage = ({ study, idx }: { study: (typeof caseStudies)[number]; idx: number }) => {
   const [hasError, setHasError] = useState(false);
-  const showImage = study.image && !hasError;
+  const showImage = Boolean(study.image) && !hasError;
+  const imageSrc = study.image ?? "";
 
   return (
     <div className="relative min-h-[260px] lg:min-h-[320px]">
       {showImage ? (
         <>
           <Image
-            src={study.image}
+            src={imageSrc}
             alt={study.title}
             fill
             className="object-cover"

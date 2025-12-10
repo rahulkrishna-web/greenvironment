@@ -8,22 +8,21 @@ import { MailIcon, MapPinIcon, MessageCircle, PhoneIcon } from "lucide-react";
 import Link from "next/link";
 
 const Contact = () => (
-  <div className="min-h-screen flex items-center justify-center py-16 pt-36">
+  <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50/60 to-white py-16 pt-28 lg:pt-32">
     <div className="w-full max-w-(--breakpoint-xl) mx-auto px-6 xl:px-0">
-      <b className="text-muted-foreground uppercase font-semibold text-sm">
+      <b className="text-emerald-700 uppercase font-semibold text-sm tracking-[0.18em]">
         Contact Us
       </b>
-      <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+      <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
         Chat with our friendly team!
       </h2>
-      <p className="mt-3 text-base sm:text-lg text-muted-foreground">
-        We&apos;d love to hear from you. Please fill out this form or shoot us
-        an email.
+      <p className="mt-3 text-base sm:text-lg text-muted-foreground max-w-3xl">
+        We&apos;d love to hear from you. Please fill out this form or shoot us an email.
       </p>
-      <div className="mt-24 grid lg:grid-cols-2 gap-16 md:gap-10">
+      <div className="mt-16 grid lg:grid-cols-2 gap-16 md:gap-10 items-start">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
           <div>
-            <div className="h-12 w-12 flex items-center justify-center bg-primary/5 dark:bg-primary/10 text-primary rounded-full">
+            <div className="h-12 w-12 flex items-center justify-center bg-emerald-100 text-emerald-800 rounded-full">
               <MailIcon />
             </div>
             <h3 className="mt-6 font-semibold text-xl">Email</h3>
@@ -31,26 +30,26 @@ const Contact = () => (
               Our friendly team is here to help.
             </p>
             <Link
-              className="font-medium text-primary"
+              className="font-medium text-emerald-800"
               href="mailto:akashmoradiya3444@gmail.com"
             >
               akashmoradiya3444@gmail.com
             </Link>
           </div>
           <div>
-            <div className="h-12 w-12 flex items-center justify-center bg-primary/5 dark:bg-primary/10 text-primary rounded-full">
+            <div className="h-12 w-12 flex items-center justify-center bg-emerald-100 text-emerald-800 rounded-full">
               <MessageCircle />
             </div>
             <h3 className="mt-6 font-semibold text-xl">Live chat</h3>
             <p className="my-2.5 text-muted-foreground">
               Our friendly team is here to help.
             </p>
-            <Link className="font-medium text-primary" href="#">
+            <Link className="font-medium text-emerald-800" href="#">
               Start new chat
             </Link>
           </div>
           <div>
-            <div className="h-12 w-12 flex items-center justify-center bg-primary/5 dark:bg-primary/10 text-primary rounded-full">
+            <div className="h-12 w-12 flex items-center justify-center bg-emerald-100 text-emerald-800 rounded-full">
               <MapPinIcon />
             </div>
             <h3 className="mt-6 font-semibold text-xl">Office</h3>
@@ -58,7 +57,7 @@ const Contact = () => (
               Come say hello at our office HQ.
             </p>
             <Link
-              className="font-medium text-primary"
+              className="font-medium text-emerald-800"
               href="https://map.google.com"
               target="_blank"
             >
@@ -66,7 +65,7 @@ const Contact = () => (
             </Link>
           </div>
           <div>
-            <div className="h-12 w-12 flex items-center justify-center bg-primary/5 dark:bg-primary/10 text-primary rounded-full">
+            <div className="h-12 w-12 flex items-center justify-center bg-emerald-100 text-emerald-800 rounded-full">
               <PhoneIcon />
             </div>
             <h3 className="mt-6 font-semibold text-xl">Phone</h3>
@@ -74,7 +73,7 @@ const Contact = () => (
               Mon-Fri from 8am to 5pm.
             </p>
             <Link
-              className="font-medium text-primary"
+              className="font-medium text-emerald-800"
               href="tel:akashmoradiya3444@gmail.com"
             >
               +1 (555) 000-0000
@@ -83,7 +82,7 @@ const Contact = () => (
         </div>
 
         {/* Form */}
-        <Card className="bg-accent shadow-none py-0">
+        <Card className="bg-white/80 backdrop-blur shadow-sm border border-emerald-100">
           <CardContent className="p-6 md:p-8">
             <form>
               <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
@@ -132,7 +131,7 @@ const Contact = () => (
                   </Label>
                 </div>
               </div>
-              <Button className="mt-6 w-full" size="lg">
+              <Button className="mt-6 w-full rounded-full" size="lg">
                 Submit
               </Button>
             </form>
