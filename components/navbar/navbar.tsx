@@ -43,9 +43,9 @@ const Navbar = ({ mode = "fixed" }: NavbarProps) => {
           <Image
             src="/gv-logo.png"
             alt="Greenvironment logo"
-            width={240}
-            height={70}
-            className="h-12 w-auto"
+            width={120}
+            height={35}
+            className="h-6 w-auto"
             priority
           />
         </Link>

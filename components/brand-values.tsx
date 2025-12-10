@@ -1,27 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const values = [
   {
     title: "Sustainability with Integrity",
     description: "Every solution supports environmental stewardship with measurable outcomes.",
-    Icon: SustainabilityIcon,
+    iconSrc: "/brand-value-icons/1-sustainability-with-integrity.gif",
   },
   {
     title: "Transparency in Action",
     description: "Clear, accessible data for stakeholders across the organisational chain.",
-    Icon: TransparencyIcon,
+    iconSrc: "/brand-value-icons/2-transparency-in-action.gif",
   },
   {
     title: "Partnerships for Change",
     description: "Partnering with clients, academia, and communities for long-term change.",
-    Icon: PartnershipIcon,
+    iconSrc: "/brand-value-icons/3-partnershipsfor-change.gif",
   },
   {
     title: "Measurable by Impact",
     description: "Success measured in resources saved, not promises made.",
-    Icon: ImpactIcon,
+    iconSrc: "/brand-value-icons/4-measurable-by-impact.gif",
   },
 ];
 
@@ -50,7 +51,7 @@ export const BrandValues = () => {
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-2">
-          {values.map(({ title, description, Icon }, idx) => (
+          {values.map(({ title, description, iconSrc }, idx) => (
             <motion.article
               key={title}
               initial={{ opacity: 0, y: 18 }}
@@ -59,7 +60,16 @@ export const BrandValues = () => {
               className={baseCard}
             >
               <div className="relative flex flex-col gap-4">
-                <Icon />
+                <div className="h-16 w-16 sm:h-[60px] sm:w-[60px] overflow-hidden rounded-xl bg-white">
+                  <Image
+                    src={iconSrc}
+                    alt={`${title} icon`}
+                    width={120}
+                    height={120}
+                    className="h-full w-full object-contain"
+                    unoptimized
+                  />
+                </div>
                 <h3 className="text-xl font-semibold leading-tight text-white">{title}</h3>
                 <p className="text-sm sm:text-base text-white/80">{description}</p>
               </div>
@@ -70,91 +80,3 @@ export const BrandValues = () => {
     </section>
   );
 };
-
-function SustainabilityIcon() {
-  return (
-    <div className="h-14 w-14 rounded-xl bg-white/10 p-2">
-      <svg viewBox="0 0 64 64" className="h-full w-full" aria-hidden>
-        <rect x="10" y="22" width="18" height="30" rx="3" className="fill-white stroke-[#02696b]" strokeWidth="3" />
-        <rect x="36" y="12" width="18" height="40" rx="3" className="fill-white stroke-[#02696b]" strokeWidth="3" />
-        <circle cx="32" cy="30" r="6" className="fill-[#f58e22]" />
-      </svg>
-    </div>
-  );
-}
-
-function TransparencyIcon() {
-  return (
-    <div className="h-14 w-14 rounded-xl bg-white/10 p-2">
-      <svg viewBox="0 0 64 64" className="h-full w-full" aria-hidden>
-        <path
-          d="M12 44V18c0-2.2 1.8-4 4-4h18v30H16c-2.2 0-4-1.8-4-4Z"
-          className="fill-white stroke-[#02696b]"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M34 30h14c2.2 0 4 1.8 4 4v14"
-          className="fill-none stroke-[#02696b]"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="44" cy="18" r="6" className="fill-[#f58e22]" />
-      </svg>
-    </div>
-  );
-}
-
-function PartnershipIcon() {
-  return (
-    <div className="h-14 w-14 rounded-xl bg-white/10 p-2">
-      <svg viewBox="0 0 64 64" className="h-full w-full" aria-hidden>
-        <path
-          d="M12 44V26c0-2.2 1.8-4 4-4h10v22H16c-2.2 0-4-1.8-4-4Z"
-          className="fill-white stroke-[#02696b]"
-          strokeWidth="3"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M52 44V26c0-2.2-1.8-4-4-4H38v22h10c2.2 0 4-1.8 4-4Z"
-          className="fill-white stroke-[#02696b]"
-          strokeWidth="3"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M24 22 32 12l8 10"
-          className="fill-white stroke-[#02696b]"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="32" cy="22" r="6" className="fill-[#f58e22]" />
-      </svg>
-    </div>
-  );
-}
-
-function ImpactIcon() {
-  return (
-    <div className="h-14 w-14 rounded-xl bg-white/10 p-2">
-      <svg viewBox="0 0 64 64" className="h-full w-full" aria-hidden>
-        <path
-          d="M12 42V22c0-2.2 1.8-4 4-4h14v24H16c-2.2 0-4-1.8-4-4Z"
-          className="fill-white stroke-[#02696b]"
-          strokeWidth="3"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M52 42V26c0-2.2-1.8-4-4-4H34"
-          className="fill-none stroke-[#02696b]"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="36" cy="36" r="7" className="fill-[#f58e22] stroke-[#02696b]" strokeWidth="3" />
-      </svg>
-    </div>
-  );
-}

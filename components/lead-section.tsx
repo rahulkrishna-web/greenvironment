@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const LeadSection = () => {
   return (
-    <section className="relative isolate flex min-h-[95vh] items-center justify-center overflow-hidden text-white">
+    <section className="relative isolate flex min-h-[90vh] items-center justify-center overflow-hidden text-white">
       <video
         className="absolute inset-0 h-full w-full object-cover"
         autoPlay
@@ -19,12 +19,12 @@ const LeadSection = () => {
       />
       <div className="absolute inset-0 bg-black/55" />
 
-      <div className="relative z-10 mx-auto flex max-w-(--breakpoint-xl) flex-col items-center gap-8 px-6 py-32 lg:py-40 text-center">
+      <div className="relative z-10 mx-auto flex max-w-(--breakpoint-xl) flex-col items-center gap-6 px-4 py-20 sm:gap-8 sm:px-6 lg:py-32 text-center">
         <motion.span
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] backdrop-blur"
+          className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] backdrop-blur"
         >
           Flow-forward impact
         </motion.span>
@@ -33,7 +33,7 @@ const LeadSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.7 }}
-          className="max-w-3xl text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight"
+          className="max-w-3xl text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight"
         >
           Intelligent water intelligence for cleaner, safer, resilient cities.
         </motion.h1>
@@ -42,7 +42,7 @@ const LeadSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7 }}
-          className="max-w-2xl text-base sm:text-lg text-white/85"
+          className="max-w-2xl text-sm sm:text-lg text-white/85"
         >
           Monitor, predict, and optimize water and energy usage with live insights
           and automated actions that help you save resources and protect the
@@ -53,7 +53,7 @@ const LeadSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.7 }}
-          className="flex flex-col items-center gap-4 sm:flex-row"
+          className="flex w-full max-w-md flex-col items-center justify-center gap-3 sm:max-w-none sm:flex-row sm:gap-4"
         >
           <Button
             size="lg"

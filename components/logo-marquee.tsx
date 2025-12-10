@@ -47,21 +47,21 @@ interface LogoMarqueeProps {
 }
 
 const LogoMarquee = ({ className }: LogoMarqueeProps) => (
-  <section className={`relative isolate flex w-full flex-col items-center justify-center py-10 ${className ?? ""}`}>
-    <div className="relative w-full max-w-6xl px-6">
-      <div className="flex flex-col items-center gap-6 rounded-3xl border border-[#02696b]/10 bg-white/80 px-6 py-8 shadow-[0_20px_80px_-60px_rgba(0,0,0,0.35)] backdrop-blur-sm">
+  <section className={`relative isolate flex w-full flex-col items-center justify-center py-3 ${className ?? ""}`}>
+    <div className="relative w-full max-w-6xl px-4 sm:px-6">
+      <div className="flex flex-col items-center gap-4 sm:gap-6 rounded-3xl border border-[#02696b]/10 bg-white/80 px-4 py-5 sm:px-6 sm:py-8 shadow-[0_20px_80px_-60px_rgba(0,0,0,0.35)] backdrop-blur-sm">
         <h3 className="text-xl font-semibold text-[#02696b]">Trusted by</h3>
         <div className="w-full">
           <Marquee>
             <MarqueeContent>
               {clientLogos.map((logo) => (
-                <MarqueeItem key={logo.src} className="h-auto w-auto px-10">
+                <MarqueeItem key={logo.src} className="h-auto w-40 px-1 sm:w-56 sm:px-2">
                   <Image
                     src={logo.src}
                     alt={`${logo.alt} logo`}
                     width={720}
                     height={320}
-                    className="h-24 w-auto object-contain"
+                    className="h-16 w-auto object-contain sm:h-48"
                   />
                 </MarqueeItem>
               ))}
