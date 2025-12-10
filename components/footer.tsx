@@ -42,8 +42,8 @@ const footerSections = [
     title: "Resources",
     links: [
       {
-        title: "Blog",
-        href: "#",
+        title: "Case Studies",
+        href: "/case-studies",
       },
       {
         title: "Newsletter",

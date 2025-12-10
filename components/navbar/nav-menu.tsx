@@ -48,7 +48,7 @@ export const NavMenu = ({ onLinkClick, isScrolled, ...props }: NavMenuProps) => 
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild>
-            <Link className={linkClass} href="/blog" onClick={onLinkClick}>BLOGS</Link>
+            <Link className={linkClass} href="/case-studies" onClick={onLinkClick}>CASE STUDIES</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>

@@ -1,6 +1,5 @@
 import About from "@/components/about";
 import AchievementsSection from "@/components/achievements-section";
-import Blog from "@/components/blog";
 import Footer from "@/components/footer";
 import { BrandValues } from "@/components/brand-values";
 import { ContactFormSection } from "@/components/contact-form-section";
