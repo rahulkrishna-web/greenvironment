@@ -1,6 +1,5 @@
 "use client";
 
-import LogoMarquee from "@/components/logo-marquee";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -19,7 +18,7 @@ const LeadSection = () => {
       />
       <div className="absolute inset-0 bg-black/55" />
 
-      <div className="relative z-10 mx-auto flex max-w-(--breakpoint-xl) flex-col items-center gap-6 px-4 py-20 sm:gap-8 sm:px-6 lg:py-32 text-center">
+      <div className="relative z-10 mx-auto flex max-w-(--breakpoint-xl) flex-col items-center gap-6 px-4 pt-16 pb-12 sm:gap-8 sm:px-6 lg:pt-28 lg:pb-20 text-center">
         <motion.span
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -70,9 +69,6 @@ const LeadSection = () => {
           </Button>
         </motion.div>
 
-        <div className="w-full max-w-5xl">
-          <LogoMarquee />
-        </div>
       </div>
 
       <div className="absolute inset-x-0 bottom-[-1px] text-background">

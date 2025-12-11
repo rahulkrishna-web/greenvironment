@@ -44,24 +44,32 @@ const clientLogos = [
 
 interface LogoMarqueeProps {
   className?: string;
+  contentClassName?: string;
+  itemClassName?: string;
+  logoClassName?: string;
 }
 
-const LogoMarquee = ({ className }: LogoMarqueeProps) => (
-  <section className={`relative isolate flex w-full flex-col items-center justify-center py-3 ${className ?? ""}`}>
-    <div className="relative w-full max-w-6xl px-4 sm:px-6">
-      <div className="flex flex-col items-center gap-4 sm:gap-6 rounded-3xl border border-[#02696b]/10 bg-white/80 px-4 py-5 sm:px-6 sm:py-8 shadow-[0_20px_80px_-60px_rgba(0,0,0,0.35)] backdrop-blur-sm">
-        <h3 className="text-xl font-semibold text-[#02696b]">Trusted by</h3>
-        <div className="w-full">
+const LogoMarquee = ({
+  className,
+  contentClassName,
+  itemClassName,
+  logoClassName,
+}: LogoMarqueeProps) => (
+  <section className={`relative isolate flex w-full flex-col items-center justify-center py-4 ${className ?? ""}`}>
+    <div className="relative w-full px-0">
+      <div className="flex flex-col items-center gap-2 sm:gap-3 bg-transparent px-2 sm:px-4">
+        <h3 className="text-base font-semibold text-[#02696b] sm:text-lg">Trusted by</h3>
+        <div className="w-full overflow-hidden">
           <Marquee>
-            <MarqueeContent>
+            <MarqueeContent className={contentClassName ?? "gap-[5px]"}>
               {clientLogos.map((logo) => (
-                <MarqueeItem key={logo.src} className="h-auto w-40 px-1 sm:w-56 sm:px-2">
+                <MarqueeItem key={logo.src} className={itemClassName ?? "h-auto w-auto px-0"}>
                   <Image
                     src={logo.src}
                     alt={`${logo.alt} logo`}
                     width={720}
-                    height={320}
-                    className="h-16 w-auto object-contain sm:h-48"
+                    height={360}
+                    className={logoClassName ?? "h-20 w-auto object-contain sm:h-24 md:h-28"}
                   />
                 </MarqueeItem>
               ))}

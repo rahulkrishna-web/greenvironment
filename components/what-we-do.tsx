@@ -49,7 +49,7 @@ const cards: CardData[] = [
 export default function WhatWeDo() {
   return (
     <div className="w-full h-full py-8">
-        <div className="flex flex-col sm:flex-row mb-10 max-w-2xl sm:max-w-none mx-auto items-center sm:items-start text-center sm:text-left gap-4">
+        <div className="flex flex-col sm:flex-row mb-10 max-w-2xl sm:max-w-none mx-auto items-center sm:items-start text-center sm:text-left gap-4 px-4">
       <h2 className="text-lg sm:basis-1/4 md:text-5xl font-bold text-neutral-800 dark:text-neutral-200">
         What We Do
       </h2>
@@ -69,11 +69,11 @@ laoreet dolore magna aliquam erat volutpat.
         </div>
       <Carousel
         opts={{ align: "start" }}
-        className="w-full"
+        className="w-full px-4"
       >
         <CarouselContent>
           {cards.map((card, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={index} className="sm:basis-4/5 md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
                 <Card className="relative overflow-hidden rounded-2xl cursor-pointer group h-[300px] md:h-[350px]">
                   {/* Background Image */}

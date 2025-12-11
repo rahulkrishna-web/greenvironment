@@ -1,14 +1,32 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next"
-import { Geist } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import PageTransition from "@/components/page-transition"; // we'll create this next
 import { Navbar } from "@/components/navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const headingFont = localFont({
+  src: [
+    { path: "../public/fonts/neutronic/Neutronic-Regular.otf", weight: "400", style: "normal" },
+    // Use regular cut for heavier weights too to avoid the compressed width
+    { path: "../public/fonts/neutronic/Neutronic-Regular.otf", weight: "600", style: "normal" },
+    { path: "../public/fonts/neutronic/Neutronic-Regular.otf", weight: "700", style: "normal" },
+  ],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const bodyFont = localFont({
+  src: [
+    { path: "../public/fonts/myriad/Myriad Pro Regular.ttf", weight: "400", style: "normal" },
+    { path: "../public/fonts/myriad/Myriad Pro Italic.ttf", weight: "400", style: "italic" },
+    { path: "../public/fonts/myriad/Myriad Pro Bold.ttf", weight: "700", style: "normal" },
+    { path: "../public/fonts/myriad/Myriad Pro Bold Italic.ttf", weight: "700", style: "italic" },
+    { path: "../public/fonts/myriad/Myriad Pro Light.otf", weight: "300", style: "normal" },
+  ],
+  variable: "--font-body",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +50,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.className} antialiased`}>
+      <body className={`${bodyFont.variable} ${headingFont.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light">
           {/* Page Transition Wrapper */}
           <Navbar />
