@@ -84,7 +84,7 @@ export const TrustedClients = () => {
           </p>
         </motion.div>
 
-        <div className="flex gap-3 overflow-x-auto whitespace-nowrap pb-2 -mx-1 px-1 scrollbar-none">
+        <div className="flex flex-wrap gap-2 pb-2">
           {sectorOrder.map((sector) => {
             const isActive = sector === activeSector;
             return (
@@ -104,41 +104,12 @@ export const TrustedClients = () => {
           })}
         </div>
 
-        {/* Mobile slider (2x2 per viewport, horizontal scroll) */}
-        <div className="md:hidden">
-          <div className="overflow-x-auto scrollbar-none">
-            <div className="grid grid-flow-col grid-rows-2 auto-cols-[minmax(160px,1fr)] gap-4 snap-x snap-mandatory px-1">
-              {logos.map((logo) => (
-                <motion.div
-                  key={logo.src}
-                  className="flex h-28 items-center justify-center rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.5)] snap-start"
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  viewport={{ once: true }}
-                >
-                  <Image
-                    src={logo.src}
-                    alt={`${logo.alt} logo`}
-                    width={160}
-                    height={80}
-                    className="h-14 w-auto object-contain"
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-          <div className="mt-2 text-center text-xs text-slate-500/80">
-            Scroll right to view more
-          </div>
-        </div>
-
-        {/* Desktop grid */}
-        <div className="hidden md:grid grid-cols-3 lg:grid-cols-5 gap-6 place-items-center">
+        {/* Responsive grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 place-items-center">
           {logos.map((logo) => (
             <motion.div
               key={logo.src}
-              className="flex h-24 w-full items-center justify-center rounded-2xl border border-[#02696b]/15 bg-white p-4 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.35)]"
+              className="flex h-28 w-full items-center justify-center rounded-2xl p-1 sm:p-3 bg-transparent"
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
@@ -147,9 +118,9 @@ export const TrustedClients = () => {
               <Image
                 src={logo.src}
                 alt={`${logo.alt} logo`}
-                width={180}
-                height={90}
-                className="h-12 w-auto object-contain"
+                width={240}
+                height={120}
+                className="h-auto w-full object-contain"
               />
             </motion.div>
           ))}

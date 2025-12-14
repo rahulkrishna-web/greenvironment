@@ -32,7 +32,7 @@ export const ContactFormSection = () => {
             className="relative overflow-hidden rounded-[28px] shadow-[0_24px_80px_-40px_rgba(0,0,0,0.35)]"
           >
             <Image
-              src="/contactimg.png"
+              src="/contactimg.PNG"
               alt="Sustainable cityscape"
               width={1200}
               height={900}
