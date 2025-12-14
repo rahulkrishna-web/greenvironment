@@ -146,7 +146,7 @@ const About = () => {
 
       {/* Proof and CTA */}
       <motion.section
-        className="grid gap-8 lg:grid-cols-[1.4fr_0.8fr] items-center rounded-3xl bg-gradient-to-br from-primary/25 via-slate-950 to-slate-900 text-white p-8 sm:p-10"
+        className="grid gap-8 lg:grid-cols-[1.4fr_0.8fr] items-center rounded-3xl bg-gradient-to-br from-emerald-900 via-slate-950 to-slate-900 text-white p-8 sm:p-10"
         {...fades}
         transition={{ duration: 0.65 }}
       >
@@ -164,7 +164,7 @@ const About = () => {
             <Button className="rounded-full bg-white text-slate-900 hover:bg-slate-100">
               Explore case studies
             </Button>
-            <Button variant="outline" className="rounded-full border-white/40 text-white hover:bg-white/10">
+            <Button variant="outline" className="rounded-full border-white/40 bg-white/5 text-white hover:bg-white/15">
               Book a walkthrough
             </Button>
           </div>
