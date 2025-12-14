@@ -10,7 +10,18 @@ export const VideoSection = ({ src }: VideoSectionProps) => {
   return (
     <section className="relative isolate overflow-hidden bg-white text-white">
       <div className="relative w-full py-12">
-        <div className="mx-auto max-w-7xl px-0 sm:px-6">
+        <div className="mx-auto max-w-7xl px-6 sm:px-6 space-y-8 text-slate-900 text-center">
+          <div className="max-w-3xl mx-auto space-y-3">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Real Time AI based reporting</h2>
+            <p className="text-lg text-muted-foreground">
+              Cutting edge Digital twin technology for your infrastructure
+            </p>
+            <p className="text-muted-foreground">
+              Build a digital replica of your various building environment systems - water, energy, protection - to monitor their
+              health, get ahead of issues before they occur and get AI assisted real time solutions during adverse events.
+            </p>
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}

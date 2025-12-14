@@ -1,10 +1,12 @@
 "use client";
 
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CountUp } from "@/components/ui/count-up";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, Navigation, Radar, Sparkles, ShieldCheck, ArrowRight, ArrowDown } from "lucide-react";
+import { ValuePropositionSection } from "@/components/what-we-do-options";
 
 const pillars = [
   {
@@ -29,10 +31,26 @@ const metrics = [
 ];
 
 const approach = [
-  "Baseline every site—map flows, quality, and risk to target the fastest wins.",
-  "Instrument the network with multi-parameter sensing and secure data uplinks.",
-  "Automate treatment & reuse with ORP-based dosing and quality gates.",
-  "Operationalize insights with alerts, reports, and playbooks for local teams.",
+  {
+    title: "Baseline every site",
+    description: "Map flows, quality, and risk to target the fastest wins.",
+    icon: <Navigation className="h-5 w-5" />,
+  },
+  {
+    title: "Instrument the network",
+    description: "Deploy multi-parameter sensing with secure data uplinks.",
+    icon: <Radar className="h-5 w-5" />,
+  },
+  {
+    title: "Automate treatment & reuse",
+    description: "ORP-based dosing, quality gates, and smart routing.",
+    icon: <Sparkles className="h-5 w-5" />,
+  },
+  {
+    title: "Operationalize insights",
+    description: "Alerts, reports, and playbooks for local teams to act fast.",
+    icon: <ShieldCheck className="h-5 w-5" />,
+  },
 ];
 
 const proofList = [
@@ -96,6 +114,10 @@ const About = () => {
         </Card>
       </motion.section>
 
+      <div className="mt-12 px-6 sm:px-6 md:px-0">
+        <ValuePropositionSection />
+      </div>
+
       {/* Pillars */}
       <section className="space-y-8">
         <motion.div className="space-y-3" {...fades} transition={{ duration: 0.5 }}>
@@ -119,6 +141,47 @@ const About = () => {
         </div>
       </section>
 
+      {/* Our Team */}
+      <section className="mt-16 space-y-8">
+        <motion.div className="space-y-3 text-center" {...fades} transition={{ duration: 0.5 }}>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Our Team</p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">The people building resilient water systems</h2>
+          <p className="text-muted-foreground max-w-3xl mx-auto">
+            Field engineers, analysts, and program leads who keep every deployment on-track and audit-ready.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { name: "Aanya Patel", role: "Program Director" },
+            { name: "Rohan Iyer", role: "Lead Water Engineer" },
+            { name: "Meera Das", role: "Data & AI Lead" },
+            { name: "Kabir Singh", role: "Field Operations" },
+            { name: "Nidhi Verma", role: "Compliance & Reporting" },
+            { name: "Arjun Rao", role: "Customer Success" },
+          ].map((member, idx) => (
+            <motion.div
+              key={member.name}
+              className="rounded-2xl border border-primary/15 bg-white/80 backdrop-blur shadow-sm overflow-hidden"
+              {...fades}
+              transition={{ duration: 0.55, delay: idx * 0.05 }}
+            >
+              <div className="aspect-[4/5] relative bg-gradient-to-br from-emerald-200/40 via-white to-sky-100/40">
+                <img
+                  src="/placeholder.svg"
+                  alt={member.name}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="p-4 text-center space-y-1">
+                <h3 className="text-lg font-semibold text-slate-900">{member.name}</h3>
+                <p className="text-sm text-muted-foreground">{member.role}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Approach steps */}
       <section className="space-y-8">
         <motion.div className="space-y-3" {...fades} transition={{ duration: 0.5 }}>
@@ -128,18 +191,64 @@ const About = () => {
             We partner closely with facilities teams to sequence improvements—delivering quick wins while building durable, automated controls.
           </p>
         </motion.div>
-        <div className="grid gap-4 md:gap-6 md:grid-cols-2">
+        <div className="flex flex-col items-center gap-6 lg:flex-row lg:items-start lg:justify-between">
           {approach.map((step, idx) => (
-            <motion.div key={step} {...fades} transition={{ duration: 0.55, delay: idx * 0.05 }}>
-              <Card className="border-primary/15 bg-white/80 backdrop-blur shadow-sm">
-                <CardContent className="p-5 flex gap-4 items-start">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold">
-                    <CountUp value={idx + 1} duration={0.6} />
+            <React.Fragment key={step.title}>
+              <motion.div
+                className="flex flex-col items-center text-center gap-3"
+                {...fades}
+                transition={{ duration: 0.55, delay: idx * 0.05 }}
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/20">
+                  {step.icon}
+                </span>
+                <span className="text-sm font-semibold uppercase tracking-[0.12em] text-primary">{step.title}</span>
+                <span className="text-slate-800 max-w-xs">{step.description}</span>
+              </motion.div>
+
+              {idx < approach.length - 1 && (
+                <div className="flex items-center justify-center self-center lg:translate-y-[10px]">
+                  <div className="hidden lg:flex items-center self-center">
+                    <svg width="92" height="16" viewBox="0 0 92 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M0 8 H80"
+                        stroke="currentColor"
+                        strokeWidth="1.4"
+                        strokeLinecap="round"
+                        className="text-primary/60"
+                      />
+                      <path
+                        d="M78 4 L84 8 L78 12"
+                        stroke="currentColor"
+                        strokeWidth="1.4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-primary/70"
+                      />
+                    </svg>
                   </div>
-                  <p className="text-slate-800">{step}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
+                  <div className="lg:hidden flex flex-col items-center self-center gap-1">
+                    <svg width="16" height="72" viewBox="0 0 16 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M8 0 V60"
+                        stroke="currentColor"
+                        strokeWidth="1.4"
+                        strokeLinecap="round"
+                        className="text-primary/60"
+                      />
+                      <path
+                        d="M4 56 L8 64 L12 56"
+                        stroke="currentColor"
+                        strokeWidth="1.4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-primary/70"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              )}
+            </React.Fragment>
           ))}
         </div>
       </section>
@@ -182,6 +291,47 @@ const About = () => {
           </CardContent>
         </Card>
       </motion.section>
+
+      {/* Our Team */}
+      <section className="mt-16 space-y-8">
+        <motion.div className="space-y-3 text-center" {...fades} transition={{ duration: 0.5 }}>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Our Team</p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">The people building resilient water systems</h2>
+          <p className="text-muted-foreground max-w-3xl mx-auto">
+            Field engineers, analysts, and program leads who keep every deployment on-track and audit-ready.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { name: "Aanya Patel", role: "Program Director" },
+            { name: "Rohan Iyer", role: "Lead Water Engineer" },
+            { name: "Meera Das", role: "Data & AI Lead" },
+            { name: "Kabir Singh", role: "Field Operations" },
+            { name: "Nidhi Verma", role: "Compliance & Reporting" },
+            { name: "Arjun Rao", role: "Customer Success" },
+          ].map((member, idx) => (
+            <motion.div
+              key={member.name}
+              className="rounded-2xl border border-primary/15 bg-white/80 backdrop-blur shadow-sm overflow-hidden"
+              {...fades}
+              transition={{ duration: 0.55, delay: idx * 0.05 }}
+            >
+              <div className="aspect-[4/5] relative bg-gradient-to-br from-emerald-200/40 via-white to-sky-100/40">
+                <img
+                  src="/placeholder.svg"
+                  alt={member.name}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="p-4 text-center space-y-1">
+                <h3 className="text-lg font-semibold text-slate-900">{member.name}</h3>
+                <p className="text-sm text-muted-foreground">{member.role}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

@@ -44,6 +44,11 @@ const cards: CardData[] = [
     description: "Improving search rankings and driving organic traffic.",
     image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
   },
+  {
+    title: "Data & Analytics",
+    description: "Turning telemetry into live dashboards, alerts, and decisions.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+  },
 ];
 
 export default function WhatWeDo() {

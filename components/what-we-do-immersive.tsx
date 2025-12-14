@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useTransform, type MotionValue } from "framer-motion";
-import { Sparkles, Waves, ShieldCheck, Gauge, Workflow } from "lucide-react";
+import { Sparkles, Waves, ShieldCheck, Gauge, Workflow, Activity } from "lucide-react";
 import { useMemo } from "react";
 
 export type Pillar = {
@@ -46,6 +46,13 @@ export const whatWeDoPillars: Pillar[] = [
       "Optimize reuse, recycling, and zero-loss initiatives with quantified impact across every asset.",
     icon: <Waves className="h-5 w-5" />,
     accent: "from-teal-300/70 via-cyan-300/70 to-blue-300/70",
+  },
+  {
+    title: "Digital twins & AI response",
+    description:
+      "Virtual replicas of every site with AI-assist to simulate, validate, and respond faster when conditions change.",
+    icon: <Activity className="h-5 w-5" />,
+    accent: "from-amber-200/70 via-emerald-200/70 to-cyan-200/70",
   },
 ];
 

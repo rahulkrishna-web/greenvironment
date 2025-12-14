@@ -27,17 +27,24 @@ export default function AchievementsSection({
   className = "",
 }: AchievementsSectionProps) {
   return (
-    <section className={`bg-(--primary) text-white py-12 sm:py-16 ${className}`}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold">Our achievements</h2>
-          <p className="mt-2">A quick look at what we&apos;ve done.</p>
-        </div>
+    <section
+      className={`relative overflow-hidden bg-gradient-to-br from-white via-emerald-50 to-sky-50 py-5 sm:py-6 ${className}`}
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.08),transparent_45%)]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_10%,rgba(56,189,248,0.08),transparent_45%)]" aria-hidden />
 
-        <div className="grid grid-cols-3 sm:grid-cols-3 gap-3 sm:gap-3">
-          {items.map((it) => (
-            <AchievementCard key={it.id} item={it} />
-          ))}
+      <div className="relative max-w-6xl mx-auto px-6">
+        <div className="flex flex-col items-center gap-8 text-center lg:text-left lg:flex-row lg:items-center lg:justify-between">
+          <div className="space-y-2 max-w-xl lg:max-w-lg">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Our achievements</h2>
+            <p className="text-muted-foreground">A quick look at what we&apos;ve done.</p>
+          </div>
+
+          <div className="grid grid-cols-3 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 max-w-xl lg:max-w-2xl justify-items-center lg:justify-items-end lg:justify-end lg:text-right">
+            {items.map((it) => (
+              <AchievementCard key={it.id} item={it} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -86,23 +93,21 @@ function AchievementCard({ item }: { item: AchievementItem }) {
 
   return (
     <Card ref={ref} className="p-1 sm:p-6 bg-transparent shadow-none border-0">
-      <CardContent className="p-3 pt-3 sm:pt-6 text-white">
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <div>
-            <motion.div
-              initial="hidden"
-              animate={controls}
-              variants={{
-                hidden: { opacity: 0, y: 8 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-              }}
-            >
-              <p className="text-3xl sm:text-6xl font-bold leading-none">
-                {formatCount(count)}{item.suffix}
-              </p>
-              <p className="text-sm sm:text-2xl mt-1">{item.title}</p>
-            </motion.div>
-          </div>
+      <CardContent className="p-3 pt-3 sm:pt-6 text-slate-900">
+        <div className="flex flex-col items-center text-center gap-2">
+          <motion.div
+            initial="hidden"
+            animate={controls}
+            variants={{
+              hidden: { opacity: 0, y: 8 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            }}
+          >
+            <p className="text-3xl sm:text-6xl font-bold leading-none text-primary">
+              {formatCount(count)}{item.suffix}
+            </p>
+            <p className="text-sm sm:text-2xl mt-1 text-slate-700">{item.title}</p>
+          </motion.div>
         </div>
       </CardContent>
     </Card>
