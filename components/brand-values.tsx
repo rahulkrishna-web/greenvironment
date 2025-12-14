@@ -53,14 +53,15 @@ export const BrandValues = () => {
               transition={{ duration: 0.6, delay: idx * 0.05 }}
             >
               <div className="relative h-24 w-24 overflow-hidden rounded-full">
-                <Image
-                  src={value.icon}
-                  alt={value.title}
-                  fill
-                  className="object-cover"
-                  sizes="96px"
-                  priority={idx === 0}
-                />
+              <Image
+                src={value.icon}
+                alt={value.title}
+                fill
+                className="object-cover"
+                sizes="96px"
+                priority={idx === 0}
+                unoptimized
+              />
               </div>
               <div className="space-y-2">
                 <h3 className="text-lg font-semibold text-slate-900">{value.title}</h3>
