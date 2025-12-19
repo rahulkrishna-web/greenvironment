@@ -4,7 +4,7 @@ import Footer from "@/components/footer";
 import { BrandValues } from "@/components/brand-values";
 import { ContactFormSection } from "@/components/contact-form-section";
 import Hero from "@/components/hero";
-import LeadSection from "@/components/lead-section";
+import LeadSection from "@/components/lead-section-neural";
 import { OneLiner } from "@/components/one-liner";
 import { Navbar } from "@/components/navbar";
 import { VideoSection } from "@/components/video-section";

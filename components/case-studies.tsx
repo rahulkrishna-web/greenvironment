@@ -185,7 +185,7 @@ const CaseStudies = () => {
                     {study.documentHref && (
                       <Button asChild variant="outline" className="rounded-full">
                         <Link href={study.documentHref} target="_blank" rel="noopener noreferrer">
-                          Download PDF
+                          Download case study
                         </Link>
                       </Button>
                     )}

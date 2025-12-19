@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CountUp } from "@/components/ui/count-up";
@@ -58,6 +59,18 @@ const proofList = [
   "ORP-driven dosing automation with transparent logs.",
   "Alerts for tankers, flow anomalies, and reuse quality gates.",
   "24/7 monitoring with site-first rollout to avoid downtime.",
+];
+
+const teamMembers = [
+  { name: "Anoop Nambiar", role: "Director", image: "anoop-nambiar-director.gif" },
+  { name: "Bhagyashree Rath", role: "Vice President - Business Operations", image: "bhagyashree-rath-vice-president-business-operations.png" },
+  { name: "Esther Mary", role: "Head - Product Management", image: "esther-mary-head-product-management.jpeg" },
+  { name: "John Paul", role: "Head - Technology", image: "john-paul-head-technology.jpg" },
+  { name: "Mohan Raj Makkuni", role: "Director & Co-Chief Executive Officer", image: "mohan-raj-makkuni-director-co-chief-executive-officer.jpg" },
+  { name: "Pallavi Krishnakumar", role: "Head - Finance & Business", image: "pallavi-krishnakumar-head-finance-business.jpg" },
+  { name: "Sridharan Nair", role: "Chairman & Director", image: "sridharan-nair-chairman-director.jpg" },
+  { name: "Srikumar Gopinath", role: "Chief Financial Officer", image: "srikumar-gopinath-chief-financial-officer.jpeg" },
+  { name: "Varun Sridharan", role: "Chief Executive Officer", image: "varun-sridharan-chief-executive-officer.png" },
 ];
 
 const fades = {
@@ -152,14 +165,7 @@ const About = () => {
         </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            { name: "Aanya Patel", role: "Program Director" },
-            { name: "Rohan Iyer", role: "Lead Water Engineer" },
-            { name: "Meera Das", role: "Data & AI Lead" },
-            { name: "Kabir Singh", role: "Field Operations" },
-            { name: "Nidhi Verma", role: "Compliance & Reporting" },
-            { name: "Arjun Rao", role: "Customer Success" },
-          ].map((member, idx) => (
+          {teamMembers.map((member, idx) => (
             <motion.div
               key={member.name}
               className="rounded-2xl border border-primary/15 bg-white/80 backdrop-blur shadow-sm overflow-hidden"
@@ -167,10 +173,13 @@ const About = () => {
               transition={{ duration: 0.55, delay: idx * 0.05 }}
             >
               <div className="aspect-[4/5] relative bg-gradient-to-br from-emerald-200/40 via-white to-sky-100/40">
-                <img
-                  src="/placeholder.svg"
+                <Image
+                  src={`/team/${member.image}`}
                   alt={member.name}
-                  className="h-full w-full object-cover"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  unoptimized
+                  className="object-cover"
                 />
               </div>
               <div className="p-4 text-center space-y-1">
@@ -303,14 +312,7 @@ const About = () => {
         </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            { name: "Aanya Patel", role: "Program Director" },
-            { name: "Rohan Iyer", role: "Lead Water Engineer" },
-            { name: "Meera Das", role: "Data & AI Lead" },
-            { name: "Kabir Singh", role: "Field Operations" },
-            { name: "Nidhi Verma", role: "Compliance & Reporting" },
-            { name: "Arjun Rao", role: "Customer Success" },
-          ].map((member, idx) => (
+          {teamMembers.map((member, idx) => (
             <motion.div
               key={member.name}
               className="rounded-2xl border border-primary/15 bg-white/80 backdrop-blur shadow-sm overflow-hidden"
@@ -318,10 +320,13 @@ const About = () => {
               transition={{ duration: 0.55, delay: idx * 0.05 }}
             >
               <div className="aspect-[4/5] relative bg-gradient-to-br from-emerald-200/40 via-white to-sky-100/40">
-                <img
-                  src="/placeholder.svg"
+                <Image
+                  src={`/team/${member.image}`}
                   alt={member.name}
-                  className="h-full w-full object-cover"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  unoptimized
+                  className="object-cover"
                 />
               </div>
               <div className="p-4 text-center space-y-1">
