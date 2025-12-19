@@ -25,7 +25,6 @@ const EditorialSection = ({ label, title, description }: EditorialSectionProps) 
         viewport={{ once: true }}
         className="flex flex-col gap-3 text-left"
       >
-        <SectionLabel label={label} />
         <h2 className="text-3xl font-semibold sm:text-4xl text-[#02696b]">{title}</h2>
         <p className="max-w-3xl text-lg text-slate-700">{description}</p>
       </motion.div>

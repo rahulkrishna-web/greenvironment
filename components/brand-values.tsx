@@ -37,7 +37,7 @@ export const BrandValues = () => {
     <section className="bg-white py-16 sm:py-20">
       <div className="max-w-(--breakpoint-xl) mx-auto px-6 space-y-10">
         <motion.div className="text-center space-y-3" {...fades} transition={{ duration: 0.6 }}>
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Brand pillars / values</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Brand pillars</p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Principles that guide how we operate</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             How we partner, deliver, and measure impact across every engagement.

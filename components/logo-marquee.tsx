@@ -58,7 +58,9 @@ const LogoMarquee = ({
   <section className={`relative isolate flex w-full flex-col items-center justify-center py-4 ${className ?? ""}`}>
     <div className="relative w-full px-0">
       <div className="flex flex-col items-center gap-2 sm:gap-3 bg-transparent px-2 sm:px-4">
-        <h3 className="text-base font-semibold text-[#02696b] sm:text-lg">Trusted by</h3>
+        <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#0ab8c9]/40 bg-[#0ab8c9]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#02696b]">
+          Trusted by
+        </div>
         <div className="w-full overflow-hidden">
           <Marquee>
             <MarqueeContent className={contentClassName ?? "gap-[5px]"}>

@@ -8,15 +8,15 @@ interface VideoSectionProps {
 
 export const VideoSection = ({ src }: VideoSectionProps) => {
   return (
-    <section className="relative isolate overflow-hidden bg-white text-white">
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#012f30] via-primary to-[#02696b] text-white">
       <div className="relative w-full py-12">
-        <div className="mx-auto max-w-7xl px-6 sm:px-6 space-y-8 text-slate-900 text-center">
+        <div className="mx-auto w-full px-0 space-y-8 text-white text-center">
           <div className="max-w-3xl mx-auto space-y-3">
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Real Time AI based reporting</h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-white/85">
               Cutting edge Digital twin technology for your infrastructure
             </p>
-            <p className="text-muted-foreground">
+            <p className="text-white/75">
               Build a digital replica of your various building environment systems - water, energy, protection - to monitor their
               health, get ahead of issues before they occur and get AI assisted real time solutions during adverse events.
             </p>
@@ -27,7 +27,7 @@ export const VideoSection = ({ src }: VideoSectionProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-none sm:rounded-3xl border border-white/10 bg-black"
+            className="relative overflow-hidden rounded-none border border-white/10 bg-black"
           >
             <div className="aspect-video w-full bg-black">
               <video
