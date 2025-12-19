@@ -83,6 +83,43 @@ export default async function CaseStudyDetailPage({
           ))}
         </section>
 
+        <section className="grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
+          <Card className="border-emerald-100 bg-white/90 backdrop-blur">
+            <CardContent className="p-6 space-y-5">
+              <h2 className="text-xl font-semibold tracking-tight text-slate-900">Overview</h2>
+              <div className="space-y-4 text-slate-700">
+                {study.overview.map((paragraph, index) => (
+                  <p key={`overview-${index}`}>{paragraph}</p>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="border-emerald-100 bg-emerald-950 text-white">
+            <CardContent className="p-6 space-y-5">
+              <div className="text-sm uppercase tracking-[0.2em] text-emerald-200">Impact visualization</div>
+              <div className="space-y-4">
+                {study.metrics.map((metric, index) => (
+                  <div key={`viz-${metric.label}`} className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="font-medium">{metric.label}</span>
+                      <span className="text-emerald-100">{metric.value}</span>
+                    </div>
+                    <div className="h-2 rounded-full bg-emerald-900/70">
+                      <div
+                        className="h-2 rounded-full bg-gradient-to-r from-emerald-300 via-emerald-200 to-sky-200"
+                        style={{ width: `${70 + index * 10}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-xl border border-emerald-800/60 bg-emerald-900/50 p-4 text-sm text-emerald-100">
+                Each bar highlights a featured result from the case study dataset.
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
         <div className="grid gap-8 lg:grid-cols-[2fr,1fr]">
           <div className="space-y-6">
             <DetailBlock title="Challenge" items={study.challenges} />
