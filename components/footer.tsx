@@ -1,44 +1,28 @@
 "use client";
 
 import {
-  DribbbleIcon,
-  GithubIcon,
-  TwitchIcon,
-  TwitterIcon,
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  YoutubeIcon,
 } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 const footerSections = [
-  {
-    title: "Company",
-    links: [
       {
-        title: "About us",
-        href: "#",
+        title: "Company",
+        links: [
+          {
+            title: "About us",
+            href: "#",
+          },
+          {
+            title: "Contact",
+            href: "#",
+          },
+        ],
       },
-      {
-        title: "Careers",
-        href: "#",
-      },
-      {
-        title: "Press",
-        href: "#",
-      },
-      {
-        title: "News",
-        href: "#",
-      },
-      {
-        title: "Media kit",
-        href: "#",
-      },
-      {
-        title: "Contact",
-        href: "#",
-      },
-    ],
-  },
   {
     title: "Resources",
     links: [
@@ -56,16 +40,24 @@ const footerSections = [
     title: "Social",
     links: [
       {
-        title: "Twitter",
-        href: "#",
+        title: "X",
+        href: "https://x.com/GreenvironmentI",
       },
       {
         title: "LinkedIn",
-        href: "#",
+        href: "https://www.linkedin.com/company/greenvironmentindia",
       },
       {
         title: "Facebook",
-        href: "#",
+        href: "https://www.facebook.com/GreenvironmentIndia",
+      },
+      {
+        title: "Instagram",
+        href: "https://www.instagram.com/greenvironment_india/",
+      },
+      {
+        title: "YouTube",
+        href: "https://www.youtube.com/channel/UC5M7YeDV1hqlbqUkByKLcvw",
       }
     ],
   },
@@ -73,29 +65,26 @@ const footerSections = [
     title: "Legal",
     links: [
       {
-        title: "Terms",
-        href: "#",
-      },
-      {
         title: "Privacy",
         href: "#",
-      },
-      {
-        title: "Cookies",
-        href: "#",
-      },
-      {
-        title: "Contact",
-        href: "#",
-      },
+      }
     ],
   },
 ];
 
+const XIcon = ({ className = "" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" aria-hidden className={className}>
+    <path
+      fill="currentColor"
+      d="M18.244 2.25h3.308l-7.228 8.26 8.508 11.24h-6.66l-5.213-6.817L4.99 21.75H1.68l7.73-8.835L1.232 2.25H8.07l4.713 6.231L18.244 2.25zm-1.161 17.52h1.833L7.07 4.126H5.106L17.083 19.77z"
+    />
+  </svg>
+);
+
 const Footer = () => {
   return (
     <footer className="relative mt-0 text-white">
-      <div className="relative mx-auto max-w-(--breakpoint-xl) px-4 pb-14 pt-10 sm:px-6">
+      <div className="relative w-full pb-14 pt-10">
         <div className="relative">
           <div className="pointer-events-none absolute right-6 -top-2.5 h-5 w-[70%] overflow-hidden rounded-[24px] bg-amber-400 shadow-[0_12px_40px_-20px_rgba(0,0,0,0.45)]" aria-hidden>
             <motion.div
@@ -105,7 +94,7 @@ const Footer = () => {
             />
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl bg-[#0d7f86] px-6 py-10 sm:px-10 lg:px-12 lg:py-14 shadow-[0_30px_80px_-50px_rgba(0,0,0,0.6)]">
+          <div className="relative overflow-hidden bg-[#0d7f86] px-6 py-10 sm:px-10 lg:px-12 lg:py-14 shadow-[0_30px_80px_-50px_rgba(0,0,0,0.6)]">
             <div className="pointer-events-none absolute inset-0">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.08),transparent_45%)]" />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.05),transparent_40%)]" />
@@ -160,34 +149,35 @@ const Footer = () => {
             </motion.svg>
           </div>
 
-          <div className="relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="relative mx-auto grid max-w-(--breakpoint-xl) gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="space-y-6">
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-xl font-extrabold tracking-tight">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 border border-white/20">
-                    <span className="text-white text-lg">G</span>
-                  </div>
+                  
                   <span className="text-white">GREENVIRONMENT</span>
                 </div>
-                <p className="text-sm text-white/85">Add the tag line text here.</p>
               </div>
 
               <p className="max-w-sm text-white/85">
-                Maecenas non urna a purus semper ultrices. Nam vestibulum tellus tincidunt, ultricies justo a, condimentum nisl.
+                Our AI-native monitoring provides a comprehensive view of your infrastructure to preempt issues and reduce overhead.
+                Streamline your operations with real-time health insights while effortlessly hitting your sustainability goals.
               </p>
 
               <div className="flex items-center gap-3">
-                <Link href="#" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
-                  <TwitterIcon className="h-5 w-5" />
+                <Link href="https://www.linkedin.com/company/greenvironmentindia" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
+                  <LinkedinIcon className="h-5 w-5" />
                 </Link>
-                <Link href="#" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
-                  <DribbbleIcon className="h-5 w-5" />
+                <Link href="https://www.facebook.com/GreenvironmentIndia" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
+                  <FacebookIcon className="h-5 w-5" />
                 </Link>
-                <Link href="#" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
-                  <TwitchIcon className="h-5 w-5" />
+                <Link href="https://x.com/GreenvironmentI" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
+                  <XIcon className="h-5 w-5" />
                 </Link>
-                <Link href="#" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
-                  <GithubIcon className="h-5 w-5" />
+                <Link href="https://www.youtube.com/channel/UC5M7YeDV1hqlbqUkByKLcvw" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
+                  <YoutubeIcon className="h-5 w-5" />
+                </Link>
+                <Link href="https://www.instagram.com/greenvironment_india/" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
+                  <InstagramIcon className="h-5 w-5" />
                 </Link>
               </div>
             </div>
@@ -212,7 +202,7 @@ const Footer = () => {
 
           <div className="mt-10 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
-          <div className="mt-6 flex flex-col gap-3 text-sm text-white/80 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-6 flex flex-col gap-3 px-4 text-sm text-white/80 sm:px-6 sm:flex-row sm:items-center sm:justify-between">
             <span>
               &copy; {new Date().getFullYear()}{" "}
               <Link href="#" className="font-semibold text-white hover:text-white">

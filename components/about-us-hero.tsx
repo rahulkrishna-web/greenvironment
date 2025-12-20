@@ -31,15 +31,16 @@ const AboutUsHero = () => {
           </div>
         </motion.div>
         <motion.div
-          className="relative lg:max-w-lg xl:max-w-xl w-full bg-primary/15 ring-1 ring-white/10 rounded-2xl aspect-square overflow-hidden"
+          className="relative lg:max-w-lg xl:max-w-xl w-full bg-primary/15 ring-1 ring-white/10 rounded-2xl overflow-hidden"
           {...fades}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
           <Image
-            src="/placeholder.svg"
-            fill
+            src="/about-lead.jpg"
+            width={1200}
+            height={900}
             alt="Team and operations"
-            className="object-cover rounded-2xl"
+            className="h-auto w-full rounded-2xl object-cover"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-black/25 via-transparent to-white/5" aria-hidden />

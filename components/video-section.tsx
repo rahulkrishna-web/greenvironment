@@ -12,13 +12,13 @@ export const VideoSection = ({ src }: VideoSectionProps) => {
       <div className="relative w-full py-12">
         <div className="mx-auto w-full px-0 space-y-8 text-white text-center">
           <div className="max-w-3xl mx-auto space-y-3">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Real Time AI based reporting</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Real Time AI-Based Reporting</h2>
             <p className="text-lg text-white/85">
               Cutting edge Digital twin technology for your infrastructure
             </p>
             <p className="text-white/75">
               Build a digital replica of your various building environment systems - water, energy, protection - to monitor their
-              health, get ahead of issues before they occur and get AI assisted real time solutions during adverse events.
+              health, get ahead of issues before they occur and get AI-Assisted real time solutions during adverse events.
             </p>
           </div>
 

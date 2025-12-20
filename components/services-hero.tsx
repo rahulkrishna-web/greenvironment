@@ -13,19 +13,24 @@ const fades = {
 
 type Tile = {
   id: string;
-  title: string;
   image: string;
   version?: number;
 };
 
 const tilePool: Tile[] = [
-  { id: "oversight", title: "Live plant oversight", image: "/placeholder.svg" },
-  { id: "quality", title: "Quality automation", image: "/placeholder.svg" },
-  { id: "reuse", title: "Reuse routing", image: "/placeholder.svg" },
-  { id: "reporting", title: "Audit-ready reporting", image: "/placeholder.svg" },
-  { id: "alerts", title: "Anomaly alerts", image: "/placeholder.svg" },
-  { id: "energy", title: "Energy-optimized pumps", image: "/placeholder.svg" },
-  { id: "compliance", title: "Compliance dashboards", image: "/placeholder.svg" },
+  { id: "team-11", image: "/team-carousel/Greenvironment_-11.jpg" },
+  { id: "team-17", image: "/team-carousel/Greenvironment_-17.jpg" },
+  { id: "team-2", image: "/team-carousel/Greenvironment_-2.jpg" },
+  { id: "team-21", image: "/team-carousel/Greenvironment_-21.jpg" },
+  { id: "team-24", image: "/team-carousel/Greenvironment_-24.jpg" },
+  { id: "team-26", image: "/team-carousel/Greenvironment_-26.jpg" },
+  { id: "team-3", image: "/team-carousel/Greenvironment_-3.jpg" },
+  { id: "team-32", image: "/team-carousel/Greenvironment_-32.jpg" },
+  { id: "team-33", image: "/team-carousel/Greenvironment_-33.jpg" },
+  { id: "team-34", image: "/team-carousel/Greenvironment_-34.jpg" },
+  { id: "team-37", image: "/team-carousel/Greenvironment_-37.jpg" },
+  { id: "team-38", image: "/team-carousel/Greenvironment_-38.jpg" },
+  { id: "team-9", image: "/team-carousel/Greenvironment_-9.jpg" },
 ];
 
 const ServicesHero = () => {
@@ -95,17 +100,12 @@ const ServicesHero = () => {
                 >
                   <Image
                     src={tile.image}
-                    alt={tile.title}
+                    alt="Greenvironment team"
                     fill
                     sizes="(min-width: 1024px) 200px, 160px"
+                    unoptimized
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent" />
-                  <div className="absolute inset-0 flex items-end">
-                    <div className="w-full px-4 py-3 text-sm font-semibold">
-                      {tile.title}
-                    </div>
-                  </div>
                 </motion.div>
               ))}
             </div>

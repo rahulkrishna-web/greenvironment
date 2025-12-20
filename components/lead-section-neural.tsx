@@ -22,7 +22,7 @@ const LeadSectionNeural = () => {
           transition={{ delay: 0.2, duration: 0.7 }}
           className="w-full max-w-xl order-1 lg:order-2"
         >
-          <div className="relative aspect-video overflow-hidden rounded-2xl ring-1 ring-white/15 bg-black/40">
+          <div className="relative aspect-square overflow-hidden rounded-2xl ring-1 ring-white/15 bg-black/40 lg:mx-auto lg:max-w-[80%]">
             <video
               className="h-full w-full object-cover"
               autoPlay
@@ -30,7 +30,7 @@ const LeadSectionNeural = () => {
               muted
               playsInline
               poster="/og-image.jpg"
-              src="https://res.cloudinary.com/rahulkrishna/video/upload/v1765106802/ge/Flow.mp4"
+              src="https://res.cloudinary.com/rahulkrishna/video/upload/v1766206173/ge/banner_animation_workfile.mp4"
               controls
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-white/10 pointer-events-none" />

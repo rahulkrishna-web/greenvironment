@@ -9,8 +9,6 @@ export default function ServicesPage() {
     <>
       <ServicesHero />
       <ServicesShowcase />
-      <Features />
-      <ServicesProcess />
       <Footer />
     </>
   );

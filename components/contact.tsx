@@ -4,7 +4,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { MailIcon, MapPinIcon, MessageCircle, PhoneIcon } from "lucide-react";
+import { MailIcon, MapPinIcon } from "lucide-react";
 import Link from "next/link";
 
 const Contact = () => (
@@ -31,21 +31,9 @@ const Contact = () => (
             </p>
             <Link
               className="font-medium text-emerald-800"
-              href="mailto:akashmoradiya3444@gmail.com"
+              href="mailto:mail@greenvironmentindia.com"
             >
-              akashmoradiya3444@gmail.com
-            </Link>
-          </div>
-          <div>
-            <div className="h-12 w-12 flex items-center justify-center bg-emerald-100 text-emerald-800 rounded-full">
-              <MessageCircle />
-            </div>
-            <h3 className="mt-6 font-semibold text-xl">Live chat</h3>
-            <p className="my-2.5 text-muted-foreground">
-              Our friendly team is here to help.
-            </p>
-            <Link className="font-medium text-emerald-800" href="#">
-              Start new chat
+              mail@greenvironmentindia.com
             </Link>
           </div>
           <div>
@@ -56,28 +44,9 @@ const Contact = () => (
             <p className="my-2.5 text-muted-foreground">
               Come say hello at our office HQ.
             </p>
-            <Link
-              className="font-medium text-emerald-800"
-              href="https://map.google.com"
-              target="_blank"
-            >
-              100 Smith Street Collingwood <br /> VIC 3066 AU
-            </Link>
-          </div>
-          <div>
-            <div className="h-12 w-12 flex items-center justify-center bg-emerald-100 text-emerald-800 rounded-full">
-              <PhoneIcon />
+            <div className="font-medium text-emerald-800">
+              4th Floor, D-Block, D-403, IIT Madras Research Park, Kanagam Road, Taramani, Chennai - 600113.
             </div>
-            <h3 className="mt-6 font-semibold text-xl">Phone</h3>
-            <p className="my-2.5 text-muted-foreground">
-              Mon-Fri from 8am to 5pm.
-            </p>
-            <Link
-              className="font-medium text-emerald-800"
-              href="tel:akashmoradiya3444@gmail.com"
-            >
-              +1 (555) 000-0000
-            </Link>
           </div>
         </div>
 
