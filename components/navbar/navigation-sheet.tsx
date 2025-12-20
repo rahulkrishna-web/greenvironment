@@ -10,10 +10,10 @@ import {
 } from "@/components/ui/sheet";
 import { VisuallyHidden as VisuallyHiddenPrimitive } from "radix-ui";
 import { Menu } from "lucide-react";
-import { Logo } from "./logo";
 import { NavMenu } from "./nav-menu";
 import Link from "next/link";
 import { NavigationMenuProps } from "@radix-ui/react-navigation-menu";
+import Image from "next/image";
 
 interface NavMenuProps extends NavigationMenuProps {
   onLinkClick?: () => void; // optional callback for closing sheet
@@ -34,7 +34,16 @@ export const NavigationSheet = ({ onLinkClick, ...props }: NavMenuProps) => {
         </Button>
       </SheetTrigger>
       <SheetContent>
-        <Logo />
+        <Link href="/" onClick={handleClose} className="inline-flex">
+          <Image
+            src="/gv-logo.png"
+            alt="Greenvironment logo"
+            width={120}
+            height={35}
+            className="h-6 w-auto"
+            priority
+          />
+        </Link>
         <NavMenu orientation="vertical" className="mt-12" onLinkClick={handleClose} isScrolled />
 
         <div className="mt-8 space-y-4">
