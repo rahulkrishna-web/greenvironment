@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import PageTransition from "@/components/page-transition"; // we'll create this next
-import { Navbar } from "@/components/navbar";
+import PreviewGate from "@/components/preview-gate";
 
 const headingFont = localFont({
   src: [
@@ -53,8 +53,7 @@ export default function RootLayout({
       <body className={`${bodyFont.variable} ${headingFont.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light">
           {/* Page Transition Wrapper */}
-          <Navbar />
-          {children}
+          <PreviewGate>{children}</PreviewGate>
         </ThemeProvider>
         <Analytics/>
       </body>
