@@ -38,7 +38,7 @@ const Navbar = ({ mode = "fixed" }: NavbarProps) => {
     <nav
       className={`left-0 top-0 z-50 h-20 w-full transition-all duration-300 ${navStateClasses}`}
     >
-      <div className="h-full flex items-center gap-6 max-w-(--breakpoint-xl) mx-auto px-4 sm:px-6">
+      <div className="h-full flex items-center gap-6 max-w-(--breakpoint-xl) mx-auto px-6">
         <Link href="/">
           <Image
             src="/gv-logo.png"

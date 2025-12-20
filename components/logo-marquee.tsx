@@ -56,8 +56,8 @@ const LogoMarquee = ({
   logoClassName,
 }: LogoMarqueeProps) => (
   <section className={`relative isolate flex w-full flex-col items-center justify-center py-4 ${className ?? ""}`}>
-    <div className="relative w-full px-0">
-      <div className="flex flex-col items-center gap-2 sm:gap-3 bg-transparent px-2 sm:px-4">
+    <div className="relative w-full">
+      <div className="flex w-full max-w-(--breakpoint-xl) flex-col items-center gap-2 bg-transparent px-6 sm:gap-3 mx-auto">
         <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#0ab8c9]/40 bg-[#0ab8c9]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#02696b]">
           Trusted by
         </div>

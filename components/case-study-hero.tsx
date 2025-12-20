@@ -28,8 +28,8 @@ const CaseStudyHero = () => {
       <div className="absolute inset-0 opacity-30" aria-hidden>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(126,255,191,0.22),transparent_45%)]" />
       </div>
-      <div className="relative max-w-(--breakpoint-xl) w-full flex flex-col-reverse lg:flex-row mx-auto items-center justify-between gap-y-6 gap-x-12 px-6 py-16 lg:py-20">
-        <div className="max-w-2xl space-y-6">
+      <div className="relative max-w-(--breakpoint-xl) w-full flex flex-col lg:flex-row mx-auto items-center justify-between gap-y-6 gap-x-12 px-6 py-16 lg:py-14">
+        <div className="order-1 lg:order-none max-w-2xl space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">
             Case Studies
           </div>
@@ -44,7 +44,7 @@ const CaseStudyHero = () => {
         </div>
 
         {items.length > 0 && (
-          <div className="relative lg:max-w-lg xl:max-w-xl w-full">
+          <div className="order-2 lg:order-none relative lg:max-w-lg xl:max-w-xl w-full">
             <div className="relative aspect-square overflow-hidden rounded-[28px] p-6 flex items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -53,7 +53,7 @@ const CaseStudyHero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -18 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="text-center text-lg sm:text-xl font-semibold text-white/90 leading-relaxed space-y-3"
+                  className="text-center text-base sm:text-lg font-normal text-white/90 leading-relaxed space-y-3"
                 >
                   <p className="text-white/90">"{(items[index] ?? items[0]).quote}"</p>
                   <div className="space-y-1 text-sm text-white/80">

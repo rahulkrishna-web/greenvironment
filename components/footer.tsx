@@ -145,7 +145,7 @@ const Footer = () => {
             </motion.svg>
           </div>
 
-          <div className="relative mx-auto grid max-w-(--breakpoint-xl) gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="relative mx-auto grid max-w-(--breakpoint-xl) gap-10 px-6 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="space-y-6">
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-xl font-extrabold tracking-tight">
@@ -198,7 +198,7 @@ const Footer = () => {
 
           <div className="mt-10 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
-          <div className="mt-6 flex flex-col gap-3 px-4 text-sm text-white/80 sm:px-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-6 flex flex-col gap-3 px-6 text-sm text-white/80 sm:flex-row sm:items-center sm:justify-between">
             <span>
               &copy; {new Date().getFullYear()}{" "}
               <Link href="/" className="font-semibold text-white hover:text-white">

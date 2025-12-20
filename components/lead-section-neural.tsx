@@ -15,7 +15,7 @@ const LeadSectionNeural = () => {
         <NetworkGridBg className="opacity-70" tint="rgba(15,159,149,0.45)" />
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-(--breakpoint-xl) flex-col lg:flex-row items-center justify-between gap-10 px-4 pt-16 pb-12 sm:gap-12 sm:px-6 lg:pt-28 lg:pb-20">
+      <div className="relative z-10 mx-auto flex max-w-(--breakpoint-xl) flex-col lg:flex-row items-center justify-between gap-10 px-6 pt-24 pb-20 sm:gap-12 lg:pt-32 lg:pb-28">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
