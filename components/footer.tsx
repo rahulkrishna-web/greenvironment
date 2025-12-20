@@ -160,19 +160,19 @@ const Footer = () => {
               </p>
 
               <div className="flex items-center gap-3">
-                <Link href="https://www.linkedin.com/company/greenvironmentindia" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
+                <Link href="https://www.linkedin.com/company/greenvironmentindia" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
                   <LinkedinIcon className="h-5 w-5" />
                 </Link>
-                <Link href="https://www.facebook.com/GreenvironmentIndia" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
+                <Link href="https://www.facebook.com/GreenvironmentIndia" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
                   <FacebookIcon className="h-5 w-5" />
                 </Link>
-                <Link href="https://x.com/GreenvironmentI" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
+                <Link href="https://x.com/GreenvironmentI" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
                   <XIcon className="h-5 w-5" />
                 </Link>
-                <Link href="https://www.youtube.com/channel/UC5M7YeDV1hqlbqUkByKLcvw" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
+                <Link href="https://www.youtube.com/channel/UC5M7YeDV1hqlbqUkByKLcvw" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
                   <YoutubeIcon className="h-5 w-5" />
                 </Link>
-                <Link href="https://www.instagram.com/greenvironment_india/" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
+                <Link href="https://www.instagram.com/greenvironment_india/" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-md bg-white/15 text-white transition hover:bg-white/25">
                   <InstagramIcon className="h-5 w-5" />
                 </Link>
               </div>
@@ -185,7 +185,12 @@ const Footer = () => {
                   <ul className="space-y-3 text-white/90">
                     {links.map(({ title, href }) => (
                       <li key={title}>
-                        <Link href={href} className="transition hover:text-white">
+                        <Link
+                          href={href}
+                          className="transition hover:text-white"
+                          target={href.startsWith("http") ? "_blank" : undefined}
+                          rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        >
                           {title}
                         </Link>
                       </li>

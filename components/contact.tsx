@@ -44,8 +44,19 @@ const Contact = () => (
             <p className="my-2.5 text-muted-foreground">
               Come say hello at our office HQ.
             </p>
-            <div className="font-medium text-emerald-800">
-              4th Floor, D-Block, D-403, IIT Madras Research Park, Kanagam Road, Taramani, Chennai - 600113.
+            <div className="space-y-3 text-emerald-800">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">India</p>
+                <p className="font-medium">
+                  5th floor, C-block, C-507, IIT Madras Research Park, Kanagam Road, Taramani, Chennai - 600113.
+                </p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">UAE</p>
+                <p className="font-medium">
+                  Burjuman Office Tower, Mankhool, Dubai UAE.
+                </p>
+              </div>
             </div>
           </div>
         </div>
