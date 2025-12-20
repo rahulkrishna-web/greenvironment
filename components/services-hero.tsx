@@ -96,7 +96,7 @@ const ServicesHero = () => {
                   initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
-                  className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 text-left text-white/90 backdrop-blur aspect-square"
+                  className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 text-left text-white/90 backdrop-blur aspect-[4/3]"
                 >
                   <Image
                     src={tile.image}

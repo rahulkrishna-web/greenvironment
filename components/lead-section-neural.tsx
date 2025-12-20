@@ -1,19 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import NetworkGridBg from "@/components/network-grid-bg";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 const LeadSectionNeural = () => {
   return (
-    <section className="relative isolate flex min-h-[95vh] items-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900 text-white">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(126,255,191,0.18),transparent_45%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(135,206,255,0.16),transparent_40%)]" />
-        <NetworkGridBg className="opacity-70" tint="rgba(15,159,149,0.45)" />
-      </div>
+    <section className="relative isolate flex min-h-[95vh] items-center overflow-hidden bg-gradient-to-br from-emerald-900 via-slate-950 to-slate-900 text-white">
 
       <div className="relative z-10 mx-auto flex max-w-(--breakpoint-xl) flex-col lg:flex-row items-center justify-between gap-10 px-6 pt-24 pb-20 sm:gap-12 lg:pt-32 lg:pb-28">
         <motion.div
@@ -22,7 +16,7 @@ const LeadSectionNeural = () => {
           transition={{ delay: 0.2, duration: 0.7 }}
           className="w-full max-w-xl order-1 lg:order-2"
         >
-          <div className="relative aspect-square overflow-hidden rounded-2xl ring-1 ring-white/15 bg-black/40 lg:mx-auto lg:max-w-[80%]">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-white/15 bg-black/40 lg:mx-auto lg:max-w-[80%]">
             <video
               className="h-full w-full object-cover"
               autoPlay
