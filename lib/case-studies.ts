@@ -14,9 +14,10 @@
 export const caseStudies: CaseStudy[] = [
   {
     slug: "rmz-millenia-chennai",
-    title: "RMZ Millenia, Chennai",
-    summary:
+    title:
       "Greenvironment helps International Business Park drought proof its Chennai facilities, saves thousands of litres of water and lakhs in operating costs",
+    summary:
+      "AI-driven monitoring and reuse upgrades cut freshwater demand and operating costs across the park.",
     industry: "Commercial business park",
     location: "Chennai, India",
     duration: "24 weeks",
@@ -68,9 +69,10 @@ Testimonial:
   },
   {
     slug: "club-mahindra-resorts",
-    title: "Club Mahindra Resorts",
-    summary:
+    title:
       "Hospitality giant partners with Greenvironment to save water across its locations",
+    summary:
+      "IoT water monitoring lifts STP efficiency across 15 resorts and improves reuse.",
     industry: "Hospitality",
     location: "India (multi-site)",
     duration: "15 resorts",
@@ -108,9 +110,10 @@ RTM helps to curtail dependency on fresh water and adds considerable economic be
   },
   {
     slug: "bm-hospital-kerala",
-    title: "BM Hospital, Kerala",
-    summary:
+    title:
       "Hospital cuts freshwater usage by almost half with Greenvironments RTM",
+    summary:
+      "RTM and dosing automation stabilize recycled water quality for safe reuse.",
     industry: "Healthcare",
     location: "Northern Kerala, India",
     duration: "2016-2020",
@@ -141,9 +144,10 @@ Cumulatively, over a span of four years there was 33% reduction in the consumpti
   },
   {
     slug: "central-park-south-chennai",
-    title: "Central Park, South Chennai",
-    summary:
+    title:
       "Chennai residential society cuts freshwater use by over half by optimizing waste water systems",
+    summary:
+      "Process upgrades and monitoring push reuse above half and secure green recognition.",
     industry: "Residential community",
     location: "Chennai, India",
     duration: "2015-2019",
@@ -178,9 +182,10 @@ The Tamil Nadu Pollution Control Board bestowed the prestigious Green Awards to 
   },
   {
     slug: "rajparis-harmony-chennai",
-    title: "Rajparis Harmony, Chennai",
-    summary:
+    title:
       "Residential apartments cut their freshwater bill by 40 lakhs by upgrading their sewage treatment plant",
+    summary:
+      "RTM-led process fixes lower STP operating costs and improve treatment reliability.",
     industry: "Residential community",
     location: "Chennai, India",
     duration: "2018 onward",
@@ -204,9 +209,10 @@ Rs 40 Lakhs annual Saving on fresh water bill`,
   },
   {
     slug: "orion-mall-bengaluru",
-    title: "Orion Mall, Bengaluru",
+    title:
+      "Greenvironment solves of Bangalore's fourth largest mall with its water management system",
     summary:
-      "Greenvironment solves of Bangalore’s fourth largest mall with its water management system",
+      "Real-time monitoring and reuse planning reduce tanker dependence and water spend.",
     industry: "Retail / mall",
     location: "Bengaluru, India",
     duration: "2017-2019",
