@@ -1,10 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import Footer from "@/components/footer";
+﻿import Footer from "@/components/footer";
 import { caseStudies } from "@/lib/case-studies";
 import { ArrowUpRight } from "lucide-react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 type Params = { slug: string };
 
@@ -35,7 +34,7 @@ export default async function CaseStudyDetailPage({
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50/60 to-white flex flex-col">
-      <div className="max-w-(--breakpoint-xl) mx-auto px-6 pt-28 pb-16 lg:pt-32 lg:pb-20 space-y-12 w-full">
+      <div className="max-w-(--breakpoint-xl) mx-auto px-6 pt-28 pb-16 lg:pt-32 lg:pb-20 space-y-10 w-full">
         <header className="space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-800">
             Case study
@@ -57,110 +56,76 @@ export default async function CaseStudyDetailPage({
             ))}
           </div>
           <div className="flex flex-wrap items-center gap-3">
-            <Button asChild className="rounded-full">
-              <Link href="/contact">
-                Talk to our team <ArrowUpRight className="h-5! w-5!" />
-              </Link>
-            </Button>
-            {study.documentHref && (
-              <Button asChild variant="outline" className="rounded-full">
-                <Link href={study.documentHref} target="_blank" rel="noopener noreferrer">
-                  Download case study
-                </Link>
-              </Button>
-            )}
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-emerald-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800"
+            >
+              Talk to our team <ArrowUpRight className="h-5! w-5!" />
+            </Link>
           </div>
         </header>
 
-        <section className="grid gap-6 sm:grid-cols-3">
-          {study.metrics.map((metric) => (
-            <Card key={metric.label} className="border-emerald-100 bg-white/80 backdrop-blur">
-              <CardContent className="p-6 space-y-2">
-                <div className="text-sm uppercase tracking-[0.1em] text-emerald-700">{metric.label}</div>
-                <div className="text-3xl font-bold text-slate-900">{metric.value}</div>
-              </CardContent>
-            </Card>
-          ))}
+        <section className="space-y-6 text-slate-800">
+          {renderBody(study.body)}
         </section>
-
-        <section className="grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
-          <Card className="border-emerald-100 bg-white/90 backdrop-blur">
-            <CardContent className="p-6 space-y-5">
-              <h2 className="text-xl font-semibold tracking-tight text-slate-900">Overview</h2>
-              <div className="space-y-4 text-slate-700">
-                {study.overview.map((paragraph, index) => (
-                  <p key={`overview-${index}`}>{paragraph}</p>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="border-emerald-100 bg-emerald-950 text-white">
-            <CardContent className="p-6 space-y-5">
-              <div className="text-sm uppercase tracking-[0.2em] text-emerald-200">Impact visualization</div>
-              <div className="space-y-4">
-                {study.metrics.map((metric, index) => (
-                  <div key={`viz-${metric.label}`} className="space-y-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="font-medium">{metric.label}</span>
-                      <span className="text-emerald-100">{metric.value}</span>
-                    </div>
-                    <div className="h-2 rounded-full bg-emerald-900/70">
-                      <div
-                        className="h-2 rounded-full bg-gradient-to-r from-emerald-300 via-emerald-200 to-sky-200"
-                        style={{ width: `${70 + index * 10}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="rounded-xl border border-emerald-800/60 bg-emerald-900/50 p-4 text-sm text-emerald-100">
-                Each bar highlights a featured result from the case study dataset.
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        <div className="grid gap-8 lg:grid-cols-[2fr,1fr]">
-          <div className="space-y-6">
-            <DetailBlock title="Challenge" items={study.challenges} />
-            <DetailBlock title="Solution" items={study.solutions} />
-            <DetailBlock title="Outcomes" items={study.outcomes} />
-          </div>
-          {study.testimonial && (
-            <Card className="h-fit border-emerald-100 bg-emerald-900 text-white shadow-lg shadow-emerald-200/30">
-              <CardContent className="p-6 space-y-4">
-                <div className="text-sm uppercase tracking-[0.2em] text-emerald-100">Testimonial</div>
-                <blockquote className="text-xl font-semibold leading-relaxed">
-                  “{study.testimonial.quote}”
-                </blockquote>
-                <div className="text-sm text-emerald-100/90">
-                  <div className="font-semibold">{study.testimonial.author}</div>
-                  <div>{study.testimonial.role}</div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
-        </div>
       </div>
       <Footer />
     </div>
   );
 }
 
-const DetailBlock = ({ title, items }: { title: string; items: string[] }) => {
-  return (
-    <Card className="border-emerald-100 bg-white/90 backdrop-blur">
-      <CardContent className="p-6 space-y-3">
-        <h2 className="text-xl font-semibold tracking-tight text-slate-900">{title}</h2>
-        <ul className="space-y-3 text-slate-700">
-          {items.map((item, index) => (
-            <li key={`${title}-${index}`} className="flex gap-3">
-              <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </CardContent>
-    </Card>
-  );
+const renderBody = (body: string) => {
+  const lines = body.split(/\r?\n/);
+  const blocks: ReactNode[] = [];
+  let listItems: string[] = [];
+
+  const flushList = () => {
+    if (!listItems.length) return;
+    const items = listItems;
+    listItems = [];
+    blocks.push(
+      <ul key={`list-${blocks.length}`} className="list-disc space-y-2 pl-5 text-slate-700">
+        {items.map((item, index) => (
+          <li key={`li-${blocks.length}-${index}`}>{item}</li>
+        ))}
+      </ul>
+    );
+  };
+
+  lines.forEach((line) => {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      flushList();
+      return;
+    }
+
+    const isHeading = /:$/.test(trimmed) && trimmed.length < 40;
+    const isListItem = /^([•●-]|\w\.)\s*/.test(trimmed);
+
+    if (isHeading) {
+      flushList();
+      blocks.push(
+        <h2 key={`heading-${blocks.length}`} className="text-xl font-semibold tracking-tight text-slate-900">
+          {trimmed}
+        </h2>
+      );
+      return;
+    }
+
+    if (isListItem) {
+      const itemText = trimmed.replace(/^([•●-]|\w\.)\s*/, "").trim();
+      listItems.push(itemText.length ? itemText : trimmed);
+      return;
+    }
+
+    flushList();
+    blocks.push(
+      <p key={`p-${blocks.length}`} className="text-slate-700">
+        {trimmed}
+      </p>
+    );
+  });
+
+  flushList();
+  return blocks;
 };
