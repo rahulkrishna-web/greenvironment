@@ -46,13 +46,7 @@ export const NavigationSheet = ({ onLinkClick, ...props }: NavMenuProps) => {
         </Link>
         <NavMenu orientation="vertical" className="mt-12" onLinkClick={handleClose} isScrolled />
 
-        <div className="mt-8 space-y-4">
-          <Link href="/contact" onClick={onLinkClick}>
-          <Button variant="default" className="w-full sm:hidden">
-            CONTACT
-          </Button>
-          </Link>
-        </div>
+        <div className="mt-8 space-y-4" />
       </SheetContent>
     </Sheet>
   );

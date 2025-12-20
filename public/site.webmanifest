@@ -3,9 +3,9 @@
   "short_name": "Shadcn Landing Page",
   "icons": [
     {
-      "src": "/favicon.ico",
+      "src": "/favicon.png",
       "sizes": "48x48",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
       "src": "/apple-touch-icon.png",

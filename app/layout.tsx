@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   title: "Greenvironment | Sustainable Innovation Studio",
   description:
     "Greenvironment partners with purpose-driven brands to design climate-positive experiences, products, and campaigns backed by science.",
+  icons: {
+    icon: "/favicon.png",
+  },
   openGraph: {
     type: "website",
     title: "Greenvironment | Sustainable Innovation Studio",
