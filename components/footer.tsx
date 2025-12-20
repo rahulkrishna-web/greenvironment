@@ -15,27 +15,23 @@ const footerSections = [
         links: [
           {
             title: "About us",
-            href: "#",
+            href: "/about",
           },
           {
             title: "Contact",
-            href: "#",
+            href: "/contact",
           },
         ],
       },
-  {
-    title: "Resources",
-    links: [
       {
-        title: "Case Studies",
-        href: "/case-studies",
+        title: "Resources",
+        links: [
+          {
+            title: "Case Studies",
+            href: "/case-studies",
+          },
+        ],
       },
-      {
-        title: "Newsletter",
-        href: "#",
-      }
-    ],
-  },
   {
     title: "Social",
     links: [
@@ -61,15 +57,15 @@ const footerSections = [
       }
     ],
   },
-  {
-    title: "Legal",
-    links: [
       {
-        title: "Privacy",
-        href: "#",
-      }
-    ],
-  },
+        title: "Legal",
+        links: [
+          {
+            title: "Privacy",
+            href: "/privacy-policy",
+          }
+        ],
+      },
 ];
 
 const XIcon = ({ className = "" }: { className?: string }) => (
@@ -205,7 +201,7 @@ const Footer = () => {
           <div className="mt-6 flex flex-col gap-3 px-4 text-sm text-white/80 sm:px-6 sm:flex-row sm:items-center sm:justify-between">
             <span>
               &copy; {new Date().getFullYear()}{" "}
-              <Link href="#" className="font-semibold text-white hover:text-white">
+              <Link href="/" className="font-semibold text-white hover:text-white">
                 Greenvironment
               </Link>
               . All rights reserved.
