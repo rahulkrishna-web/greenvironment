@@ -5,61 +5,71 @@ import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 
 type Sector =
-  | "Hospitality"
   | "Residential"
-  | "Real Estate"
-  | "Commercial"
+  | "Commercial Real Estate"
+  | "Hospitality"
+  | "Industrial"
   | "Healthcare";
 
 const sectorClients: Record<Sector, { src: string; alt: string }[]> = {
-  Hospitality: [
-    { src: "/clients/marriott logo.png", alt: "Marriott" },
-    { src: "/clients/taj logo.png", alt: "Taj" },
-    { src: "/clients/sheraton logo.png", alt: "Sheraton" },
-    { src: "/clients/novotel logo.png", alt: "Novotel" },
-    { src: "/clients/four seasons logo.png", alt: "Four Seasons" },
-    { src: "/clients/the leela logo.png", alt: "The Leela" },
-  ],
   Residential: [
+    { src: "/clients/brigade group logo.png", alt: "Brigade Group" },
+    { src: "/clients/prestige logo.png", alt: "Prestige" },
+    { src: "/clients/lancor logo.png", alt: "Lancor" },
     { src: "/clients/purvankara logo.png", alt: "Puravankara" },
+  ],
+  "Commercial Real Estate": [
+    { src: "/clients/tcs logo.png", alt: "TCS" },
+    { src: "/clients/amazon logo.png", alt: "Amazon" },
+    { src: "/clients/brookflied logo.png", alt: "Brookfield" },
+    { src: "/clients/capitaland logo.svg", alt: "CapitaLand" },
+    { src: "/clients/nucleus logo.png", alt: "Nucleus Office Parks" },
     { src: "/clients/prestige logo.png", alt: "Prestige" },
     { src: "/clients/brigade group logo.png", alt: "Brigade Group" },
-    { src: "/clients/lancor logo.png", alt: "Lancor" },
-    { src: "/clients/nucleus logo.png", alt: "Nucleus" },
-  ],
-  "Real Estate": [
-    { src: "/clients/embassy logo.png", alt: "Embassy" },
-    { src: "/clients/brookflied logo.png", alt: "Brookfield" },
     { src: "/clients/rmz logo.png", alt: "RMZ" },
-    { src: "/clients/brigade group logo.png", alt: "Brigade Group" },
-    { src: "/clients/mahindra logo.png", alt: "Mahindra Lifespaces" },
+    { src: "/clients/embassy logo.png", alt: "Embassy" },
+    { src: "/clients/bagmane logo.png", alt: "Bagmane" },
   ],
-  Commercial: [
-    { src: "/clients/amazon logo.png", alt: "Amazon" },
-    { src: "/clients/jsw logo.png", alt: "JSW" },
-    { src: "/clients/tcs logo.png", alt: "TCS" },
+  Hospitality: [
+    { src: "/clients/taj logo.png", alt: "Taj" },
+    { src: "/clients/club mahindra logo.png", alt: "Club Mahindra" },
+    { src: "/clients/conrad logo.png", alt: "Conrad" },
+    { src: "/clients/the leela logo.png", alt: "The Leela" },
+    { src: "/clients/ibis logo.png", alt: "Ibis" },
+    { src: "/clients/marriott logo.png", alt: "Marriott" },
+    { src: "/clients/westin logo.svg", alt: "Westin" },
+    { src: "/clients/holiday inn logo.png", alt: "Holiday Inn" },
+    { src: "/clients/novotel logo.png", alt: "Novotel" },
+    { src: "/clients/sheraton logo.png", alt: "Sheraton" },
+  ],
+  Industrial: [
+    { src: "/clients/mahindra logo.png", alt: "Mahindra" },
+    { src: "/clients/ifb logo.png", alt: "IFB Industries" },
+    { src: "/clients/rane logo.png", alt: "Rane" },
     { src: "/clients/danfoss logo.png", alt: "Danfoss" },
+    { src: "/clients/jsw logo.png", alt: "JSW" },
     { src: "/clients/kirloskar logo.png", alt: "Kirloskar" },
+    { src: "/clients/ambuja logo.png", alt: "Ambuja Cement" },
+    { src: "/clients/Bmm logo.png", alt: "BMM" },
+    { src: "/clients/trident logo.png", alt: "Trident Hotels" },
   ],
   Healthcare: [
-    { src: "/clients/apollo hospital logo.png", alt: "Apollo Hospitals" },
-    { src: "/clients/ramaiah hospital logo.png", alt: "Ramaiah Hospital" },
     { src: "/clients/bmh logo.png", alt: "BMH" },
-    { src: "/clients/ifb logo.png", alt: "IFB" },
-    { src: "/clients/ambuja logo.png", alt: "Ambuja" },
+    { src: "/clients/ramaiah hospital logo.png", alt: "Ramaiah Memorial Hospital" },
+    { src: "/clients/apollo hospital logo.png", alt: "Apollo Hospitals" },
   ],
 };
 
 const sectorOrder: Sector[] = [
-  "Hospitality",
   "Residential",
-  "Real Estate",
-  "Commercial",
+  "Commercial Real Estate",
+  "Hospitality",
+  "Industrial",
   "Healthcare",
 ];
 
 export const TrustedClients = () => {
-  const [activeSector, setActiveSector] = useState<Sector>("Hospitality");
+  const [activeSector, setActiveSector] = useState<Sector>("Residential");
   const logos = useMemo(() => sectorClients[activeSector], [activeSector]);
 
   return (
