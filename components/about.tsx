@@ -124,41 +124,43 @@ const About = () => {
       </div>
 
       {/* Our Team */}
-      <section className="mt-16 space-y-8">
-        <motion.div className="space-y-3 text-center" {...fades} transition={{ duration: 0.5 }}>
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Our Team</p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">The people building resilient water systems</h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto">
-            Field engineers, analysts, and program leads who keep every deployment on-track and audit-ready.
-          </p>
-        </motion.div>
+      {false && (
+        <section className="mt-16 space-y-8">
+          <motion.div className="space-y-3 text-center" {...fades} transition={{ duration: 0.5 }}>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Our Team</p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">The people building resilient water systems</h2>
+            <p className="text-muted-foreground max-w-3xl mx-auto">
+              Field engineers, analysts, and program leads who keep every deployment on-track and audit-ready.
+            </p>
+          </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {teamMembers.map((member, idx) => (
-            <motion.div
-              key={member.name}
-              className="rounded-2xl border border-primary/15 bg-white/80 backdrop-blur shadow-sm overflow-hidden"
-              {...fades}
-              transition={{ duration: 0.55, delay: idx * 0.05 }}
-            >
-              <div className="aspect-[4/5] relative bg-gradient-to-br from-emerald-200/40 via-white to-sky-100/40">
-                <Image
-                  src={`/team/${member.image}`}
-                  alt={member.name}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  unoptimized
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-4 text-center space-y-1">
-                <h3 className="text-lg font-semibold text-slate-900">{member.name}</h3>
-                <p className="text-sm text-muted-foreground">{member.role}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {teamMembers.map((member, idx) => (
+              <motion.div
+                key={member.name}
+                className="rounded-2xl border border-primary/15 bg-white/80 backdrop-blur shadow-sm overflow-hidden"
+                {...fades}
+                transition={{ duration: 0.55, delay: idx * 0.05 }}
+              >
+                <div className="aspect-[4/5] relative bg-gradient-to-br from-emerald-200/40 via-white to-sky-100/40">
+                  <Image
+                    src={`/team/${member.image}`}
+                    alt={member.name}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    unoptimized
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 text-center space-y-1">
+                  <h3 className="text-lg font-semibold text-slate-900">{member.name}</h3>
+                  <p className="text-sm text-muted-foreground">{member.role}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Approach steps */}
       <section className="space-y-8">
