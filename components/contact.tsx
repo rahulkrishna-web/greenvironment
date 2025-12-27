@@ -11,10 +11,10 @@ const Contact = () => (
   <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50/60 to-white py-16 pt-28 lg:pt-32">
     <div className="w-full max-w-(--breakpoint-xl) mx-auto px-6 xl:px-0">
       <b className="text-emerald-700 uppercase font-semibold text-sm tracking-[0.18em]">
-        Contact Us
+        For Enquiries and Information 
       </b>
       <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
-        Chat with our friendly team!
+        Get in touch with us.
       </h2>
       <p className="mt-3 text-base sm:text-lg text-muted-foreground max-w-3xl">
         We&apos;d love to hear from you. Please fill out this form or shoot us an email.
