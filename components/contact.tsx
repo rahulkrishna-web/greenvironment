@@ -92,6 +92,14 @@ const Contact = () => (
                   />
                 </div>
                 <div className="col-span-2">
+                  <Label htmlFor="company">Company</Label>
+                  <Input
+                    placeholder="Company"
+                    id="company"
+                    className="mt-2 bg-white h-10 shadow-none"
+                  />
+                </div>
+                <div className="col-span-2">
                   <Label htmlFor="message">Message</Label>
                   <Textarea
                     id="message"

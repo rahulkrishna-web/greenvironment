@@ -20,7 +20,7 @@ interface AchievementsSectionProps {
 
 export default function AchievementsSection({
   items = [
-    { id: 1, icon: "Briefcase", title: "Projects", target: 120, suffix: "+" },
+    { id: 1, icon: "Briefcase", title: "Projects", target: 300, suffix: "+" },
     { id: 2, icon: "CheckBadge", title: "Clients", target: 85, suffix: "+" },
     { id: 3, icon: "Heart", title: "Awards", target: 12, suffix: "" },
   ],
@@ -68,7 +68,6 @@ function AchievementCard({ item }: { item: AchievementItem }) {
   const [count, setCount] = useState<number>(0);
   const ref = useRef<HTMLDivElement | null>(null);
   const controls = useAnimation();
-  const startedRef = useRef<boolean>(false);
 
   useEffect(() => {
     if (!ref.current) return;
@@ -76,10 +75,12 @@ function AchievementCard({ item }: { item: AchievementItem }) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !startedRef.current) {
-            startedRef.current = true;
+          if (entry.isIntersecting) {
+            setCount(0);
             controls.start("visible");
             animateCount(item.target, 1500, setCount);
+          } else {
+            controls.set("hidden");
           }
         });
       },
