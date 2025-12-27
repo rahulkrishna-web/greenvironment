@@ -41,7 +41,7 @@ const LeadSectionNeural = () => {
               Your sustainability goals, met
             </p>
             <h1 className="max-w-3xl text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
-              Water, energy & environmental sustainability systems for modern businesses
+              Water, energy & environmental sustainability systems for buildings and businesses
             </h1>
           </motion.div>
 

@@ -40,9 +40,9 @@ const Contact = () => (
             <div className="h-12 w-12 flex items-center justify-center bg-emerald-100 text-emerald-800 rounded-full">
               <MapPinIcon />
             </div>
-            <h3 className="mt-6 font-semibold text-xl">Office</h3>
+            <h3 className="mt-6 font-semibold text-xl">Offices</h3>
             <p className="my-2.5 text-muted-foreground">
-              Come say hello at our office HQ.
+              Come say hello at Our Office HQ.
             </p>
             <div className="space-y-3 text-emerald-800">
               <div>

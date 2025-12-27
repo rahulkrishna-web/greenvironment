@@ -21,7 +21,7 @@ interface AchievementsSectionProps {
 export default function AchievementsSection({
   items = [
     { id: 1, icon: "Briefcase", title: "Projects", target: 300, suffix: "+" },
-    { id: 2, icon: "CheckBadge", title: "Clients", target: 85, suffix: "+" },
+    { id: 2, icon: "CheckBadge", title: "Clients", target: 300, suffix: "+" },
     { id: 3, icon: "Heart", title: "Awards", target: 12, suffix: "" },
   ],
   className = "",
