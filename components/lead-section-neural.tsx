@@ -41,7 +41,7 @@ const LeadSectionNeural = () => {
               Your sustainability goals, met
             </p>
             <h1 className="max-w-3xl text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
-              Water, energy & environmental sustainability systems for buildings and businesses
+              Intelligent Water & Energy Management Powered by AI & IoT
             </h1>
           </motion.div>
 
@@ -51,7 +51,9 @@ const LeadSectionNeural = () => {
             transition={{ delay: 0.2, duration: 0.7 }}
             className="max-w-2xl text-sm sm:text-lg text-white/85"
           >
-            Monitor, predict, and optimize water and energy usage with live insights and automated actions that help you save resources and protect the planet.
+            Transform how your utilities operate with real-time intelligence, predictive analytics, and automated optimization—delivering measurable efficiency, resilience, and sustainability.
+            <br /><br />
+            Real-time monitoring | Predictive insights | Proven ROI
           </motion.p>
 
           <motion.div
@@ -66,7 +68,7 @@ const LeadSectionNeural = () => {
               className="w-full rounded-full bg-white text-slate-900 hover:bg-slate-100 sm:w-auto lg:w-auto"
             >
               <Link href="/contact">
-                Contact us <ArrowUpRight className="h-5! w-5!" />
+                Schedule a consultation <ArrowUpRight className="h-5! w-5!" />
               </Link>
             </Button>
           </motion.div>

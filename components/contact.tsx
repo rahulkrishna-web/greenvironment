@@ -18,6 +18,7 @@ const Contact = () => (
       </h2>
       <p className="mt-3 text-base sm:text-lg text-muted-foreground max-w-3xl">
         We&apos;d love to hear from you.
+      </p>
       <div className="mt-16 grid lg:grid-cols-2 gap-16 md:gap-10 items-start">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
           <div>
