@@ -17,8 +17,7 @@ const Contact = () => (
         Get in touch with us.
       </h2>
       <p className="mt-3 text-base sm:text-lg text-muted-foreground max-w-3xl">
-        We&apos;d love to hear from you. Please fill out this form or shoot us an email.
-      </p>
+        We&apos;d love to hear from you.
       <div className="mt-16 grid lg:grid-cols-2 gap-16 md:gap-10 items-start">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
           <div>
@@ -40,7 +39,7 @@ const Contact = () => (
             <div className="h-12 w-12 flex items-center justify-center bg-emerald-100 text-emerald-800 rounded-full">
               <MapPinIcon />
             </div>
-            <h3 className="mt-6 font-semibold text-xl">Offices</h3>
+            <h3 className="mt-6 font-semibold text-xl">Our Office HQ</h3>
             <p className="my-2.5 text-muted-foreground">
               Come say hello at Our Office HQ.
             </p>

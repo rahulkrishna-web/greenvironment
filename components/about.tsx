@@ -27,7 +27,6 @@ const pillars = [
 const metrics = [
   { label: "Years operating", value: 12, suffix: "+" },
   { label: "Water savings", value: 40, suffix: "%", hint: "Typical range 22–40%" },
-  { label: "Campuses monitored", value: 150, suffix: "+" },
   { label: "Clients", value: 300, suffix: "+" },
 ];
 
