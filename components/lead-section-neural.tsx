@@ -37,9 +37,6 @@ const LeadSectionNeural = () => {
             transition={{ delay: 0.1, duration: 0.7 }}
             className="space-y-2"
           >
-            <p className="text-xs sm:text-sm uppercase tracking-[0.22em] text-white/70">
-              Your sustainability goals, met
-            </p>
             <h1 className="max-w-3xl text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
               Intelligent Water & Energy Management Powered by AI & IoT
             </h1>
