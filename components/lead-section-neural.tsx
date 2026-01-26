@@ -7,74 +7,76 @@ import Link from "next/link";
 
 const LeadSectionNeural = () => {
   return (
-    <section className="relative isolate flex min-h-[95vh] items-center overflow-hidden bg-gradient-to-br from-emerald-900 via-slate-950 to-slate-900 text-white">
+    <section className="relative isolate flex min-h-[95vh] w-full items-center justify-center overflow-hidden bg-slate-950 text-white">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          className="h-full w-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/og-image.jpg"
+          src="https://res.cloudinary.com/rahulkrishna/video/upload/v1766206173/ge/banner_animation_workfile.mp4"
+        />
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-900/30" />
+      </div>
 
-      <div className="relative z-10 mx-auto flex max-w-(--breakpoint-xl) flex-col lg:flex-row items-center justify-between gap-10 px-6 pt-24 pb-20 sm:gap-12 lg:pt-32 lg:pb-28">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-center gap-8 px-6 py-24 text-center sm:px-12 lg:py-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.7 }}
-          className="w-full max-w-xl order-1 lg:order-2"
+          transition={{ delay: 0.1, duration: 0.7 }}
+          className="space-y-4"
         >
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-white/15 bg-black/40 lg:mx-auto lg:max-w-[80%]">
-            <video
-              className="h-full w-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              poster="/og-image.jpg"
-              src="https://res.cloudinary.com/rahulkrishna/video/upload/v1766206173/ge/banner_animation_workfile.mp4"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-white/10 pointer-events-none" />
-          </div>
+          <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-[55px] text-balance">
+            Intelligent Water & Energy Management Powered by AI & IoT
+          </h1>
         </motion.div>
 
-        <div className="flex flex-col items-start text-left gap-6 max-w-2xl order-2 lg:order-1">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.7 }}
-            className="space-y-2"
-          >
-            <h1 className="max-w-3xl text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
-              Intelligent Water & Energy Management Powered by AI & IoT
-            </h1>
-          </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.7 }}
+          className="max-w-2xl text-base font-medium text-white/90 sm:text-xl lg:text-2xl text-balance"
+        >
+          Transform how your utilities operate with real-time intelligence,
+          predictive analytics, and automated optimization—delivering measurable
+          efficiency, resilience, and sustainability.
+        </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.7 }}
-            className="max-w-2xl text-sm sm:text-lg text-white/85"
-          >
-            Transform how your utilities operate with real-time intelligence, predictive analytics, and automated optimization—delivering measurable efficiency, resilience, and sustainability.
-            <br /><br />
-            Real-time monitoring | Predictive insights | Proven ROI
-          </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          className="text-sm uppercase tracking-widest text-emerald-300/90 font-semibold"
+        >
+          Real-time monitoring | Predictive insights | Proven ROI
+        </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.7 }}
-            className="flex w-full max-w-md flex-col items-start justify-start gap-3 sm:max-w-none sm:flex-row sm:gap-4"
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.7 }}
+          className="flex flex-col items-center justify-center gap-4 sm:flex-row"
+        >
+          <Button
+            asChild
+            size="lg"
+            className="rounded-full bg-emerald-500 text-white hover:bg-emerald-600 border-none px-8 py-6 text-lg font-semibold shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] transition-all duration-300"
           >
-            <Button
-              asChild
-              size="lg"
-              className="w-full rounded-full bg-white text-slate-900 hover:bg-slate-100 sm:w-auto lg:w-auto"
-            >
-              <Link href="/contact">
-                Schedule a consultation <ArrowUpRight className="h-5! w-5!" />
-              </Link>
-            </Button>
-          </motion.div>
-        </div>
+            <Link href="/contact">
+              Schedule a consultation <ArrowUpRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+        </motion.div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-[-1px] text-background">
+      <div className="absolute inset-x-0 bottom-[-1px] z-20 text-background">
         <svg
-          className="h-24 w-full"
+          className="h-16 w-full sm:h-24"
           viewBox="0 0 1440 120"
           preserveAspectRatio="none"
           aria-hidden="true"
@@ -88,12 +90,16 @@ const LeadSectionNeural = () => {
                 "M0,44 C380,136 1100,-44 1440,18 L1440,120 L0,120 Z",
               ],
             }}
-            transition={{ duration: 12, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              repeatType: "mirror",
+              ease: "easeInOut",
+            }}
             className="fill-current"
           />
         </svg>
       </div>
-
     </section>
   );
 };
