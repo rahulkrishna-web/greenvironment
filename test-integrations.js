@@ -23,24 +23,28 @@ try {
 }
 
 // 2. Google Sheets Test
+// 2. Google Sheets Test
 async function testGoogleSheets() {
     console.log('\n--- Testing Google Sheets ---');
     try {
-        // If GOOGLE_APPLICATION_CREDENTIALS is relative, make it absolute for the library
-        if (process.env.GOOGLE_APPLICATION_CREDENTIALS && !path.isAbsolute(process.env.GOOGLE_APPLICATION_CREDENTIALS)) {
-            process.env.GOOGLE_APPLICATION_CREDENTIALS = path.resolve(__dirname, process.env.GOOGLE_APPLICATION_CREDENTIALS);
-        }
-
-        console.log(`Using credentials from: ${process.env.GOOGLE_APPLICATION_CREDENTIALS}`);
-
+        const jsonCreds = process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON;
         const sheetId = process.env.GOOGLE_SHEET_ID;
 
-        if (!sheetId) {
-            console.error('MISSING: GOOGLE_SHEET_ID');
+        if (!jsonCreds || !sheetId) {
+            console.error('MISSING: GOOGLE_APPLICATION_CREDENTIALS_JSON or GOOGLE_SHEET_ID');
+            return;
+        }
+
+        let credentials;
+        try {
+            credentials = JSON.parse(jsonCreds);
+        } catch (e) {
+            console.error('JSON Parse Error for Credentials:', e.message);
             return;
         }
 
         const auth = new google.auth.GoogleAuth({
+            credentials,
             scopes: ['https://www.googleapis.com/auth/spreadsheets'],
         });
 
@@ -52,13 +56,16 @@ async function testGoogleSheets() {
             range: 'Sheet1!A:E',
             valueInputOption: 'USER_ENTERED',
             requestBody: {
-                values: [[new Date().toISOString(), 'TEST USER', 'test@example.com', 'Test Corp', 'Integration Test']],
+                values: [[new Date().toISOString(), 'DEBUG USER', 'debug@test.com', 'Debug Corp', 'Integration Debug']],
             },
         });
 
         console.log('✅ SUCCESS: Appended row to Google Sheet');
     } catch (error) {
         console.error('❌ FAILED: Google Sheets error:', error.message);
+        if (error.response) {
+            console.error('API Response:', JSON.stringify(error.response.data, null, 2));
+        }
     }
 }
 
