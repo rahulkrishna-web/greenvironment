@@ -3,7 +3,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { caseStudies } from "@/lib/case-studies";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -132,7 +131,11 @@ const PlaceholderTexture = () => (
   </div>
 );
 
-const CaseStudies = () => {
+import { CaseStudy } from "@/lib/case-studies";
+
+// ... (PlaceholderTexture logic remains same)
+
+const CaseStudies = ({ items }: { items: CaseStudy[] }) => {
   return (
     <section id="case-studies" className="max-w-(--breakpoint-xl) mx-auto py-16 px-6 xl:px-0">
       <div className="flex flex-col items-center gap-3 text-center">
@@ -146,7 +149,7 @@ const CaseStudies = () => {
       </div>
 
       <div className="mt-14 space-y-12">
-        {caseStudies.map((study, idx) => {
+        {items.map((study, idx) => {
           const imageLeft = idx % 2 === 0;
           return (
             <Card
@@ -193,7 +196,7 @@ const CaseStudies = () => {
   );
 };
 
-const CaseImage = ({ study, idx }: { study: (typeof caseStudies)[number]; idx: number }) => {
+const CaseImage = ({ study, idx }: { study: CaseStudy; idx: number }) => {
   const [hasError, setHasError] = useState(false);
   const showImage = Boolean(study.image) && !hasError;
   const imageSrc = study.image ?? "";

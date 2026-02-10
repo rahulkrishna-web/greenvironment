@@ -1,25 +1,27 @@
 ﻿import Footer from "@/components/footer";
-import { caseStudies } from "@/lib/case-studies";
+import { getCaseStudyBySlug, getStrapiURL } from "@/lib/strapi";
 import { ArrowUpRight } from "lucide-react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { StrapiBlocksRenderer } from "@/components/StrapiBlocksRenderer";
+import Image from "next/image";
+
+export const revalidate = 60; // Revalidate every 60 seconds
 
 type Params = { slug: string };
 
-export function generateStaticParams() {
-  return caseStudies.map((study) => ({ slug: study.slug }));
-}
-
 export async function generateMetadata({ params }: { params: Promise<Params> | Params }) {
   const resolvedParams = params instanceof Promise ? await params : params;
-  const study = caseStudies.find((item) => item.slug === resolvedParams.slug);
+  const strapiData = await getCaseStudyBySlug(resolvedParams.slug);
 
-  if (!study) return {};
+  if (!strapiData?.data?.[0]) return {};
+
+  const study = strapiData.data[0];
+  const attr = study.attributes || study;
 
   return {
-    title: `${study.title} | Case Study`,
-    description: study.summary,
+    title: `${attr.title} | Case Study`,
+    description: attr.summary,
   };
 }
 
@@ -29,8 +31,13 @@ export default async function CaseStudyDetailPage({
   params: Promise<Params> | Params;
 }) {
   const resolvedParams = params instanceof Promise ? await params : params;
-  const study = caseStudies.find((item) => item.slug === resolvedParams.slug);
-  if (!study) return notFound();
+  const strapiData = await getCaseStudyBySlug(resolvedParams.slug);
+
+  if (!strapiData?.data?.[0]) return notFound();
+
+  const study = strapiData.data[0];
+  const attr = study.attributes || study;
+  const heroImage = attr.heroImage?.url || attr.heroImage?.data?.attributes?.url;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50/60 to-white flex flex-col">
@@ -41,12 +48,12 @@ export default async function CaseStudyDetailPage({
           </div>
           <div className="space-y-3">
             <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight text-slate-900">
-              {study.title}
+              {attr.title}
             </h1>
-            <p className="max-w-3xl text-lg text-muted-foreground">{study.summary}</p>
+            <p className="max-w-3xl text-lg text-muted-foreground">{attr.summary}</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            {[study.industry, study.location, study.duration].map((pill) => (
+            {[attr.industry, attr.location, attr.duration].map((pill: string) => (
               <span
                 key={pill}
                 className="rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-emerald-100"
@@ -62,70 +69,41 @@ export default async function CaseStudyDetailPage({
             >
               Talk to our team <ArrowUpRight className="h-5! w-5!" />
             </Link>
+            {attr.pdf && (attr.pdf.url || attr.pdf.data?.attributes?.url) && (
+              <a
+                href={getStrapiURL(attr.pdf.url || attr.pdf.data?.attributes?.url)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-5 py-3 text-sm font-semibold text-emerald-900 transition hover:bg-emerald-50"
+              >
+                Download Case Study <ArrowUpRight className="h-5! w-5!" />
+              </a>
+            )}
           </div>
         </header>
 
+        {heroImage && (
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src={getStrapiURL(heroImage)}
+              alt={attr.title}
+              fill
+              className="object-cover"
+            />
+          </div>
+        )}
+
         <section className="space-y-6 text-slate-800">
-          {renderBody(study.body)}
+          {Array.isArray(attr.content) ? (
+            <div className="prose prose-lg prose-slate max-w-none">
+              <StrapiBlocksRenderer blocks={attr.content} />
+            </div>
+          ) : (
+            <div className="prose prose-lg prose-slate max-w-none" dangerouslySetInnerHTML={{ __html: attr.body }} />
+          )}
         </section>
       </div>
       <Footer />
     </div>
   );
 }
-
-const renderBody = (body: string) => {
-  const lines = body.split(/\r?\n/);
-  const blocks: ReactNode[] = [];
-  let listItems: string[] = [];
-
-  const flushList = () => {
-    if (!listItems.length) return;
-    const items = listItems;
-    listItems = [];
-    blocks.push(
-      <ul key={`list-${blocks.length}`} className="list-disc space-y-2 pl-5 text-slate-700">
-        {items.map((item, index) => (
-          <li key={`li-${blocks.length}-${index}`}>{item}</li>
-        ))}
-      </ul>
-    );
-  };
-
-  lines.forEach((line) => {
-    const trimmed = line.trim();
-    if (!trimmed) {
-      flushList();
-      return;
-    }
-
-    const isHeading = /:$/.test(trimmed) && trimmed.length < 40;
-    const isListItem = /^([•●-]|\w\.)\s*/.test(trimmed);
-
-    if (isHeading) {
-      flushList();
-      blocks.push(
-        <h2 key={`heading-${blocks.length}`} className="text-xl font-semibold tracking-tight text-slate-900">
-          {trimmed}
-        </h2>
-      );
-      return;
-    }
-
-    if (isListItem) {
-      const itemText = trimmed.replace(/^([•●-]|\w\.)\s*/, "").trim();
-      listItems.push(itemText.length ? itemText : trimmed);
-      return;
-    }
-
-    flushList();
-    blocks.push(
-      <p key={`p-${blocks.length}`} className="text-slate-700">
-        {trimmed}
-      </p>
-    );
-  });
-
-  flushList();
-  return blocks;
-};
