@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CountUp } from "@/components/ui/count-up";
 import { motion } from "framer-motion";
 import { Check, Navigation, Radar, Sparkles, ShieldCheck, ArrowRight, ArrowDown } from "lucide-react";
+import Link from "next/link";
 import { ValuePropositionSection } from "@/components/what-we-do-options";
 
 const pillars = [
@@ -249,9 +250,11 @@ const About = () => {
             We deliver dashboards, alerts, and audit-ready reports—so sustainability, ops, and finance teams stay aligned on outcomes.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Button className="rounded-full bg-white text-slate-900 hover:bg-slate-100">
-              Explore case studies
-            </Button>
+            <Link href="/case-studies">
+              <Button className="rounded-full bg-white text-slate-900 hover:bg-slate-100 transition-colors">
+                Explore case studies
+              </Button>
+            </Link>
           </div>
         </div>
         <Card className="border-white/15 bg-white/5 backdrop-blur shadow-lg">
