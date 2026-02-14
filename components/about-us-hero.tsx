@@ -25,8 +25,11 @@ const AboutUsHero = () => {
               About Greenvironment
             </h1>
             <p className="max-w-[60ch] xs:text-lg text-white/85">
-              Greenvironment is a global water & environmental sustainability company delivering integrated IoT- and AI-driven
-              real-time monitoring solutions for water and energy management across buildings and businesses.
+              Greenvironment is a global provider of intelligent water and energy management solutions, supporting
+organizations across diverse geographies and sectors.
+Our platforms integrate field instrumentation, secure cloud infrastructure, and advanced analytics to
+deliver continuous visibility and control over water and energy systems.
+Greenvironment operates globally through its legal entities and partners with clients worldwide.
             </p>
           </div>
         </motion.div>

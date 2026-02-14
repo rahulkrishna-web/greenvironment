@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { Check, Navigation, Radar, Sparkles, ShieldCheck, ArrowRight, ArrowDown } from "lucide-react";
 import Link from "next/link";
 import { ValuePropositionSection } from "@/components/what-we-do-options";
+import { MissionVision } from "@/components/mission-vision";
 
 const pillars = [
   {
@@ -28,7 +29,8 @@ const pillars = [
 const metrics = [
   { label: "Years operating", value: 12, suffix: "+" },
   { label: "Water savings", value: 40, suffix: "%", hint: "Typical range 22–40%" },
-  { label: "Clients", value: 300, suffix: "+" },
+  { label: "Projects Completed", value: 400, suffix: "+" },
+  { label: "Clients", value: 175, suffix: "+" },
 ];
 
 const approach = [
@@ -93,8 +95,7 @@ const About = () => {
               Building resilient water systems for cities, campuses, and enterprises.
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl">
-              We combine IoT sensing, AI-powered analytics, and on-site automation to drought-proof facilities,
-              reclaim more water, and cut operating costs without disrupting daily work.
+              We combine IoT sensing, AI-powered analytics, and on-site automation to drought-proof facilities, reclaim more water, and cut operating costs without disrupting daily work.
             </p>
           </div>
         </div>
@@ -118,6 +119,8 @@ const About = () => {
           </CardContent>
         </Card>
       </motion.section>
+
+      <MissionVision />
 
       <div className="mt-12 px-6 sm:px-6 md:px-0">
         <ValuePropositionSection />

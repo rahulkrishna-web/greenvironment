@@ -83,9 +83,9 @@ const Contact = () => {
               </p>
               <Link
                 className="font-medium text-emerald-800"
-                href="mailto:sales@greenvironmentindia.com"
+                href="mailto:sales@greenvironment.ai"
               >
-                sales@greenvironmentindia.com
+                sales@greenvironment.ai
               </Link>
             </div>
             <div>
