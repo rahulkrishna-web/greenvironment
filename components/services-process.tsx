@@ -33,7 +33,7 @@ export const ServicesProcess = () => {
     <section className="max-w-(--breakpoint-xl) mx-auto w-full px-6 py-16 lg:py-20">
       <motion.div className="space-y-3 text-center" {...fades} transition={{ duration: 0.6 }}>
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">How we work</p>
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">A service model built around uptime</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">A solutions model built around uptime</h2>
         <p className="text-muted-foreground max-w-3xl mx-auto">
           We sequence improvements to avoid downtime—delivering quick wins first, then layering automation and reporting.
         </p>

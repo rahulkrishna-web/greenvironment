@@ -66,7 +66,7 @@ const ServicesShowcase = () => {
         <motion.div className="space-y-3 text-center" {...fades} transition={{ duration: 0.6 }}>
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">What we deliver</p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-            Services built for reliability and proof
+            Solutions built for reliability and proof
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto">
             A mix of automation, oversight, and reporting so every site stays compliant, efficient, and audit-ready.

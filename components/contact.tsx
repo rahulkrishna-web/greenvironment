@@ -15,6 +15,7 @@ const Contact = () => {
     firstName: "",
     lastName: "",
     email: "",
+    mobile: "",
     company: "",
     message: "",
   });
@@ -37,6 +38,7 @@ const Contact = () => {
         body: JSON.stringify({
           name: `${formData.firstName} ${formData.lastName}`.trim(),
           email: formData.email,
+          mobile: formData.mobile,
           company: formData.company,
           message: formData.message,
         }),
@@ -49,7 +51,7 @@ const Contact = () => {
       }
 
       setStatus("success");
-      setFormData({ firstName: "", lastName: "", email: "", company: "", message: "" });
+      setFormData({ firstName: "", lastName: "", email: "", mobile: "", company: "", message: "" });
     } catch (error) {
       setStatus("error");
       setErrorMessage(error instanceof Error ? error.message : "Something went wrong");
@@ -60,14 +62,15 @@ const Contact = () => {
     <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50/60 to-white py-16 pt-28 lg:pt-32">
       <div className="w-full max-w-(--breakpoint-xl) mx-auto px-6 xl:px-0">
         <b className="text-emerald-700 uppercase font-semibold text-sm tracking-[0.18em]">
-          For Enquiries and Information
+          Contact Us
         </b>
         <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
-          Get in touch with us.
+          Ready to improve water and energy performance?
         </h2>
         <p className="mt-3 text-base sm:text-lg text-muted-foreground max-w-3xl">
-          We&apos;d love to hear from you.
+          Connect with Greenenvironment to explore how intelligent systems can support your operational and sustainability goals.
         </p>
+
         <div className="mt-16 grid lg:grid-cols-2 gap-16 md:gap-10 items-start">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
             <div>
@@ -80,9 +83,9 @@ const Contact = () => {
               </p>
               <Link
                 className="font-medium text-emerald-800"
-                href="mailto:mail@greenvironmentindia.com"
+                href="mailto:sales@greenvironmentindia.com"
               >
-                mail@greenvironmentindia.com
+                sales@greenvironmentindia.com
               </Link>
             </div>
             <div>
@@ -94,6 +97,12 @@ const Contact = () => {
                 Come say hello at Our Office HQ.
               </p>
               <div className="space-y-3 text-emerald-800">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Greenenvironment</p>
+                  <p className="font-medium">
+                    Greenenvironment Innovation & Marketing India Pvt. Ltd.
+                  </p>
+                </div>
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Phone</p>
                   <p className="font-medium">
@@ -142,7 +151,19 @@ const Contact = () => {
                       onChange={handleChange}
                     />
                   </div>
-                  <div className="col-span-2">
+                  <div className="col-span-2 sm:col-span-1">
+                    <Label htmlFor="mobile">Mobile Number</Label>
+                    <Input
+                      type="tel"
+                      placeholder="Mobile Number"
+                      id="mobile"
+                      className="mt-2 bg-white h-10 shadow-none"
+                      value={formData.mobile}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="col-span-2 sm:col-span-1">
                     <Label htmlFor="email">Email</Label>
                     <Input
                       type="email"

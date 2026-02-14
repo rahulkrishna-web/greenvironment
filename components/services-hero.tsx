@@ -71,11 +71,11 @@ const ServicesHero = () => {
       <div className="relative max-w-(--breakpoint-xl) w-full flex flex-col-reverse lg:flex-row mx-auto items-center justify-between gap-y-6 gap-x-12 px-6 py-16 lg:py-20">
         <motion.div className="max-w-2xl space-y-6" {...fades} transition={{ duration: 0.7 }}>
           <Badge variant="outline" className="rounded-full border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
-            Services
+            Solutions
           </Badge>
           <div className="space-y-4">
             <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-5xl font-bold leading-[1.15] tracking-tight">
-              Service model built around uptime and proof
+              Solutions model built around uptime and proof
             </h1>
             <p className="text-base sm:text-lg text-white/80 max-w-3xl">
               See how we design, deploy, and operate water and sustainability programs—combining sensing, automation, and reporting so every site stays resilient and audit-ready.

@@ -53,7 +53,7 @@ const Features = () => {
         transition={{ duration: 0.6 }}
       >
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">What we deliver</p>
-        <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold tracking-tight">Services built for water resilience</h2>
+        <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold tracking-tight">Solutions built for water resilience</h2>
         <p className="text-muted-foreground">
           From baseline assessments to automated treatment and reuse, we align sustainability, ops, and finance around measurable outcomes.
         </p>
