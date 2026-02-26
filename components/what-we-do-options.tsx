@@ -67,7 +67,7 @@ export const WhatWeDoEditorialBlocks = () => (
 export const ValuePropositionSection = () => (
   <EditorialSection
     label="Value Proposition"
-    title="Why partners choose Greenvironment"
+    title="Why Greenvironment"
     description="Proof points that show how our strategy-to-execution model delivers measurable sustainability outcomes with speed."
   />
 );
