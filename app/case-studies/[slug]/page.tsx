@@ -17,11 +17,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> | P
   if (!strapiData?.data?.[0]) return {};
 
   const study = strapiData.data[0];
-  const attr = study.attributes || study;
 
   return {
-    title: `${attr.title} | Case Study`,
-    description: attr.summary,
+    title: `${study.title} | Case Study`,
+    description: study.summary,
   };
 }
 
@@ -36,8 +35,7 @@ export default async function CaseStudyDetailPage({
   if (!strapiData?.data?.[0]) return notFound();
 
   const study = strapiData.data[0];
-  const attr = study.attributes || study;
-  const heroImage = attr.heroImage?.url || attr.heroImage?.data?.attributes?.url;
+  const heroImage = study.heroImage?.url || study.heroImage?.data?.attributes?.url || null;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50/60 to-white flex flex-col">
@@ -48,12 +46,12 @@ export default async function CaseStudyDetailPage({
           </div>
           <div className="space-y-3">
             <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight text-slate-900">
-              {attr.title}
+              {study.title}
             </h1>
-            <p className="max-w-3xl text-lg text-muted-foreground">{attr.summary}</p>
+            <p className="max-w-3xl text-lg text-muted-foreground">{study.summary}</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            {[attr.industry, attr.location, attr.duration].map((pill: string) => (
+            {[study.industry, study.location, study.duration].map((pill: string) => (
               <span
                 key={pill}
                 className="rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-emerald-100"
@@ -69,9 +67,9 @@ export default async function CaseStudyDetailPage({
             >
               Talk to our team <ArrowUpRight className="h-5! w-5!" />
             </Link>
-            {attr.pdf && (attr.pdf.url || attr.pdf.data?.attributes?.url) && (
+            {study.pdf && (study.pdf.url || study.pdf.data?.attributes?.url) && (
               <a
-                href={getStrapiURL(attr.pdf.url || attr.pdf.data?.attributes?.url)}
+                href={getStrapiURL(study.pdf.url || study.pdf.data?.attributes?.url)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-5 py-3 text-sm font-semibold text-emerald-900 transition hover:bg-emerald-50"
@@ -86,7 +84,7 @@ export default async function CaseStudyDetailPage({
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg">
             <Image
               src={getStrapiURL(heroImage)}
-              alt={attr.title}
+              alt={study.title}
               fill
               className="object-cover"
             />
@@ -94,12 +92,12 @@ export default async function CaseStudyDetailPage({
         )}
 
         <section className="space-y-6 text-slate-800">
-          {Array.isArray(attr.content) ? (
+          {Array.isArray(study.content) ? (
             <div className="prose prose-lg prose-slate max-w-none">
-              <StrapiBlocksRenderer blocks={attr.content} />
+              <StrapiBlocksRenderer blocks={study.content} />
             </div>
           ) : (
-            <div className="prose prose-lg prose-slate max-w-none" dangerouslySetInnerHTML={{ __html: attr.body }} />
+            <div className="prose prose-lg prose-slate max-w-none" dangerouslySetInnerHTML={{ __html: study.body }} />
           )}
         </section>
       </div>

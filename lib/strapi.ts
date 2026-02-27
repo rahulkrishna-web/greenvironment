@@ -163,16 +163,22 @@ export async function getCaseStudyBySlug(slug: string) {
         throw new Error("The Strapi API Token environment variable is not set.");
     }
 
-    const path = `/case-studies`;
-    const urlParamsObject = {
-        filters: { slug },
-        populate: {
-            heroImage: true,
-            metrics: true,
-            pdf: true,
-        },
-    };
+    const apiUrl = process.env.STRAPI_API_URL || "http://localhost:1337";
+    // Note: Strapi v4 does NOT support comma-separated populate. Use populate=* to populate all relations.
+    // Also: filter key brackets must be literal (not URL-encoded %5B%5D)
+    const url = `${apiUrl}/api/case-studies?filters[slug]=${slug}&populate=*`;
 
-    const data = await fetchAPI(path, urlParamsObject);
-    return data;
+    try {
+        const response = await fetch(url, {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+            cache: "no-store",
+        });
+        return await response.json();
+    } catch (error) {
+        console.error("getCaseStudyBySlug error:", error);
+        return null;
+    }
 }
