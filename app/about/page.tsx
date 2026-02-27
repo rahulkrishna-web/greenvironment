@@ -1,7 +1,7 @@
 import About from "@/components/about";
 import AboutUsHero from "@/components/about-us-hero";
 import Footer from "@/components/footer";
-import { RealMapView } from "@/components/global-expansion/real-map-view";
+import { TimelineView } from "@/components/global-expansion/timeline-view";
 import { AboutCta } from "@/components/about-cta";
 
 export default function AboutPage() {
@@ -9,7 +9,7 @@ export default function AboutPage() {
     <>
       <AboutUsHero />
       <About />
-      <RealMapView />
+      <TimelineView />
       <AboutCta />
       <Footer />
     </>

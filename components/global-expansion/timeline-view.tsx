@@ -70,7 +70,7 @@ export const TimelineView = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.2, duration: 0.5 }}
-                className="relative pt-4 md:pt-16"
+                className="relative pt-20 md:pt-24"
               >
                 {/* Timeline Node */}
                 <div className={`absolute top-0 left-0 md:left-1/2 md:-translate-x-1/2 w-16 h-16 flex items-center justify-center rounded-full bg-white border-4 ${phase.borderColor} shadow-sm z-10`}>
