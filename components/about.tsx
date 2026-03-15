@@ -130,15 +130,21 @@ const About = () => {
               {...fades}
               transition={{ duration: 0.55, delay: idx * 0.05 }}
             >
-              <div className="aspect-[4/5] relative bg-gradient-to-br from-emerald-200/40 via-white to-sky-100/40">
-                <Image
-                  src={`/team/${member.image}`}
-                  alt={member.name}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  unoptimized
-                  className="object-cover"
-                />
+              <div className="aspect-[4/5] relative bg-gradient-to-br from-emerald-200/40 via-white to-sky-100/40 overflow-hidden">
+                <motion.div 
+                  className="h-full w-full"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  <Image
+                    src={`/team/${member.image}`}
+                    alt={member.name}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    unoptimized
+                    className="object-cover"
+                  />
+                </motion.div>
               </div>
               <div className="p-4 text-center space-y-1">
                 <h3 className="text-lg font-semibold text-slate-900">{member.name}</h3>
