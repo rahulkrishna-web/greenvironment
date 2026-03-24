@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-export async function sendNotificationEmail(data: { name: string; email: string; company: string; message: string }) {
+export async function sendNotificationEmail(data: { name: string; email: string; mobile?: string; company: string; sector?: string; message: string }) {
     try {
         if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
             console.log('SMTP credentials not found, skipping email notification.');
@@ -20,21 +20,25 @@ export async function sendNotificationEmail(data: { name: string; email: string;
         const mailOptions = {
             from: process.env.SMTP_FROM,
             to: process.env.SMTP_TO,
-            subject: `New Contact Form Submission from ${data.name}`,
+            subject: `New Consultation Request from ${data.name}`,
             text: `
         Name: ${data.name}
         Email: ${data.email}
+        Phone: ${data.mobile || 'N/A'}
         Company: ${data.company}
+        Sector: ${data.sector || 'N/A'}
         
-        Message:
+        Requirements:
         ${data.message}
       `,
             html: `
-        <h2>New Contact Form Submission</h2>
+        <h2>New Consultation Request</h2>
         <p><strong>Name:</strong> ${data.name}</p>
         <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Phone:</strong> ${data.mobile || 'N/A'}</p>
         <p><strong>Company:</strong> ${data.company}</p>
-        <p><strong>Message:</strong></p>
+        <p><strong>Sector:</strong> ${data.sector || 'N/A'}</p>
+        <p><strong>Requirements:</strong></p>
         <p>${data.message.replace(/\n/g, '<br>')}</p>
       `,
         };

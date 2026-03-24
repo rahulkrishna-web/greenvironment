@@ -6,7 +6,7 @@ import { createStrapiEntry } from '@/lib/strapi';
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { name, email, mobile, company, message } = body;
+        const { name, email, mobile, company, sector, message } = body;
 
         if (!name || !email || !mobile) {
             return NextResponse.json(
@@ -20,12 +20,13 @@ export async function POST(request: Request) {
             email,
             mobile,
             company: company || 'N/A',
+            sector: sector || 'N/A',
             message: message || '',
         };
 
         // Execute integrations in parallel
         const [sheetResult, emailResult, strapiResult] = await Promise.all([
-            appendToSheet([data.name, data.mobile, data.email, data.company, data.message]),
+            appendToSheet([data.name, data.mobile, data.email, data.company, data.sector, data.message]),
             sendNotificationEmail(data),
             createStrapiEntry(data),
         ]);

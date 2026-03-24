@@ -27,7 +27,7 @@ export async function appendToSheet(values: string[]) {
 
         await sheets.spreadsheets.values.append({
             spreadsheetId,
-            range: 'Sheet1!A:F', // Assuming columns: Timestamp, Name, Mobile, Email, Company, Message
+            range: 'Sheet1!A:G', // Assuming columns: Timestamp, Name, Mobile, Email, Company, Sector, Message
             valueInputOption: 'USER_ENTERED',
             requestBody: {
                 values: [[new Date().toISOString(), ...values]],

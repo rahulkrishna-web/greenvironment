@@ -1,5 +1,5 @@
 
-export async function createStrapiEntry(data: { name: string; email: string; mobile: string; company: string; message: string }) {
+export async function createStrapiEntry(data: { name: string; email: string; mobile: string; company: string; sector?: string; message: string }) {
     try {
         const apiUrl = process.env.STRAPI_API_URL;
         const apiToken = process.env.STRAPI_API_TOKEN;
@@ -21,6 +21,7 @@ export async function createStrapiEntry(data: { name: string; email: string; mob
                     email: data.email,
                     mobile: data.mobile,
                     company: data.company,
+                    sector: data.sector || 'N/A',
                     message: data.message,
                     date: new Date().toISOString(),
                 },
