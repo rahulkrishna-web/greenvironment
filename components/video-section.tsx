@@ -30,7 +30,15 @@ export const VideoSection = ({ src }: VideoSectionProps) => {
           viewport={{ once: true }}
           className="relative mt-8 overflow-hidden rounded-none border-y border-white/10 bg-black"
         >
-          <div className="aspect-video w-full bg-black">
+          <div className="aspect-video w-full bg-black relative group">
+            {/* Watermark Overlay */}
+            <div className="absolute top-4 right-4 z-10 pointer-events-none opacity-50 group-hover:opacity-80 transition-opacity">
+              <div className="bg-black/20 backdrop-blur-md border border-white/10 px-4 py-2 rounded-lg flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-[#0ab8c9] animate-pulse" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white">Greenenvironment ©</span>
+              </div>
+            </div>
+
             <video
               className="h-full w-full object-cover"
               src={src}
@@ -39,6 +47,8 @@ export const VideoSection = ({ src }: VideoSectionProps) => {
               loop
               playsInline
               controls
+              controlsList="nodownload"
+              onContextMenu={(e) => e.preventDefault()}
               poster="/og-image.jpg"
             />
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -21,8 +21,22 @@ interface NavMenuProps extends NavigationMenuProps {
 
 export const NavigationSheet = ({ onLinkClick, ...props }: NavMenuProps) => {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleClose = () => setOpen(false);
+
+  if (!mounted) {
+    return (
+      <Button variant="outline" size="icon" className="opacity-50 pointer-events-none">
+        <Menu />
+      </Button>
+    );
+  }
+
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <VisuallyHiddenPrimitive.Root>

@@ -13,46 +13,34 @@ export type Pillar = {
 
 export const whatWeDoPillars: Pillar[] = [
   {
-    title: "Predictive water intelligence",
-    description:
-      "AI-led monitoring that anticipates leaks, contamination, and stress points before they hit your ops.",
+    title: "",
+    description: "Track and reduce environmental impact",
     icon: <Gauge className="h-5 w-5" />,
     accent: "from-emerald-400/80 via-cyan-400/70 to-sky-500/80",
   },
   {
-    title: "Autonomous response loops",
-    description:
-      "Closed-loop automations that trigger alerts, valves, and energy reroutes with human-in-the-loop overrides.",
+    title: "",
+    description: "Identify inefficiencies and lower costs",
     icon: <Workflow className="h-5 w-5" />,
     accent: "from-amber-300/80 via-orange-400/70 to-rose-400/80",
   },
   {
-    title: "Safety & compliance baked-in",
-    description:
-      "Live QA, audit trails, and resilient governance that keep every site secure and regulation-ready.",
+    title: "",
+    description: "Automate sustainability processes",
     icon: <ShieldCheck className="h-5 w-5" />,
     accent: "from-emerald-200/70 via-green-300/70 to-lime-300/70",
   },
   {
-    title: "Immersive situational clarity",
-    description:
-      "Unified dashboards, 3D-style mapping, and narrative alerts to move from data to action instantly.",
+    title: "",
+    description: "Ensure compliance with evolving regulations",
     icon: <Sparkles className="h-5 w-5" />,
     accent: "from-indigo-400/70 via-violet-400/70 to-blue-400/80",
   },
   {
-    title: "Circular resource stewardship",
-    description:
-      "Optimize reuse, recycling, and zero-loss initiatives with quantified impact across every asset.",
+    title: "",
+    description: "Turn data into clear, actionable insights",
     icon: <Waves className="h-5 w-5" />,
     accent: "from-teal-300/70 via-cyan-300/70 to-blue-300/70",
-  },
-  {
-    title: "Digital twins & AI response",
-    description:
-      "Virtual replicas of every site with AI-assist to simulate, validate, and respond faster when conditions change.",
-    icon: <Activity className="h-5 w-5" />,
-    accent: "from-amber-200/70 via-emerald-200/70 to-cyan-200/70",
   },
 ];
 
