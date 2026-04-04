@@ -183,3 +183,99 @@ export async function getCaseStudyBySlug(slug: string) {
         return null;
     }
 }
+
+/**
+ * Fetch all news items
+ * @returns List of news items
+ */
+export async function getNews() {
+    const token = process.env.STRAPI_API_TOKEN;
+
+    if (!token) {
+        throw new Error("The Strapi API Token environment variable is not set.");
+    }
+
+    const path = `/news-items`;
+    const urlParamsObject = {
+        populate: '*',
+        sort: 'date:desc',
+    };
+
+    const data = await fetchAPI(path, urlParamsObject);
+    return data;
+}
+
+/**
+ * Fetch a single news item by slug
+ * @param slug The news slug
+ * @returns The news data
+ */
+export async function getNewsBySlug(slug: string) {
+    const token = process.env.STRAPI_API_TOKEN;
+
+    if (!token) {
+        throw new Error("The Strapi API Token environment variable is not set.");
+    }
+
+    const apiUrl = process.env.STRAPI_API_URL || "http://localhost:1337";
+    const url = `${apiUrl}/api/news-items?filters[slug]=${slug}&populate=*`;
+
+    try {
+        const response = await fetch(url, {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+            cache: "no-store",
+        });
+        return await response.json();
+    } catch (error) {
+        console.error("getNewsBySlug error:", error);
+        return null;
+    }
+}
+
+/**
+ * Fetch all clients/partners
+ * @returns List of clients
+ */
+export async function getClients() {
+    const token = process.env.STRAPI_API_TOKEN;
+
+    if (!token) {
+        throw new Error("The Strapi API Token environment variable is not set.");
+    }
+
+    const path = `/clients`;
+    const urlParamsObject = {
+        populate: '*',
+        sort: 'name:asc',
+        pagination: {
+            limit: 200, // Handle 175+ clients
+        }
+    };
+
+    const data = await fetchAPI(path, urlParamsObject);
+    return data;
+}
+
+/**
+ * Fetch all testimonials
+ * @returns List of testimonials
+ */
+export async function getTestimonials() {
+    const token = process.env.STRAPI_API_TOKEN;
+
+    if (!token) {
+        throw new Error("The Strapi API Token environment variable is not set.");
+    }
+
+    const path = `/testimonials`;
+    const urlParamsObject = {
+        populate: '*',
+        sort: 'createdAt:desc',
+    };
+
+    const data = await fetchAPI(path, urlParamsObject);
+    return data;
+}

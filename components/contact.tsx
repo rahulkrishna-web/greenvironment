@@ -103,19 +103,19 @@ const Contact = () => {
               
               <div className="mt-6 space-y-6 text-emerald-800">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Chennai (Head Office)</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Chennai</p>
                   <p className="font-medium">
                     5th Floor, C-Block, C-507, IIT Madras Research Park, Kanagam Road, Taramani, Chennai – 600113.
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Bangalore (Technology Center)</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Bangalore</p>
                   <p className="font-medium">
                     Cloud Block (Block C), 3rd Floor, Brigade Padmini Tech Valley, Brookefield, Bengaluru, Karnataka – 560066.
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Coimbatore (Innovation and R&D Center)</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Coimbatore</p>
                   <p className="font-medium">
                     626-1, Regus, Thudiyalur – Saravanampatti Rd, Saravanampatti, Coimbatore, Tamil Nadu – 641049.
                   </p>
