@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { getTestimonials, getStrapiURL } from "@/lib/strapi";
 
 interface TestimonialData {
   id: string;
@@ -22,38 +21,14 @@ interface TestimonialData {
   avatar: string;
 }
 
-const Testimonial = () => {
+interface TestimonialProps {
+  initialData: TestimonialData[];
+}
+
+const Testimonial = ({ initialData }: TestimonialProps) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
-  const [testimonials, setTestimonials] = useState<TestimonialData[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const strapiData = await getTestimonials();
-        const formatted = (strapiData?.data || []).map((item: any) => {
-          const attr = item.attributes || item;
-          const avatar = attr.avatar?.url || attr.avatar?.data?.attributes?.url;
-          return {
-            id: item.id.toString(),
-            name: attr.name,
-            designation: attr.designation,
-            company: attr.company,
-            content: attr.content,
-            avatar: avatar ? getStrapiURL(avatar) : "",
-          };
-        });
-        setTestimonials(formatted);
-      } catch (error) {
-        console.error("Error fetching testimonials for homepage:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchData();
-  }, []);
 
   useEffect(() => {
     if (!api) {
@@ -68,49 +43,36 @@ const Testimonial = () => {
     });
   }, [api]);
 
-  // Handle case with no testimonials yet
-  if (!loading && testimonials.length === 0) {
-    return null; // Gracefully hide on homepage if empty
-  }
-
   return (
     <div
       id="testimonials"
       className="w-full max-w-(--breakpoint-xl) mx-auto py-6 xs:py-12 px-6"
     >
-      <h2 className="mb-8 xs:mb-14 text-4xl md:text-5xl font-bold text-center tracking-tight">
+      <h2 className="mb-8 xs:mb-14 text-4xl md:text-5xl font-bold text-center tracking-tight text-slate-900">
         Client Feedback
       </h2>
       <div className="container w-full mx-auto">
-        {loading ? (
-          <div className="w-full h-64 bg-slate-50 rounded-xl animate-pulse flex items-center justify-center">
-            <p className="text-slate-300 font-medium">Loading testimonials...</p>
-          </div>
-        ) : (
-          <>
-            <Carousel setApi={setApi}>
-              <CarouselContent>
-                {testimonials.map((testimonial) => (
-                  <CarouselItem key={testimonial.id}>
-                    <TestimonialCard testimonial={testimonial} />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-            <div className="flex items-center justify-center gap-2">
-              {Array.from({ length: count }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => api?.scrollTo(index)}
-                  className={cn("h-3.5 w-3.5 rounded-full border-2 transition-all", {
-                    "bg-[#02696b] border-[#02696b] w-6": current === index + 1,
-                    "border-slate-300": current !== index + 1,
-                  })}
-                />
-              ))}
-            </div>
-          </>
-        )}
+        <Carousel setApi={setApi}>
+          <CarouselContent>
+            {initialData.map((testimonial) => (
+              <CarouselItem key={testimonial.id}>
+                <TestimonialCard testimonial={testimonial} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+        <div className="flex items-center justify-center gap-2">
+          {Array.from({ length: initialData.length }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => api?.scrollTo(index)}
+              className={cn("h-3 w-3 rounded-full border-2 transition-all duration-300", {
+                "bg-[#02696b] border-[#02696b] w-8": current === index + 1,
+                "border-slate-200": current !== index + 1,
+              })}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -121,9 +83,9 @@ const TestimonialCard = ({
 }: {
   testimonial: TestimonialData;
 }) => (
-  <div className="mb-8 bg-accent rounded-xl py-8 px-6 sm:py-6">
+  <div className="mb-8 bg-slate-50 border border-slate-100 rounded-3xl py-10 px-6 sm:px-10">
     <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-20">
-      <div className="hidden lg:block relative shrink-0 aspect-3/4 max-w-[18rem] w-full bg-muted-foreground/20 rounded-xl overflow-hidden border-4 border-white shadow-xl">
+      <div className="hidden lg:block relative shrink-0 aspect-3/4 max-w-[18rem] w-full bg-slate-200 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
         {testimonial.avatar ? (
            <Image
             src={testimonial.avatar}
@@ -145,9 +107,9 @@ const TestimonialCard = ({
         <div className="flex items-center justify-between gap-1 w-full">
           <div className="flex items-center gap-4">
              <div className="lg:hidden">
-              <Avatar className="w-12 h-12 border-2 border-white shadow-md">
+              <Avatar className="w-14 h-14 border-2 border-white shadow-lg">
                 {testimonial.avatar ? (
-                  <Image src={testimonial.avatar} alt={testimonial.name} width={48} height={48} className="object-cover" />
+                  <Image src={testimonial.avatar} alt={testimonial.name} width={56} height={56} className="object-cover" />
                 ) : (
                   <AvatarFallback className="text-xl font-bold bg-[#02696b] text-white">
                     {testimonial.name.charAt(0)}
@@ -156,17 +118,17 @@ const TestimonialCard = ({
               </Avatar>
              </div>
             <div className="text-left">
-              <p className="text-xl font-bold text-slate-900 leading-none">{testimonial.name}</p>
-              <p className="text-sm text-[#0ab8c9] font-medium mt-1">{testimonial.designation}, {testimonial.company}</p>
+              <p className="text-2xl font-bold text-slate-900 leading-none">{testimonial.name}</p>
+              <p className="text-base text-[#0ab8c9] font-semibold mt-2 tracking-wide uppercase">{testimonial.designation} • {testimonial.company}</p>
             </div>
           </div>
           <div className="flex items-center gap-0.5">
             {[...Array(5)].map((_, i) => (
-              <StarIcon key={i} className="w-4 h-4 fill-amber-400 stroke-amber-400" />
+              <StarIcon key={i} className="w-5 h-5 fill-amber-400 stroke-amber-400" />
             ))}
           </div>
         </div>
-        <p className="mt-8 text-xl sm:text-2xl lg:text-[1.75rem] xl:text-3xl leading-relaxed font-semibold tracking-tight text-slate-800 italic">
+        <p className="mt-8 text-xl sm:text-2xl lg:text-[1.75rem] xl:text-3xl leading-relaxed font-medium tracking-tight text-slate-800 italic">
           &quot;{testimonial.content}&quot;
         </p>
       </div>

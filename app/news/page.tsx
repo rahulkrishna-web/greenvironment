@@ -63,40 +63,60 @@ export default async function NewsArchivePage() {
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Recent Notices & Directives</h2>
             
             <div className="space-y-6">
-              {newsList.map((item: any) => (
-                <div 
-                  key={item.id} 
-                  className="group relative bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 transition-all hover:shadow-md hover:border-emerald-200"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <CategoryBadge category={item.category} />
-                        <div className="flex items-center gap-1.5 text-sm text-slate-500 font-medium">
-                          <Calendar className="w-4 h-4" />
-                          {formatDate(item.date)}
-                        </div>
-                      </div>
-                      <h3 className="text-2xl font-bold text-slate-900 group-hover:text-emerald-800 transition-colors">
-                        <Link href={`/news/${item.slug}`}>
-                          {item.title}
-                        </Link>
-                      </h3>
-                    </div>
-                  </div>
-
-                  <p className="text-slate-600 line-clamp-3 mb-6 max-w-3xl font-medium leading-relaxed">
-                    {item.summary}
-                  </p>
-
-                  <Link 
-                    href={`/news/${item.slug}`}
-                    className="inline-flex items-center gap-2 text-emerald-700 font-bold hover:gap-3 transition-all"
+              {newsList.length > 0 ? (
+                newsList.map((item: any) => (
+                  <div 
+                    key={item.id} 
+                    className="group relative bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 transition-all hover:shadow-md hover:border-emerald-200"
                   >
-                    Read full notice <ArrowRight className="w-4 h-4" />
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3">
+                          <CategoryBadge category={item.category} />
+                          <div className="flex items-center gap-1.5 text-sm text-slate-500 font-medium">
+                            <Calendar className="w-4 h-4" />
+                            {formatDate(item.date)}
+                          </div>
+                        </div>
+                        <h3 className="text-2xl font-bold text-slate-900 group-hover:text-emerald-800 transition-colors">
+                          <Link href={`/news/${item.slug}`}>
+                            {item.title}
+                          </Link>
+                        </h3>
+                      </div>
+                    </div>
+
+                    <p className="text-slate-600 line-clamp-3 mb-6 max-w-3xl font-medium leading-relaxed">
+                      {item.summary}
+                    </p>
+
+                    <Link 
+                      href={`/news/${item.slug}`}
+                      className="inline-flex items-center gap-2 text-emerald-700 font-bold hover:gap-3 transition-all"
+                    >
+                      Read full notice <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                ))
+              ) : (
+                <div className="bg-white border border-slate-200 rounded-3xl p-12 text-center space-y-6 shadow-sm">
+                  <div className="w-20 h-20 bg-emerald-50 rounded-2xl flex items-center justify-center mx-auto text-emerald-600">
+                    <Calendar className="w-10 h-10" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold text-slate-900">No news or notices yet</h3>
+                    <p className="text-slate-500 max-w-sm mx-auto">
+                      We haven't published any news or PCB notices recently. Please check back later for the latest updates on environmental regulations.
+                    </p>
+                  </div>
+                  <Link 
+                    href="/"
+                    className="inline-flex items-center justify-center rounded-xl bg-emerald-900 px-8 py-3 text-sm font-bold text-white transition hover:bg-emerald-800 shadow-lg shadow-emerald-900/10"
+                  >
+                    Back to Home
                   </Link>
                 </div>
-              ))}
+              )}
             </div>
           </div>
 

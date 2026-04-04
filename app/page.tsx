@@ -10,8 +10,30 @@ import { Navbar } from "@/components/navbar";
 import { VideoSection } from "@/components/video-section";
 import Testimonial from "@/components/testimonial";
 import WhatWeDoOptions from "@/components/what-we-do-options";
+import { getTestimonials, getStrapiURL } from "@/lib/strapi";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  let testimonialsData: any[] = [];
+  try {
+    const strapiData = await getTestimonials();
+    testimonialsData = (strapiData?.data || []).map((item: any) => {
+      const attr = item.attributes || item;
+      const avatar = attr.avatar?.url || attr.avatar?.data?.attributes?.url;
+      return {
+        id: item.id.toString(),
+        name: attr.name,
+        designation: attr.designation,
+        company: attr.company,
+        content: attr.content,
+        avatar: avatar ? getStrapiURL(avatar) : "",
+      };
+    });
+  } catch (err) {
+    console.error("Home testimonials fetch error:", err);
+  }
+
   return (
     <>
       <LeadSection />
@@ -20,6 +42,7 @@ export default function Home() {
       <WhatWeDoOptions />
       <AchievementsSection />
       <OneLiner />
+      {testimonialsData.length > 0 && <Testimonial initialData={testimonialsData} />}
       <ContactFormSection />
       <Footer />
     </>
