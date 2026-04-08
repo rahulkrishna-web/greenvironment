@@ -7,7 +7,9 @@ import {
   Hotel, 
   Factory, 
   Zap, 
-  Building 
+  Building,
+  Home,
+  Hospital
 } from "lucide-react";
 
 const industries = [
@@ -16,12 +18,20 @@ const industries = [
     icon: Building2,
   },
   {
+    title: "Residential high-rise developments",
+    icon: Home,
+  },
+  {
     title: "Campuses and institutional facilities",
     icon: GraduationCap,
   },
   {
-    title: "Hospitality and real estate portfolios",
+    title: "Hospitality",
     icon: Hotel,
+  },
+  {
+    title: "Healthcare facilities (hospitals)",
+    icon: Hospital,
   },
   {
     title: "Industrial and manufacturing facilities",
@@ -52,7 +62,7 @@ export default function IndustriesServed() {
           className="text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-6"
           {...fades}
         >
-          Industries We Serve
+          Sectors We Serve
         </motion.h2>
         <motion.div 
           className="w-20 h-1 bg-primary mx-auto rounded-full"

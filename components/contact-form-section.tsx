@@ -47,6 +47,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     company: "",
+    phone: "",
     email: "",
     details: "",
   });
@@ -56,6 +57,7 @@ const ContactForm = () => {
   const nameId = useId();
   const companyId = useId();
   const emailId = useId();
+  const phoneId = useId();
   const detailsId = useId();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -74,6 +76,7 @@ const ContactForm = () => {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
+          mobile: formData.phone,
           company: formData.company,
           message: formData.details,
         }),
@@ -86,7 +89,7 @@ const ContactForm = () => {
       }
 
       setStatus("success");
-      setFormData({ name: "", company: "", email: "", details: "" });
+      setFormData({ name: "", company: "", phone: "", email: "", details: "" });
     } catch (error) {
       setStatus("error");
       setErrorMessage(error instanceof Error ? error.message : "Something went wrong");
@@ -104,6 +107,7 @@ const ContactForm = () => {
     >
       <FormField id={nameId} name="name" label="Name" type="text" placeholder="Your name" value={formData.name} onChange={handleChange} required />
       <FormField id={companyId} name="company" label="Company" type="text" placeholder="Company name" value={formData.company} onChange={handleChange} />
+      <FormField id={phoneId} name="phone" label="Phone" type="tel" placeholder="Phone number" value={formData.phone} onChange={handleChange} required />
       <FormField id={emailId} name="email" label="E-mail" type="email" placeholder="you@example.com" value={formData.email} onChange={handleChange} required />
       <FormField
         id={detailsId}
@@ -141,7 +145,7 @@ const ContactForm = () => {
 interface FormFieldProps {
   id: string;
   label: string;
-  type: "text" | "email" | "textarea";
+  type: "text" | "email" | "textarea" | "tel";
   placeholder?: string;
   name?: string;
   value?: string;
