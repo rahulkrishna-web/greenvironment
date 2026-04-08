@@ -60,7 +60,7 @@ const approach = [
 
 const teamMembers = [
   { name: "Sridharan Nair", role: "Chairman and Director", image: "Sridharan Nair - Chairman & Director -4.webp" },
-  { name: "Varun Sridharan", role: "Co-CEO and Director", image: "Varun_WebistePhoto_1.webp" },
+  { name: "Varun Sridharan", role: "Co-CEO and Director", image: "varun_srid.jpeg" },
   { name: "Mohanraj Makkuni", role: "Co-CEO and Director", image: "Mohanraj Makkuni.webp" },
   { name: "Anoop Nambiar", role: "Director", image: "Anoop Nambiar.webp" },
 ];
