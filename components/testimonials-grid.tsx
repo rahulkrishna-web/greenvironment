@@ -39,6 +39,10 @@ export default function TestimonialsGrid({ initialTestimonials }: TestimonialsGr
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               viewport={{ once: true }}
               className="break-inside-avoid relative p-10 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-[#0ab8c9]/5 transition-all group"
+              style={{
+                WebkitColumnSpan: testimonial.content.length > 500 ? "all" : "none",
+                columnSpan: testimonial.content.length > 500 ? "all" : "none"
+              }}
             >
               <div className="flex gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
@@ -46,7 +50,7 @@ export default function TestimonialsGrid({ initialTestimonials }: TestimonialsGr
                 ))}
               </div>
 
-              <p className="text-slate-700 leading-relaxed text-lg italic mb-10 whitespace-pre-wrap">
+              <p className="text-slate-700 leading-relaxed text-lg mb-10 whitespace-pre-wrap">
                  &quot;{testimonial.content}&quot;
               </p>
 
