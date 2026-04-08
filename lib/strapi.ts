@@ -124,7 +124,7 @@ export async function getPageBySlug(slug: string) {
         },
     };
 
-    const data = await fetchAPI(path, urlParamsObject);
+    const data = await fetchAPI(path, urlParamsObject, { next: { revalidate: 30 } });
     return data;
 }
 
@@ -148,7 +148,7 @@ export async function getCaseStudies() {
         sort: 'createdAt:desc', // Optional: sort by newest
     };
 
-    const data = await fetchAPI(path, urlParamsObject);
+    const data = await fetchAPI(path, urlParamsObject, { next: { revalidate: 30 } });
     return data;
 }
 
@@ -201,7 +201,7 @@ export async function getNews() {
         sort: 'date:desc',
     };
 
-    const data = await fetchAPI(path, urlParamsObject);
+    const data = await fetchAPI(path, urlParamsObject, { next: { revalidate: 30 } });
     return data;
 }
 
@@ -255,7 +255,7 @@ export async function getClients() {
         }
     };
 
-    const data = await fetchAPI(path, urlParamsObject);
+    const data = await fetchAPI(path, urlParamsObject, { next: { revalidate: 30 } });
     return data;
 }
 
@@ -276,6 +276,6 @@ export async function getTestimonials() {
         sort: 'createdAt:desc',
     };
 
-    const data = await fetchAPI(path, urlParamsObject);
+    const data = await fetchAPI(path, urlParamsObject, { next: { revalidate: 30 } });
     return data;
 }

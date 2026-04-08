@@ -17,9 +17,9 @@ export default async function TestimonialsPage() {
       return {
         id: item.id.toString(),
         name: attr.name,
-        designation: attr.designation,
-        company: attr.company,
-        content: attr.content,
+        designation: attr.designation || "",
+        company: attr.company || "",
+        content: attr.content || "",
         avatar: avatar ? getStrapiURL(avatar) : "",
         rating: attr.rating || 5,
       };

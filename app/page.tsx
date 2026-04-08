@@ -24,9 +24,9 @@ export default async function Home() {
       return {
         id: item.id.toString(),
         name: attr.name,
-        designation: attr.designation,
-        company: attr.company,
-        content: attr.content,
+        designation: attr.designation || "",
+        company: attr.company || "",
+        content: attr.content || "",
         avatar: avatar ? getStrapiURL(avatar) : "",
       };
     });

@@ -119,7 +119,11 @@ const TestimonialCard = ({
              </div>
             <div className="text-left">
               <p className="text-2xl font-bold text-slate-900 leading-none">{testimonial.name}</p>
-              <p className="text-base text-[#0ab8c9] font-semibold mt-2 tracking-wide uppercase">{testimonial.designation} • {testimonial.company}</p>
+              {(testimonial.designation || testimonial.company) && (
+                <p className="text-base text-[#0ab8c9] font-semibold mt-2 tracking-wide uppercase">
+                  {[testimonial.designation, testimonial.company].filter(Boolean).join(" • ")}
+                </p>
+              )}
             </div>
           </div>
           <div className="flex items-center gap-0.5">
