@@ -132,7 +132,7 @@ const TestimonialCard = ({
             ))}
           </div>
         </div>
-        <p className="mt-8 text-xl sm:text-2xl lg:text-[1.75rem] xl:text-3xl leading-relaxed font-medium tracking-tight text-slate-800 italic">
+        <p className="mt-8 text-xl sm:text-2xl lg:text-[1.75rem] xl:text-3xl leading-relaxed font-medium tracking-tight text-slate-800 italic whitespace-pre-wrap">
           &quot;{testimonial.content}&quot;
         </p>
       </div>

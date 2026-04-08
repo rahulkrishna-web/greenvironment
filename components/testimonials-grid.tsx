@@ -46,8 +46,8 @@ export default function TestimonialsGrid({ initialTestimonials }: TestimonialsGr
                 ))}
               </div>
 
-              <p className="text-slate-700 leading-relaxed text-lg italic mb-10">
-                 &quot;{testimonial.content.length > 280 ? testimonial.content.substring(0, 277) + '...' : testimonial.content}&quot;
+              <p className="text-slate-700 leading-relaxed text-lg italic mb-10 whitespace-pre-wrap">
+                 &quot;{testimonial.content}&quot;
               </p>
 
               <div className="flex items-center gap-5 pt-8 border-t border-slate-50">
