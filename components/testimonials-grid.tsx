@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Star, MessageSquare, User } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export interface Testimonial {
   id: string;
@@ -30,56 +31,62 @@ export default function TestimonialsGrid({ initialTestimonials }: TestimonialsGr
       </div>
 
       {initialTestimonials.length > 0 ? (
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-10">
-          {initialTestimonials.map((testimonial, idx) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              className="break-inside-avoid relative p-10 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-[#0ab8c9]/5 transition-all group mb-10"
-              style={{
-                // Only span all columns for exceptionally long testimonials to avoid disrupting layout flow
-                WebkitColumnSpan: testimonial.content.length > 800 ? "all" : "none",
-                columnSpan: testimonial.content.length > 800 ? "all" : "none"
-              }}
-            >
-              <div className="flex gap-1 mb-6">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
+          {initialTestimonials.map((testimonial, idx) => {
+            const isFeatured = testimonial.content.length > 800;
+            return (
+              <motion.div
+                key={testimonial.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className={cn(
+                  "relative p-10 rounded-[2.5rem] border border-[#0ab8c9]/25 bg-gradient-to-br from-white via-[#e6f7f8] to-white shadow-sm hover:shadow-2xl transition-all group overflow-hidden",
+                  isFeatured ? "lg:col-span-12" : "lg:col-span-4"
+                )}
+              >
+                {/* Premium Radial Glow Overlay */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(245,142,34,0.1),transparent_42%),radial-gradient(circle_at_80%_80%,rgba(10,184,201,0.15),transparent_44%)] opacity-0 transition duration-300 group-hover:opacity-70" />
+                
+                <div className="relative flex flex-col h-full">
+                  <div className="flex gap-1 mb-6">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
 
-              <p className="text-slate-700 leading-relaxed text-lg mb-10 whitespace-pre-wrap">
-                 &quot;{testimonial.content}&quot;
-              </p>
+                  <p className="text-slate-700 leading-relaxed text-lg mb-10 whitespace-pre-wrap grow">
+                     &quot;{testimonial.content}&quot;
+                  </p>
 
-              <div className="flex items-center gap-5 pt-8 border-t border-slate-50">
-                <div className="w-14 h-14 rounded-2xl overflow-hidden bg-[#02696b]/5 shrink-0 relative border border-[#0ab8c9]/10">
-                  {testimonial.avatar ? (
-                    <Image src={testimonial.avatar} alt={testimonial.name || "Testimonial"} fill className="object-cover" />
-                  ) : testimonial.name ? (
-                    <div className="w-full h-full flex items-center justify-center bg-[#02696b] text-white font-bold text-xl uppercase">
-                      {testimonial.name.charAt(0)}
+                  <div className="flex items-center gap-5 pt-8 border-t border-slate-100/50">
+                    <div className="w-14 h-14 rounded-2xl overflow-hidden bg-[#02696b]/5 shrink-0 relative border border-[#0ab8c9]/10">
+                      {testimonial.avatar ? (
+                        <Image src={testimonial.avatar} alt={testimonial.name || "Testimonial"} fill className="object-cover" />
+                      ) : testimonial.name ? (
+                        <div className="w-full h-full flex items-center justify-center bg-[#02696b] text-white font-bold text-xl uppercase">
+                          {testimonial.name.charAt(0)}
+                        </div>
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-400">
+                          <User className="w-6 h-6" />
+                        </div>
+                      )}
                     </div>
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-400">
-                      <User className="w-6 h-6" />
+                    <div className="space-y-0.5">
+                      <h4 className="font-bold text-slate-900 text-lg">{testimonial.name || "Anonymous Client"}</h4>
+                      {(testimonial.designation || testimonial.company) && (
+                        <p className="text-sm font-medium text-slate-400">
+                          {[testimonial.designation, testimonial.company].filter(Boolean).join(", ")}
+                        </p>
+                      )}
                     </div>
-                  )}
+                  </div>
                 </div>
-                <div className="space-y-0.5">
-                  <h4 className="font-bold text-slate-900 text-lg">{testimonial.name || "Anonymous Client"}</h4>
-                  {(testimonial.designation || testimonial.company) && (
-                    <p className="text-sm font-medium text-slate-400">
-                      {[testimonial.designation, testimonial.company].filter(Boolean).join(", ")}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       ) : (
         /* Graceful Empty State */
