@@ -21,7 +21,7 @@ const whyGreenvironmentPillars = [
   },
   {
     title: "Autonomous response loops",
-    body: "Close-the-loop dosing and distribution that layer onto existing infra for zero-disruption scale.",
+    body: "Closed-loop automations that trigger alerts, valves, and energy reroutes with human-in-the-loop overrides.",
     icon: <Workflow className="h-5 w-5" />,
   },
   {
@@ -136,7 +136,7 @@ const About = () => {
 
       <MissionVision />
 
-      {/* Why Greenvironment - Isolated Revert */}
+      {/* Why Greenvironment - Isolated Revert to 1017501 Style */}
       <section className="relative isolate overflow-hidden bg-white py-12 text-[#02696b]">
         <div className="relative mx-auto flex flex-col gap-12">
           <motion.div
@@ -147,13 +147,14 @@ const About = () => {
             className="flex flex-col gap-3 text-left"
           >
             <SectionLabel label="Value Proposition" />
-            <h2 className="text-4xl font-bold sm:text-5xl text-[#02696b] tracking-tight mt-4">Why Greenvironment</h2>
-            <p className="max-w-3xl text-xl text-slate-700 leading-relaxed font-medium">
+            <h2 className="text-3xl font-semibold sm:text-4xl text-[#02696b] mt-4">Why Greenvironment</h2>
+            <p className="max-w-3xl text-lg text-slate-700 leading-relaxed font-medium">
               Proof points that show how our strategy-to-execution model delivers measurable sustainability outcomes with speed.
             </p>
           </motion.div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* Grid changed to md:grid-cols-2 as per 1017501 */}
+          <div className="grid gap-6 md:grid-cols-2">
             {whyGreenvironmentPillars.map((pillar, idx) => (
               <motion.article
                 key={idx}
@@ -161,15 +162,18 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.06, duration: 0.55, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="group relative overflow-hidden rounded-3xl border border-slate-100 bg-slate-50/30 p-8 hover:shadow-xl hover:border-[#0ab8c9]/20 transition-all duration-500"
+                className="group relative overflow-hidden rounded-3xl border border-[#0ab8c9]/25 bg-gradient-to-br from-white via-[#e6f7f8] to-white p-6 shadow-[0_30px_120px_-60px_rgba(0,0,0,0.25)]"
               >
-                <div className="space-y-4">
-                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-[#0ab8c9]/10 text-[#02696b] group-hover:bg-[#02696b] group-hover:text-white transition-colors duration-500">
-                    {pillar.icon}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(245,142,34,0.18),transparent_42%),radial-gradient(circle_at_80%_80%,rgba(10,184,201,0.2),transparent_44%)] opacity-70 transition duration-300 group-hover:opacity-100" />
+                <div className="relative flex flex-col gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="grid h-12 w-12 place-items-center rounded-full bg-[#02696b]/10 text-[#02696b] ring-1 ring-[#02696b]/20">
+                      {pillar.icon}
+                    </div>
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-[#02696b]">{pillar.title}</h3>
-                    <p className="text-base text-slate-600 leading-relaxed font-medium">{pillar.body}</p>
+                    <h3 className="text-2xl font-semibold leading-tight text-[#02696b]">{pillar.title}</h3>
+                    <p className="text-base text-slate-700 leading-relaxed font-medium">{pillar.body}</p>
                   </div>
                 </div>
               </motion.article>
