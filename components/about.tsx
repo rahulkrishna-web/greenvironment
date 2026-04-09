@@ -6,23 +6,43 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CountUp } from "@/components/ui/count-up";
 import { motion } from "framer-motion";
-import { Check, Navigation, Radar, Sparkles, ShieldCheck, ArrowRight, ArrowDown } from "lucide-react";
+import { 
+  Check, Navigation, Radar, Sparkles, ShieldCheck, 
+  Activity, Gauge, Workflow, Waves, ArrowRight, ArrowDown 
+} from "lucide-react";
 import Link from "next/link";
-import { ValuePropositionSection } from "@/components/what-we-do-options";
 import { MissionVision } from "@/components/mission-vision";
 
-const pillars = [
+const whyGreenvironmentPillars = [
   {
-    title: "Evidence-based water intelligence",
-    body: "Real-time sensing across intake, treatment, and reuse—grounded in regulatory-ready data you can act on.",
+    title: "Predictive water intelligence",
+    body: "AI-led monitoring that anticipates leaks, contamination, and stress points before they hit your ops.",
+    icon: <Gauge className="h-5 w-5" />,
   },
   {
-    title: "Zero-disruption deployments",
-    body: "Site-first playbooks that layer onto existing infra, so operations stay online while we modernize them.",
+    title: "Autonomous response loops",
+    body: "Close-the-loop dosing and distribution that layer onto existing infra for zero-disruption scale.",
+    icon: <Workflow className="h-5 w-5" />,
   },
   {
-    title: "Automation with accountability",
-    body: "Closed-loop controls for dosing, quality, and distribution with transparent logs, alerts, and audits.",
+    title: "Safety & compliance baked-in",
+    body: "Live QA, audit trails, and resilient governance that keep every site secure and regulation-ready.",
+    icon: <ShieldCheck className="h-5 w-5" />,
+  },
+  {
+    title: "Immersive situational clarity",
+    body: "Unified dashboards, 3D-style mapping, and narrative alerts to move from data to action instantly.",
+    icon: <Sparkles className="h-5 w-5" />,
+  },
+  {
+    title: "Circular resource stewardship",
+    body: "Optimize reuse, recycling, and zero-loss initiatives with quantified impact across every asset.",
+    icon: <Waves className="h-5 w-5" />,
+  },
+  {
+    title: "Digital twins & AI response",
+    body: "Virtual replicas of every site with AI-assist to simulate, validate, and respond faster when conditions change.",
+    icon: <Activity className="h-5 w-5" />,
   },
 ];
 
@@ -56,8 +76,6 @@ const approach = [
   },
 ];
 
-
-
 const teamMembers = [
   { name: "Sridharan Nair", role: "Chairman and Director", image: "Sridharan Nair - Chairman & Director -4.webp" },
   { name: "Varun Sridharan", role: "Co-CEO and Director", image: "varun_srid.jpeg" },
@@ -70,6 +88,12 @@ const fades = {
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
 };
+
+const SectionLabel = ({ label }: { label: string }) => (
+  <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#0ab8c9]/40 bg-[#0ab8c9]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#02696b]">
+    {label}
+  </div>
+);
 
 const About = () => {
   return (
@@ -112,9 +136,47 @@ const About = () => {
 
       <MissionVision />
 
-      <div className="mt-12 px-6 sm:px-6 md:px-0">
-        <ValuePropositionSection />
-      </div>
+      {/* Why Greenvironment - Isolated Revert */}
+      <section className="relative isolate overflow-hidden bg-white py-12 text-[#02696b]">
+        <div className="relative mx-auto flex flex-col gap-12">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="flex flex-col gap-3 text-left"
+          >
+            <SectionLabel label="Value Proposition" />
+            <h2 className="text-4xl font-bold sm:text-5xl text-[#02696b] tracking-tight mt-4">Why Greenvironment</h2>
+            <p className="max-w-3xl text-xl text-slate-700 leading-relaxed font-medium">
+              Proof points that show how our strategy-to-execution model delivers measurable sustainability outcomes with speed.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {whyGreenvironmentPillars.map((pillar, idx) => (
+              <motion.article
+                key={idx}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.06, duration: 0.55, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="group relative overflow-hidden rounded-3xl border border-slate-100 bg-slate-50/30 p-8 hover:shadow-xl hover:border-[#0ab8c9]/20 transition-all duration-500"
+              >
+                <div className="space-y-4">
+                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-[#0ab8c9]/10 text-[#02696b] group-hover:bg-[#02696b] group-hover:text-white transition-colors duration-500">
+                    {pillar.icon}
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold text-[#02696b]">{pillar.title}</h3>
+                    <p className="text-base text-slate-600 leading-relaxed font-medium">{pillar.body}</p>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Our Team */}
       <section className="mt-16 space-y-8">
