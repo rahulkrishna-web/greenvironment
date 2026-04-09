@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Star, MessageSquare } from "lucide-react";
+import { Star, MessageSquare, User } from "lucide-react";
 
 export interface Testimonial {
   id: string;
@@ -30,7 +30,7 @@ export default function TestimonialsGrid({ initialTestimonials }: TestimonialsGr
       </div>
 
       {initialTestimonials.length > 0 ? (
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-10 space-y-10">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-10">
           {initialTestimonials.map((testimonial, idx) => (
             <motion.div
               key={testimonial.id}
@@ -38,10 +38,11 @@ export default function TestimonialsGrid({ initialTestimonials }: TestimonialsGr
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="break-inside-avoid relative p-10 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-[#0ab8c9]/5 transition-all group"
+              className="break-inside-avoid relative p-10 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-[#0ab8c9]/5 transition-all group mb-10"
               style={{
-                WebkitColumnSpan: testimonial.content.length > 500 ? "all" : "none",
-                columnSpan: testimonial.content.length > 500 ? "all" : "none"
+                // Only span all columns for exceptionally long testimonials to avoid disrupting layout flow
+                WebkitColumnSpan: testimonial.content.length > 800 ? "all" : "none",
+                columnSpan: testimonial.content.length > 800 ? "all" : "none"
               }}
             >
               <div className="flex gap-1 mb-6">
@@ -57,15 +58,19 @@ export default function TestimonialsGrid({ initialTestimonials }: TestimonialsGr
               <div className="flex items-center gap-5 pt-8 border-t border-slate-50">
                 <div className="w-14 h-14 rounded-2xl overflow-hidden bg-[#02696b]/5 shrink-0 relative border border-[#0ab8c9]/10">
                   {testimonial.avatar ? (
-                    <Image src={testimonial.avatar} alt={testimonial.name} fill className="object-cover" />
-                  ) : (
+                    <Image src={testimonial.avatar} alt={testimonial.name || "Testimonial"} fill className="object-cover" />
+                  ) : testimonial.name ? (
                     <div className="w-full h-full flex items-center justify-center bg-[#02696b] text-white font-bold text-xl uppercase">
                       {testimonial.name.charAt(0)}
+                    </div>
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-400">
+                      <User className="w-6 h-6" />
                     </div>
                   )}
                 </div>
                 <div className="space-y-0.5">
-                  <h4 className="font-bold text-slate-900 text-lg">{testimonial.name}</h4>
+                  <h4 className="font-bold text-slate-900 text-lg">{testimonial.name || "Anonymous Client"}</h4>
                   {(testimonial.designation || testimonial.company) && (
                     <p className="text-sm font-medium text-slate-400">
                       {[testimonial.designation, testimonial.company].filter(Boolean).join(", ")}

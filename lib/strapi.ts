@@ -274,6 +274,9 @@ export async function getTestimonials() {
     const urlParamsObject = {
         populate: '*',
         sort: 'createdAt:desc',
+        pagination: {
+            limit: 50, // Ensure all testimonials are fetched
+        }
     };
 
     const data = await fetchAPI(path, urlParamsObject, { next: { revalidate: 30 } });

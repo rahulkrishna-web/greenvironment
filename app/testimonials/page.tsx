@@ -16,7 +16,7 @@ export default async function TestimonialsPage() {
       const avatar = attr.avatar?.url || attr.avatar?.data?.attributes?.url;
       return {
         id: item.id.toString(),
-        name: attr.name,
+        name: attr.name || "", 
         designation: attr.designation || "",
         company: attr.company || "",
         content: attr.content || "",
