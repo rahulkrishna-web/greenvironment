@@ -27,8 +27,8 @@ export const ContactFormSection = () => {
             className="relative overflow-hidden rounded-[28px] shadow-[0_24px_80px_-40px_rgba(0,0,0,0.35)]"
           >
             <Image
-              src="/brigade_padmini-Bangalore_Office.jpeg"
-              alt="Greenvironment Bangalore Office"
+              src="/team-photo.jpeg"
+              alt="Team and operations"
               width={1200}
               height={900}
               className="h-full w-full object-cover"
