@@ -9,7 +9,7 @@ import { Calendar, ArrowRight } from 'lucide-react';
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export const metadata = {
-  title: 'News & PCB Notices | Greenenvironment',
+  title: 'Newsroom | Greenenvironment',
   description: 'Latest KSPCB, TNPCB, and CPCB notices for OCEM implementation and environmental monitoring.',
 };
 
@@ -79,7 +79,7 @@ export default async function NewsArchivePage() {
                           </div>
                         </div>
                         <h3 className="text-2xl font-bold text-slate-900 group-hover:text-emerald-800 transition-colors">
-                          <Link href={`/news/${item.slug}`}>
+                          <Link href={`/newsroom/${item.slug}`}>
                             {item.title}
                           </Link>
                         </h3>
@@ -91,7 +91,7 @@ export default async function NewsArchivePage() {
                     </p>
 
                     <Link 
-                      href={`/news/${item.slug}`}
+                      href={`/newsroom/${item.slug}`}
                       className="inline-flex items-center gap-2 text-emerald-700 font-bold hover:gap-3 transition-all"
                     >
                       Read full notice <ArrowRight className="w-4 h-4" />

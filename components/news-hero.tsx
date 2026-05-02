@@ -10,7 +10,7 @@ const NewsHero = () => {
       <div className="max-w-(--breakpoint-xl) mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center space-y-6 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100">
-            News & Updates
+            Newsroom
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
             Latest PCB Notices & <span className="text-emerald-400">OCEM Directives</span>

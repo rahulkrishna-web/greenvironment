@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> | P
   const attr = news.attributes || news;
 
   return {
-    title: `${attr.title} | Greenenvironment News`,
+    title: `${attr.title} | Greenenvironment Newsroom`,
     description: attr.summary,
   };
 }
@@ -63,11 +63,11 @@ export default async function NewsDetailPage({
     <div className="min-h-screen bg-slate-50 flex flex-col pt-12">
       <div className="max-w-4xl mx-auto px-6 pt-24 pb-16 lg:pt-32 lg:pb-24 space-y-10 w-full relative z-10 flex-grow">
         <Link 
-          href="/news" 
+          href="/newsroom" 
           className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700 hover:text-emerald-900 transition-colors group mb-8"
         >
           <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-          Back to all news
+          Back to Newsroom
         </Link>
 
         <header className="space-y-8">

@@ -1,3 +1,4 @@
+import { manualArticles } from '@/content/manual-articles';
 
 export async function createStrapiEntry(data: { name: string; email: string; mobile: string; company: string; sector?: string; message: string }) {
     try {
@@ -191,18 +192,24 @@ export async function getCaseStudyBySlug(slug: string) {
 export async function getNews() {
     const token = process.env.STRAPI_API_TOKEN;
 
-    if (!token) {
-        throw new Error("The Strapi API Token environment variable is not set.");
+    let strapiData = { data: [] as any[] };
+    if (token) {
+        const path = `/news-items`;
+        const urlParamsObject = {
+            populate: '*',
+            sort: 'date:desc',
+        };
+        try {
+            strapiData = await fetchAPI(path, urlParamsObject, { next: { revalidate: 30 } });
+        } catch (error) {
+            console.error("Error fetching news from Strapi:", error);
+        }
     }
 
-    const path = `/news-items`;
-    const urlParamsObject = {
-        populate: '*',
-        sort: 'date:desc',
+    // Merge manual articles
+    return {
+        data: [...manualArticles, ...(strapiData.data || [])]
     };
-
-    const data = await fetchAPI(path, urlParamsObject, { next: { revalidate: 30 } });
-    return data;
 }
 
 /**
@@ -211,10 +218,16 @@ export async function getNews() {
  * @returns The news data
  */
 export async function getNewsBySlug(slug: string) {
+    // Check manual articles first
+    const manualArticle = manualArticles.find(article => article.attributes.slug === slug);
+    if (manualArticle) {
+        return { data: [manualArticle] };
+    }
+
     const token = process.env.STRAPI_API_TOKEN;
 
     if (!token) {
-        throw new Error("The Strapi API Token environment variable is not set.");
+        return null;
     }
 
     const apiUrl = process.env.STRAPI_API_URL || "http://localhost:1337";
