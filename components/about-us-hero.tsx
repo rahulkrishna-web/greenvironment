@@ -39,7 +39,7 @@ Greenvironment operates globally through its legal entities and partners with cl
           transition={{ duration: 0.7, delay: 0.1 }}
         >
           <Image
-            src="/team-photo.jpeg"
+            src="/gv-group.webp"
             width={1200}
             height={900}
             alt="Team and operations"

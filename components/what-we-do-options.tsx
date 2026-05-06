@@ -72,7 +72,7 @@ export const WhatWeDoEditorialBlocks = () => (
   <EditorialSection
     label="What we do"
     title="What We Do"
-    description="We build AI-powered solutions that help businesses manage and improve their sustainability in a practical, results-driven way. Our systems enable you to:"
+    description="We build AI-powered solutions that help organisations manage and improve their sustainability in a practical, results-driven way. Our systems enable you to:"
     conclusion="The result is a simpler, smarter approach to sustainability—one that delivers real impact, improves efficiency, ensures compliance, and drives measurable ROI."
   />
 );

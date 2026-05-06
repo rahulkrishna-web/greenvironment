@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { MailIcon, MapPinIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -74,6 +75,15 @@ const Contact = () => {
 
         <div className="mt-16 grid lg:grid-cols-2 gap-16 md:gap-10 items-start">
           <div className="grid grid-cols-1 gap-y-12">
+            <div className="relative w-full rounded-2xl overflow-hidden ring-1 ring-emerald-100 shadow-sm">
+              <Image
+                src="/gv-group.webp"
+                width={1200}
+                height={900}
+                alt="Greenvironment Team"
+                className="h-auto w-full object-cover aspect-[4/3] md:aspect-[16/9] lg:aspect-[4/3]"
+              />
+            </div>
             <div>
               <div className="h-12 w-12 flex items-center justify-center bg-emerald-100 text-emerald-800 rounded-full">
                 <MailIcon />
