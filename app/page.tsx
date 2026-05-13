@@ -17,7 +17,7 @@ export default async function Home() {
     <>
       <LeadSection />
       <BrandValues />
-      <VideoSection src="https://res.cloudinary.com/rahulkrishna/video/upload/v1765106802/ge/Flow.mp4" />
+      <VideoSection src="https://cdn.clyrix.com/drive/greenvironment-flow.webm" />
       <WhatWeDoOptions />
       <AchievementsSection />
       <OneLiner />

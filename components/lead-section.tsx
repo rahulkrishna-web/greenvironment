@@ -29,7 +29,7 @@ const LeadSection = () => {
               muted
               playsInline
               poster="/og-image.jpg"
-              src="https://res.cloudinary.com/rahulkrishna/video/upload/v1765106802/ge/Flow.mp4"
+              src="https://cdn.clyrix.com/drive/greenvironment-flow.webm"
               controls
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-white/10 pointer-events-none" />
