@@ -24,7 +24,7 @@ const LeadSectionNeural = () => {
               muted
               playsInline
               poster="/og-image.jpg"
-              src="https://res.cloudinary.com/rahulkrishna/video/upload/v1766206173/ge/banner_animation_workfile.mp4"
+              src="https://desk.nxtnet.in/greenvironment/banner_animation_workfile.mp4"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-white/10 pointer-events-none" />
           </div>

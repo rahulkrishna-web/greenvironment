@@ -17,7 +17,7 @@ const LeadSectionNeural = () => {
           muted
           playsInline
           poster="/og-image.jpg"
-          src="https://cdn.clyrix.com/drive/banner_animation_workfile.mp4"
+          src="https://desk.nxtnet.in/greenvironment/banner_animation_workfile.mp4"
         />
         {/* Overlay for readability */}
         <div className="absolute inset-0 bg-black/50" />

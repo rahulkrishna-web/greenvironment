@@ -17,7 +17,7 @@ export default async function Home() {
     <>
       <LeadSection />
       <BrandValues />
-      <VideoSection src="https://cdn.clyrix.com/drive/greenvironment-flow.webm" />
+      <VideoSection src="https://desk.nxtnet.in/greenvironment/greenvironment-flow.webm" />
       <WhatWeDoOptions />
       <AchievementsSection />
       <OneLiner />
